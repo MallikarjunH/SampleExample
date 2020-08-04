@@ -401,6 +401,7 @@ BOOL _isRotating;
     long pnum = 0;
     //for getting type of placeholder.
     NSMutableArray *coordinatesArray;
+
     long pagecount =  self.pdfDocument.pageCount;
     for (int k=1; k<=pagecount; k++) {
         
@@ -732,6 +733,9 @@ BOOL _isRotating;
             objTrackOrderVC.isAttached = true;
             objTrackOrderVC.isDocStore = true;
             UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
+            if (@available(iOS 13.0, *)) {
+               [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+            }
             [self presentViewController:objNavigationController animated:true completion:nil];
             //[self.navigationController pushViewController:objTrackOrderVC animated:YES];
         }

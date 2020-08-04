@@ -338,24 +338,29 @@
                     
                     for (int i = 0; i < arr.count; i++) {
                         NSDictionary * dict = arr[i];
-                        if ([dict[@"StatusID"]intValue] == 13) {
-                            NSString* emailid = dict[@"EmailID"];
-                            NSString* name = dict[@"Name"];
-                            NSString * totalstring = [NSString stringWithFormat:@"%@[%@]",name,emailid];
-                            
-                            if ([self->mstrXMLString containsString:[NSString stringWithFormat:@"%@",totalstring]]) {
+                        if ([dict objectForKey:@"StatusID"] != [NSNull null]) {
+                           
+                            if ([dict[@"StatusID"]intValue] == 13) {
+                                NSString* emailid = dict[@"EmailID"];
+                                NSString* name = dict[@"Name"];
+                                NSString * totalstring = [NSString stringWithFormat:@"%@[%@]",name,emailid];
                                 
+                                if ([self->mstrXMLString containsString:[NSString stringWithFormat:@"%@",totalstring]]) {
+                                    
+                                }
+                                else
+                                {
+                                    [self->mstrXMLString appendString:[NSString stringWithFormat:@" %@",totalstring]];
+                                }
+                                
+                                //[mstrXMLString appendString:[NSString stringWithFormat:@"Signed By: %@",totalstring]];
+                                ischeck = @"Signatory";
+                                NSLog(@"%@",self->mstrXMLString);
                             }
-                            else
-                            {
-                                [self->mstrXMLString appendString:[NSString stringWithFormat:@" %@",totalstring]];
-                            }
-                            
-                            //[mstrXMLString appendString:[NSString stringWithFormat:@"Signed By: %@",totalstring]];
-                            ischeck = @"Signatory";
-                            NSLog(@"%@",self->mstrXMLString);
                         }
-                    }
+                    } //end for loop
+                    
+                    
                     if ([ischeck  isEqual: @"ischeck"])
                     {
                        // NSArray *arr1 =  [[responseValue valueForKey:@"Response"] valueForKey:@"lstOriginatory"];

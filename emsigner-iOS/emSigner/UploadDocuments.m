@@ -32,7 +32,7 @@
 //@synthesize addButton;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",_sendarray);
+  //  NSLog(@"%@",_sendarray);
     
     // Do any additional setup after loading the view, typically from a nib.
     _pickImagesandDate = [[NSMutableArray alloc]init];

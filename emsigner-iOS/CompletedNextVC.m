@@ -213,6 +213,7 @@ BOOL _isRotating;
                                     
                                 }];
     
+    //if ([_documentCount intValue] > 0){
     if ([_documentCount intValue] > 1){
         [view addAction:Document];
     }

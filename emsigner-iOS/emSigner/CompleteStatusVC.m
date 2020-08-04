@@ -583,49 +583,55 @@
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
-                _pdfImageArray=[[responseValue valueForKey:@"Response"] valueForKey:@"Document"];
+                    self->_pdfImageArray=[[responseValue valueForKey:@"Response"] valueForKey:@"Document"];
                     
-                    mstrXMLString = [[NSMutableString alloc]init];
+                    self->mstrXMLString = [[NSMutableString alloc]init];
                     NSArray *arr =  [[responseValue valueForKey:@"Response"] valueForKey:@"Signatory"];
                     
                     if (arr.count > 0) {
                         NSString * ischeck = @"ischeck";
-                        [mstrXMLString appendString:@"Signed By:"];
+                        [self->mstrXMLString appendString:@"Signed By:"];
                         
                         for (int i = 0; arr.count>i; i++) {
                             NSDictionary * dict = arr[i];
-                            if ([dict[@"StatusID"]intValue] == 13) {
-                                NSString* emailid = dict[@"EmailID"];
-                                NSString* name = dict[@"Name"];
-                                NSString * totalstring = [NSString stringWithFormat:@"%@[%@]",name,emailid];
+                            if ([dict objectForKey:@"StatusID"] != [NSNull null]) {
                                 
-                                if ([mstrXMLString containsString:[NSString stringWithFormat:@"%@",totalstring]]) {
+                                if ([dict[@"StatusID"]intValue] == 13) {
+                                    NSString* emailid = dict[@"EmailID"];
+                                    NSString* name = dict[@"Name"];
+                                    NSString * totalstring = [NSString stringWithFormat:@"%@[%@]",name,emailid];
                                     
-                                }
-                                else
-                                {
-                                    [mstrXMLString appendString:[NSString stringWithFormat:@" %@",totalstring]];
+                                    if ([self->mstrXMLString containsString:[NSString stringWithFormat:@"%@",totalstring]]) {
+                                        
+                                    }
+                                    else
+                                    {
+                                        [self->mstrXMLString appendString:[NSString stringWithFormat:@" %@",totalstring]];
+                                    }
+                                    
+                                    //[mstrXMLString appendString:[NSString stringWithFormat:@"Signed By: %@",totalstring]];
+                                    ischeck = @"Signatory";
+                                    NSLog(@"%@",self->mstrXMLString);
                                 }
                                 
-                                //[mstrXMLString appendString:[NSString stringWithFormat:@"Signed By: %@",totalstring]];
-                                ischeck = @"Signatory";
-                                NSLog(@"%@",mstrXMLString);
                             }
-                        }
+                        } //end for loop
+                        
+                        
                         if ([ischeck  isEqual: @"ischeck"])
                         {
                             NSArray *arr1 =  [[responseValue valueForKey:@"Response"] valueForKey:@"Originatory"];
-                            mstrXMLString = [NSMutableString string];
+                            self->mstrXMLString = [NSMutableString string];
 
-                            [mstrXMLString appendString:@"Originated By:"];
+                            [self->mstrXMLString appendString:@"Originated By:"];
                             for (int i = 0; arr1.count > i; i++) {
                                 NSDictionary * dict = arr1[i];
                                 
                                 NSString* emailid = dict[@"EmailID"];
                                 NSString* name = dict[@"Name"];
                                 NSString * totalstring = [NSString stringWithFormat:@"%@[%@]",name,emailid];
-                                [mstrXMLString appendString:[NSString stringWithFormat:@" %@",totalstring]];
-                                NSLog(@"%@",mstrXMLString);
+                                [self->mstrXMLString appendString:[NSString stringWithFormat:@" %@",totalstring]];
+                                NSLog(@"%@",self->mstrXMLString);
                             }
                         }
                         //}
@@ -634,7 +640,7 @@
                     else
                     {
                         NSArray *arr1 =  [[responseValue valueForKey:@"Response"] valueForKey:@"Originatory"];
-                        [mstrXMLString appendString:@"Originated By:"];
+                        [self->mstrXMLString appendString:@"Originated By:"];
                         
                         for (int i = 0; arr1.count > i; i++) {
                             NSDictionary * dict = arr1[i];
@@ -642,19 +648,19 @@
                             NSString* emailid = dict[@"EmailID"];
                             NSString* name = dict[@"Name"];
                             NSString * totalstring = [NSString stringWithFormat:@"%@[%@]",name,emailid];
-                            [mstrXMLString appendString:[NSString stringWithFormat:@"%@",totalstring]];
-                            NSLog(@"%@",mstrXMLString);
+                            [self->mstrXMLString appendString:[NSString stringWithFormat:@"%@",totalstring]];
+                            NSLog(@"%@",self->mstrXMLString);
                         }
                     }
                     
                     
-                    if (_pdfImageArray != (id)[NSNull null])
+                    if (self->_pdfImageArray != (id)[NSNull null])
                     {
                         
                         if ([[[responseValue valueForKey:@"Response"] valueForKey:@"IsPasswordProtected"] boolValue]==YES) {
                             
                             
-                            NSData *data = [[NSData alloc]initWithBase64EncodedString:_pdfImageArray options:0];
+                            NSData *data = [[NSData alloc]initWithBase64EncodedString:self->_pdfImageArray options:0];
                             // from your converted Base64 string
                             NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
                             NSString *path = [documentsDirectory stringByAppendingPathComponent:@"test.pdf"];
@@ -663,11 +669,11 @@
                             [[NSUserDefaults standardUserDefaults] setObject:path forKey:@"pathForDoc"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                             
-                            NSString *displayName = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
+                            NSString *displayName = [[self->_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
                             [[NSUserDefaults standardUserDefaults] setObject:displayName forKey:@"displayName"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                             
-                            documentId = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DocumentId"];
+                            self->documentId = [[self->_filterArray objectAtIndex:indexPath.row] objectForKey:@"DocumentId"];
                             
                             NSString *docCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfDocuments"] stringValue];
                             [[NSUserDefaults standardUserDefaults] setObject:docCount forKey:@"docCount"];
@@ -677,7 +683,7 @@
                             [[NSUserDefaults standardUserDefaults] setObject:attachmentCount forKey:@"attachmentCount"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                             
-                            NSString *workflowId = [[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
+                            NSString *workflowId = [[self->_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
                             [[NSUserDefaults standardUserDefaults] setObject:workflowId forKey:@"workflowId"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                             
@@ -712,13 +718,13 @@
                         
                         temp._pathForDoc = path;
                         temp.pdfImagedetail = _pdfImageArray;
-                        temp.myTitle = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
+                        temp.myTitle = [[self->_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
                         temp.strExcutedFrom=@"Completed";
-                        temp.workflowID = [[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
+                        temp.workflowID = [[self->_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
                        temp.documentID = [[[responseValue valueForKey:@"Response"] valueForKey:@"DocumentId"]objectAtIndex:0];
-                        temp.documentCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfAttachments"] stringValue];
-                        temp.signatoryString = mstrXMLString;
-                        temp.workFlowType = _workFlowType;
+                        temp.documentCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfDocuments"] stringValue];
+                        temp.signatoryString = self->mstrXMLString;
+                        temp.workFlowType = self->_workFlowType;
                         temp.attachmentCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfAttachments"] stringValue];
                         [self.navigationController pushViewController:temp animated:YES];
                         [self stopActivity];

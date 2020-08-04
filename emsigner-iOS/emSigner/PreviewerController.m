@@ -69,6 +69,7 @@
       [self.navigationController popViewControllerAnimated:true];
 }
 
+//NEXT or SAVE Button - Navigation RIght Button
 - (void)savebtnAction:(UIButton *)sender {
     self.imageArray = [[NSMutableArray alloc]init];
     //Adarsha

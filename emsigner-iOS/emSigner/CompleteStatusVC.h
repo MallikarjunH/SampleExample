@@ -39,4 +39,6 @@
 @property (strong,nonatomic) NSString *filePath;
 @property (strong,nonatomic)   NSString *path ;
 
+@property (strong,nonatomic) NSString *documentCount;
+
 @end

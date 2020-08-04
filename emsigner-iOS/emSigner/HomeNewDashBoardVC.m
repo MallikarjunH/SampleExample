@@ -913,41 +913,41 @@ enum
                                 PendingListVC *temp = [[PendingListVC alloc]init];
                                 
                                 temp.pdfImagedetail = _pdfImageArray;
-                                temp.workFlowID = [[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
+                                temp.workFlowID = [[self->_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
                                 temp.documentCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfDocuments"] stringValue];
                                 temp.attachmentCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfAttachments"] stringValue];
                                 temp.documentID = [[[responseValue valueForKey:@"Response"] valueForKey:@"DocumentId"]objectAtIndex:0];
                                 temp.isPasswordProtected = [[[responseValue valueForKey:@"Response"] valueForKey:@"IsPasswordProtected"] boolValue];
-                                temp.myTitle = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
-                                temp.signatoryString = mstrXMLString;
-                                temp.statusId = statusId;
-                                temp.signatoryHolderArray = arr;
-                                temp.placeholderArray = coordinatesArray;
-                                temp.workFlowType = [[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"];
-                                temp.isSignatory = [[_checkNullArray valueForKey:@"IsSignatory"]boolValue];
-                                temp.isReviewer = [[_checkNullArray valueForKey:@"IsReviewer"]boolValue];
+                                temp.myTitle = [[self->_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
+                                temp.signatoryString = self->mstrXMLString;
+                                temp.statusId = self->statusId;
+                                temp.signatoryHolderArray = self->arr;
+                                temp.placeholderArray = self->coordinatesArray;
+                                temp.workFlowType = [[self->_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"];
+                                temp.isSignatory = [[self->_checkNullArray valueForKey:@"IsSignatory"]boolValue];
+                                temp.isReviewer = [[self->_checkNullArray valueForKey:@"IsReviewer"]boolValue];
                                 temp.isDocStore = true;
                                 [self.navigationController pushViewController:temp animated:YES];
                                 [self stopActivity];
                             }
-                            else if(isdelegate == false){
+                            else if(self->isdelegate == false){
                                 PendingListVC *temp = [[PendingListVC alloc]init];
                                 
-                                temp.pdfImagedetail = _pdfImageArray;
-                                temp.workFlowID = [[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
+                                temp.pdfImagedetail = self->_pdfImageArray;
+                                temp.workFlowID = [[self->_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkFlowId"];
                                 temp.documentCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfDocuments"] stringValue];
                                 temp.attachmentCount = [[[responseValue valueForKey:@"Response"] valueForKey:@"NoOfAttachments"] stringValue];
                                 temp.isPasswordProtected = [[[responseValue valueForKey:@"Response"] valueForKey:@"IsPasswordProtected"] boolValue];
                                 temp.documentID = [[[responseValue valueForKey:@"Response"] valueForKey:@"DocumentId"]objectAtIndex:0];
                                 
-                                temp.myTitle = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
-                                temp.signatoryString = mstrXMLString;
-                                temp.statusId = statusId;
-                                temp.signatoryHolderArray = arr;
-                                temp.placeholderArray = coordinatesArray;
+                                temp.myTitle = [[self->_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
+                                temp.signatoryString = self->mstrXMLString;
+                                temp.statusId = self->statusId;
+                                temp.signatoryHolderArray = self->arr;
+                                temp.placeholderArray = self->coordinatesArray;
                                 temp.workFlowType = [[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"];
-                                temp.isSignatory = [[_checkNullArray valueForKey:@"IsSignatory"]boolValue];
-                                temp.isReviewer = [[_checkNullArray valueForKey:@"IsReviewer"]boolValue];
+                                temp.isSignatory = [[self->_checkNullArray valueForKey:@"IsSignatory"]boolValue];
+                                temp.isReviewer = [[self->_checkNullArray valueForKey:@"IsReviewer"]boolValue];
                                 temp.isDocStore = true;
                                 [self.navigationController pushViewController:temp animated:YES];
                                 [self stopActivity];

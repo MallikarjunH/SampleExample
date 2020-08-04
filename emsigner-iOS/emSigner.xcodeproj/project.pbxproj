@@ -796,6 +796,17 @@
 			path = MPGTextField;
 			sourceTree = "<group>";
 		};
+		063C5B6524D4174300B1F0FE /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C309AFB81E5472F100B7ACFA /* Change Password */,
+				C3F72C2B1ED4026500B8BF2E /* FeedBack */,
+				C3F3474C1D51F58B0012B70D /* My Profile */,
+				C3FBB0BB1EF7971700348996 /* About Us */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
 		064762762170AD31008E03E9 /* FXBlurView */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,12 +838,10 @@
 			children = (
 				C3FABDFA1E373D6800EAF5D7 /* Login */,
 				C3F57FAF1F14D16D006C51FE /* GetOTP */,
+				D2D054671D3BA209007EAE97 /* Side Menu */,
+				063C5B6524D4174300B1F0FE /* Account */,
 				C3F57FB01F14D18C006C51FE /* eSign */,
-				C3F72C2B1ED4026500B8BF2E /* FeedBack */,
-				C309AFB81E5472F100B7ACFA /* Change Password */,
-				C3FBB0BB1EF7971700348996 /* About Us */,
 				C3F5B2FF1E5C018E007861EE /* Share */,
-				C3F3474C1D51F58B0012B70D /* My Profile */,
 				C306C9BE1EC96DA30086B2AD /* Rate Us */,
 			);
 			name = Controller;
@@ -888,6 +897,8 @@
 		06710B8422CDFCC4005BD9EA /* WorkFlow */ = {
 			isa = PBXGroup;
 			children = (
+				06710C0C22CDFD63005BD9EA /* WorkflowTableViewController.h */,
+				06710BE722CDFD5F005BD9EA /* WorkflowTableViewController.m */,
 				061754672473BF500025A62D /* SignatoriesListForFlexiforms.xib */,
 				06710BE022CDFD5F005BD9EA /* DocsNameForHeader.h */,
 				06710BDB22CDFD5E005BD9EA /* DocsNameForHeader.m */,
@@ -938,8 +949,6 @@
 				06710C0022CDFD62005BD9EA /* workflow.h */,
 				06710C0322CDFD62005BD9EA /* workflow.m */,
 				06710BE522CDFD5F005BD9EA /* workflow.xib */,
-				06710C0C22CDFD63005BD9EA /* WorkflowTableViewController.h */,
-				06710BE722CDFD5F005BD9EA /* WorkflowTableViewController.m */,
 				06350D8F232B65880004661E /* ReviewerController.h */,
 				06350D90232B65880004661E /* ReviewerController.m */,
 				06108775240633E8006DC56E /* FlexiformsPage.h */,
@@ -1417,7 +1426,6 @@
 				C30360ED1E2C981F00578EDF /* LMMenuCell.h */,
 				C30360EE1E2C981F00578EDF /* LMMenuCell.m */,
 				C397ECCE1E3B635C00844B53 /* Document Info */,
-				D2D054671D3BA209007EAE97 /* Side Menu */,
 				C312E89B1E646D19009DC7A2 /* Forgot Password */,
 				C312E89A1E6427E6009DC7A2 /* Recall */,
 				06E1CFBA211882B4007B93C2 /* Signatories Page */,

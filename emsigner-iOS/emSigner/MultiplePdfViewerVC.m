@@ -381,12 +381,12 @@ enum
                            NSString *documentID = [NSString stringWithFormat:@"%@",[dict valueForKey:@"DocumentId"]];
                            NSString *statusId = [NSString stringWithFormat:@"%@",[dict valueForKey:@"StatusID"]];
                             
-                            NSLog(@"Email id: %@",email);
-                            NSLog(@"Document id: %@",documentID);
-                            NSLog(@"Status id: %@",statusId);
+                          //  NSLog(@"Email id: %@",email);
+                          //  NSLog(@"Document id: %@",documentID);
+                          //  NSLog(@"Status id: %@",statusId);
                             
-                            NSLog(@"Origional Email: %@",loggedInUserEmail);
-                            NSLog(@"Original Document ID: %@",documentId);
+                          //  NSLog(@"Origional Email: %@",loggedInUserEmail);
+                          //  NSLog(@"Original Document ID: %@",documentId);
                             
                            //if (email == loggedInUserEmail && documentID == documentId) {
                             if([email isEqualToString:loggedInUserEmail] && [documentID isEqualToString:documentId]) {

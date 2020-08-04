@@ -48,7 +48,7 @@ static int const kHeaderSectionTag = 6900;
     self.tabBar.delegate = self;
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-        
+    
     [self.tabBar setSelectedItem:[self.tabBar.items objectAtIndex:2]];
     
     UINib *nib  = [UINib nibWithNibName:@"CustomHeader" bundle:nil];
@@ -58,7 +58,7 @@ static int const kHeaderSectionTag = 6900;
     _workflowsTable.delegate = self;
     _workflowsTable.dataSource = self;
     _workflowsTable.tableFooterView = view;
-
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -72,7 +72,7 @@ static int const kHeaderSectionTag = 6900;
     _mainarray = [[NSMutableArray alloc]init];
     _childArray = [[NSMutableArray alloc]init];
     [self getWorkFlows];
-
+    
 }
 
 -(void)getWorkFlows
@@ -83,65 +83,65 @@ static int const kHeaderSectionTag = 6900;
     
     [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
         
-       if(status && ![[responseValue valueForKey:@"Response"] isKindOfClass:[NSNull class]])
+        if(status && ![[responseValue valueForKey:@"Response"] isKindOfClass:[NSNull class]])
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               
-                               _responseArray=[responseValue valueForKey:@"Response"];
-                            
-                               if (_responseArray != (id)[NSNull null] || _responseArray.count != 0)
-                               {
-                                   
-                               for (int i = 0; i<_responseArray.count; i++) {
-                                   NSDictionary *dict = _responseArray[i];
-                                   NSString *codeR = [[dict objectForKey:@"ParentId"] stringValue];
-                                   
-                                   if ([codeR isEqualToString:@"0"]) {
-                                       [_mainarray addObject:dict];
-                                   }
-                               }
-                               
-                               [self.workflowsTable reloadData];
-                               [self stopActivity];
-                               }
-                               else
-                               {
-                                   
-                                   if (_responseArray.count == 0) {
-                                       
-                                       noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.workflowsTable.bounds.size.width - 30, self.workflowsTable.bounds.size.height)];
-                                       noDataLabel.text = [[responseValue valueForKey:@"Messages"]objectAtIndex:0];
-                                       noDataLabel.textColor = [UIColor grayColor];
-                                       noDataLabel.textAlignment = NSTextAlignmentCenter;
-                                       noDataLabel.numberOfLines = 0;
-
-                                       self.workflowsTable.backgroundView = noDataLabel;
-                                       self.workflowsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-                                      
-                                       [_workflowsTable reloadData];
-                                   }
-                                   [self stopActivity];
-                                   return;
-                               }
-                               
-                           });
+                
+                _responseArray=[responseValue valueForKey:@"Response"];
+                
+                if (_responseArray != (id)[NSNull null] || _responseArray.count != 0)
+                {
+                    
+                    for (int i = 0; i<_responseArray.count; i++) {
+                        NSDictionary *dict = _responseArray[i];
+                        NSString *codeR = [[dict objectForKey:@"ParentId"] stringValue];
+                        
+                        if ([codeR isEqualToString:@"0"]) {
+                            [_mainarray addObject:dict];
+                        }
+                    }
+                    
+                    [self.workflowsTable reloadData];
+                    [self stopActivity];
+                }
+                else
+                {
+                    
+                    if (_responseArray.count == 0) {
+                        
+                        noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.workflowsTable.bounds.size.width - 30, self.workflowsTable.bounds.size.height)];
+                        noDataLabel.text = [[responseValue valueForKey:@"Messages"]objectAtIndex:0];
+                        noDataLabel.textColor = [UIColor grayColor];
+                        noDataLabel.textAlignment = NSTextAlignmentCenter;
+                        noDataLabel.numberOfLines = 0;
+                        
+                        self.workflowsTable.backgroundView = noDataLabel;
+                        self.workflowsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+                        
+                        [_workflowsTable reloadData];
+                    }
+                    [self stopActivity];
+                    return;
+                }
+                
+            });
         }
         else{
-       
+            
             dispatch_async(dispatch_get_main_queue(),
-            ^{
-            noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.workflowsTable.bounds.size.width - 30, self.workflowsTable.bounds.size.height)];
-            noDataLabel.text = [[responseValue valueForKey:@"Messages"]objectAtIndex:0];
-            noDataLabel.textColor = [UIColor grayColor];
-            noDataLabel.textAlignment = NSTextAlignmentCenter;
-            noDataLabel.numberOfLines = 0;
-            self.workflowsTable.backgroundView = noDataLabel;
-            self.workflowsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-            [_workflowsTable reloadData];
-
-            [self stopActivity];
-
+                           ^{
+                noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.workflowsTable.bounds.size.width - 30, self.workflowsTable.bounds.size.height)];
+                noDataLabel.text = [[responseValue valueForKey:@"Messages"]objectAtIndex:0];
+                noDataLabel.textColor = [UIColor grayColor];
+                noDataLabel.textAlignment = NSTextAlignmentCenter;
+                noDataLabel.numberOfLines = 0;
+                self.workflowsTable.backgroundView = noDataLabel;
+                self.workflowsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+                [_workflowsTable reloadData];
+                
+                [self stopActivity];
+                
             });
             
             return;
@@ -160,36 +160,36 @@ static int const kHeaderSectionTag = 6900;
 
 -(void)getFlexiformsFileData:(int)categoryId
 {
-     [self startActivity:@"Refreshing..."];
+    [self startActivity:@"Refreshing..."];
     NSString *requestURL = [NSString stringWithFormat:@"%@GetFlexiformtemplatedetails?categoryId=%d",kGetFlexiformtemplatedetails,categoryId];
+    
+    [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
         
-        [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
+        if(status && ![[responseValue valueForKey:@"Response"] isKindOfClass:[NSNull class]])
+        {
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                
+                _responseArray=[responseValue valueForKey:@"Response"];
+                
+                if (_responseArray != (id)[NSNull null])
+                {
+                    FlexiformsPage *objtrack = [[FlexiformsPage alloc]init] ;
+                    objtrack.base64String = [[_responseArray objectAtIndex:0] valueForKey:@"Base64FileData"];
+                    objtrack.documentNameFlexiForms = [[_responseArray objectAtIndex:0] valueForKey:@"DocumentName"];
+                    objtrack.documentIdFlexiForms = [NSString stringWithFormat:@"%@", [[_responseArray objectAtIndex:0] valueForKey:@"DocumentID"]];
+                    [self.navigationController pushViewController:objtrack animated:YES];
+                    
+                    
+                    [self stopActivity];
+                }
+            });
+        }
+        else{
             
-           if(status && ![[responseValue valueForKey:@"Response"] isKindOfClass:[NSNull class]])
-            {
-                dispatch_async(dispatch_get_main_queue(),
-                               ^{
-                                   
-                                   _responseArray=[responseValue valueForKey:@"Response"];
-                                
-                                   if (_responseArray != (id)[NSNull null])
-                                   {
-                                       FlexiformsPage *objtrack = [[FlexiformsPage alloc]init] ;
-                                       objtrack.base64String = [[_responseArray objectAtIndex:0] valueForKey:@"Base64FileData"];
-                                       objtrack.documentNameFlexiForms = [[_responseArray objectAtIndex:0] valueForKey:@"DocumentName"];
-                                       objtrack.documentIdFlexiForms = [NSString stringWithFormat:@"%@", [[_responseArray objectAtIndex:0] valueForKey:@"DocumentID"]];
-                                       [self.navigationController pushViewController:objtrack animated:YES];
-                                       
-                                 
-                                    [self stopActivity];
-                                   }
-                               });
-            }
-            else{
-           
-            }
-            
-        }];
+        }
+        
+    }];
 }
 
 - (void) alertForBulkDocuments
@@ -205,13 +205,13 @@ static int const kHeaderSectionTag = 6900;
                                 actionWithTitle:@"Ok"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action) {
-                                    //Handle your yes please button action here
-                                    
-                                    [self stopActivity];
-                                    
-                                    
-                                }];
-
+        //Handle your yes please button action here
+        
+        [self stopActivity];
+        
+        
+    }];
+    
     [alert addAction:yesButton];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -224,18 +224,18 @@ static int const kHeaderSectionTag = 6900;
                                  alertControllerWithTitle:@""
                                  message:@"Collaborative documents can't be opened as of now."
                                  preferredStyle:UIAlertControllerStyleAlert];
-
+    
     UIAlertAction* yesButton = [UIAlertAction
                                 actionWithTitle:@"Ok"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action) {
-                                    //Handle your yes please button action here
-                                    
-                                    [self stopActivity];
-                                    
-                                    
-                                }];
-
+        //Handle your yes please button action here
+        
+        [self stopActivity];
+        
+        
+    }];
+    
     [alert addAction:yesButton];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -250,18 +250,18 @@ static int const kHeaderSectionTag = 6900;
                                  alertControllerWithTitle:@""
                                  message:@"Review documents can't be opened as of now."
                                  preferredStyle:UIAlertControllerStyleAlert];
-
+    
     UIAlertAction* yesButton = [UIAlertAction
                                 actionWithTitle:@"Ok"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action) {
-                                    //Handle your yes please button action here
-                                    
-                                    [self stopActivity];
-                                    
-                                    
-                                }];
-
+        //Handle your yes please button action here
+        
+        [self stopActivity];
+        
+        
+    }];
+    
     [alert addAction:yesButton];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -283,13 +283,13 @@ static int const kHeaderSectionTag = 6900;
                                 actionWithTitle:@"Ok"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action) {
-                                    //Handle your yes please button action here
-                                    
-                                    [self stopActivity];
-                                    
-                                    
-                                }];
-
+        //Handle your yes please button action here
+        
+        [self stopActivity];
+        
+        
+    }];
+    
     [alert addAction:yesButton];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -320,17 +320,17 @@ static int const kHeaderSectionTag = 6900;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-
+    
     cell.textLabel.text = [[self.mainarray objectAtIndex:indexPath.row] valueForKey:@"TemplateName"];
-
+    
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-
+    
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     _subarray = [NSMutableArray array];
@@ -338,7 +338,7 @@ static int const kHeaderSectionTag = 6900;
     d =[self.mainarray objectAtIndex:indexPath.row];
     
     int CategoryId = [[d valueForKey:@"TemplateId"]intValue];
-
+    
     //workflow type 2
     if ([[d valueForKey:@"TemplateType"]integerValue] == 2)
     {
@@ -363,118 +363,119 @@ static int const kHeaderSectionTag = 6900;
     }
     
     [[NSUserDefaults standardUserDefaults]setObject:[d valueForKey:@"TemplateType"] forKey:@"TemplateType"] ;
-
+    
     //Start EMIOS-1098
     for(int i=0;i<_responseArray.count;i++) {
         NSDictionary * dict1 = _responseArray[i];
-                                                             NSLog(@"%i",i);
-                                                             if (CategoryId == [[dict1 valueForKey:@"ParentId"]intValue])
-                                                             {
-                                                                  NSLog(@"parentId %i",[[dict1 valueForKey:@"ParentId"]intValue]);
-                                                                  [_subarray addObject:dict1];
-                                                             }
+        NSLog(@"%i",i);
+        if (CategoryId == [[dict1 valueForKey:@"ParentId"]intValue])
+        {
+            NSLog(@"parentId %i",[[dict1 valueForKey:@"ParentId"]intValue]);
+            [_subarray addObject:dict1];
+        }
     }
-     if (_subarray.count > 0) {
-         NSUInteger length = [[d valueForKey:@"TemplateName"] length];
-                 
-                 if (length >2) {
-                   CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
-                 }
-                 else
-                 {
-                   CategoryName = [d valueForKey:@"TemplateName"];
-                 }
-
-                                              ShowActivities *objTrackOrderVC= [[ShowActivities alloc] initWithNibName:@"ShowActivities" bundle:nil];
-                                              objTrackOrderVC.showArrayForActivity = _subarray;
-                                              objTrackOrderVC.TotalArrayForActivity = _responseArray;
-                                              objTrackOrderVC.categoryname = CategoryName;
-                                              [self.navigationController pushViewController:objTrackOrderVC animated:YES];
+    
+    if (_subarray.count > 0) {
+        NSUInteger length = [[d valueForKey:@"TemplateName"] length];
         
-     } else {
-         NSUInteger length = [[d valueForKey:@"TemplateName"] length];
-         
-         if (length >2) {
-           CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
-         }
-         else
-         {
-           CategoryName = [d valueForKey:@"TemplateName"];
-         }
-         [self checkMenuAccessForWorkflow:CategoryId];
-     }
+        if (length >2) {
+            CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
+        }
+        else
+        {
+            CategoryName = [d valueForKey:@"TemplateName"];
+        }
+        
+        ShowActivities *objTrackOrderVC= [[ShowActivities alloc] initWithNibName:@"ShowActivities" bundle:nil];
+        objTrackOrderVC.showArrayForActivity = _subarray;
+        objTrackOrderVC.TotalArrayForActivity = _responseArray;
+        objTrackOrderVC.categoryname = CategoryName;
+        [self.navigationController pushViewController:objTrackOrderVC animated:YES];
+        
+    } else {
+        NSUInteger length = [[d valueForKey:@"TemplateName"] length];
+        
+        if (length >2) {
+            CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
+        }
+        else
+        {
+            CategoryName = [d valueForKey:@"TemplateName"];
+        }
+        [self checkMenuAccessForWorkflow:CategoryId];
+    }
     //End EMIOS-1098
 }
 
 -(void)checkMenuAccessForWorkflow:(int)categoryId{
-     [self startActivity:@""];
+    [self startActivity:@""];
     NSString *requestURL = [NSString stringWithFormat:@"%@=%d",kCheckMenuAccess,categoryId];
+    
+    [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
         
-        [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
-           
-           if(status && [[responseValue valueForKey:@"IsSuccess"]intValue] == 1)
-            {
-                dispatch_async(dispatch_get_main_queue(),
-                               ^{
-                                                                   
-                                   if (_responseArray != (id)[NSNull null])
-                                   {
-//
-                                          if ([[d valueForKey:@"IsWorkflowCreated"]boolValue] == 0)
-                                       {
-
-                                                     for (int j= 0; j<_responseArray.count; j++) {
-                                                      NSDictionary * dict1 = _responseArray[j];
-                                                      NSLog(@"%i",j);
-                                                      if (categoryId == [[dict1 valueForKey:@"ParentId"]intValue])
-                                                      {
-                                                           NSLog(@"parentId %i",[[dict1 valueForKey:@"ParentId"]intValue]);
-                                                           [_subarray addObject:dict1];
-                                                      }
-                                                     }
-                                       }
-
-                                       if (_subarray.count > 0) {
-
-                                           ShowActivities *objTrackOrderVC= [[ShowActivities alloc] initWithNibName:@"ShowActivities" bundle:nil];
-                                           objTrackOrderVC.showArrayForActivity = _subarray;
-                                           objTrackOrderVC.TotalArrayForActivity = _responseArray;
-                                           objTrackOrderVC.categoryname = CategoryName;
-                                           [self.navigationController pushViewController:objTrackOrderVC animated:YES];
-                                       }
-                                       else
-                                       {
-                                           NSUserDefaults *savePathForPdf = [NSUserDefaults standardUserDefaults];
-                                           [savePathForPdf setInteger:categoryId forKey:@"workf  lowCategoryId"];
-                                           [savePathForPdf synchronize];
-                                           
-                                           SignersInformation *objTrackOrderVC= [[SignersInformation alloc] initWithNibName:@"SignersInformation" bundle:nil];
-                                           objTrackOrderVC.categoryId = [NSString stringWithFormat:@"%i", categoryId];
-                                           objTrackOrderVC.categoryname = CategoryName;
-                                        
-                                           objTrackOrderVC.navigationTitle = [d valueForKey:@"TemplateName"];
-                                           [self.navigationController pushViewController:objTrackOrderVC animated:YES];
-                                       }
-                                    [self stopActivity];
-                                   }
-                                   //}
-                               });
-            }
-            else{
-                [self stopActivity];
+        if(status && [[responseValue valueForKey:@"IsSuccess"]intValue] == 1)
+        {
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
                 
-                dispatch_async(dispatch_get_main_queue(),
-                                              ^{
+                if (_responseArray != (id)[NSNull null])
+                {
+                    //
+                    if ([[d valueForKey:@"IsWorkflowCreated"]boolValue] == 0)
+                    {
+                        
+                        for (int j= 0; j<_responseArray.count; j++) {
+                            NSDictionary * dict1 = _responseArray[j];
+                            NSLog(@"%i",j);
+                            if (categoryId == [[dict1 valueForKey:@"ParentId"]intValue])
+                            {
+                                NSLog(@"parentId %i",[[dict1 valueForKey:@"ParentId"]intValue]);
+                                [_subarray addObject:dict1];
+                            }
+                        }
+                    }
+                    
+                    if (_subarray.count > 0) {
+                        
+                        ShowActivities *objTrackOrderVC= [[ShowActivities alloc] initWithNibName:@"ShowActivities" bundle:nil];
+                        objTrackOrderVC.showArrayForActivity = _subarray;
+                        objTrackOrderVC.TotalArrayForActivity = _responseArray;
+                        objTrackOrderVC.categoryname = CategoryName;
+                        [self.navigationController pushViewController:objTrackOrderVC animated:YES];
+                    }
+                    else
+                    {
+                        NSUserDefaults *savePathForPdf = [NSUserDefaults standardUserDefaults];
+                        [savePathForPdf setInteger:categoryId forKey:@"workf  lowCategoryId"];
+                        [savePathForPdf synchronize];
+                        
+                        SignersInformation *objTrackOrderVC= [[SignersInformation alloc] initWithNibName:@"SignersInformation" bundle:nil];
+                        objTrackOrderVC.categoryId = [NSString stringWithFormat:@"%i", categoryId];
+                        objTrackOrderVC.categoryname = CategoryName;
+                        
+                        objTrackOrderVC.navigationTitle = [d valueForKey:@"TemplateName"];
+                        [self.navigationController pushViewController:objTrackOrderVC animated:YES];
+                    }
+                    [self stopActivity];
+                }
+                //}
+            });
+        }
+        else{
+            [self stopActivity];
+            
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil message:@"Workflow Templates is not created for this activity " preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
-                                                                                    handler:nil];
+                                                               handler:nil];
                 [alert addAction:cancel];
                 [self presentViewController:alert animated:YES completion:nil];
-                 });
-           
-            }
+            });
             
-        }];
+        }
+        
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
@@ -484,34 +485,34 @@ static int const kHeaderSectionTag = 6900;
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-          CustomHeader *header = [_workflowsTable dequeueReusableHeaderFooterViewWithIdentifier:@"CustomHeader"];
-          
-          
-          return header;
+    CustomHeader *header = [_workflowsTable dequeueReusableHeaderFooterViewWithIdentifier:@"CustomHeader"];
+    
+    
+    return header;
 }
 
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-
+    
     if([item.title  isEqual: @"DashBoard"]) {
         DocsPage *controller1 = [self.storyboard instantiateViewControllerWithIdentifier:@"DocsPage"];
-                controller1.view.frame = self.view.bounds;
-
+        controller1.view.frame = self.view.bounds;
+        
         [self.view addSubview:controller1.view];
         [self addSelectedControllerViewOnBaseView:controller1];
-
+        
     }
     else if ([item.title  isEqual: @"Docstore"]){
-      
+        
         DocStoreVC *controller1 = [self.storyboard instantiateViewControllerWithIdentifier:@"DocStoreVC"];
         controller1.view.frame = self.view.bounds;
         [self.view addSubview:controller1.view];
         [self addSelectedControllerViewOnBaseView:controller1];
-
+        
         
     }
     else if ([item.title  isEqual: @"WorkFlows"]){
-
+        
     }
     
 }
@@ -542,7 +543,7 @@ static int const kHeaderSectionTag = 6900;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
-           
+    
 }
 
 
@@ -562,37 +563,37 @@ static int const kHeaderSectionTag = 6900;
     [searchBar setShowsCancelButton:NO animated:YES];
     
     [self getWorkFlows];
-
+    
 }
 
- 
+
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if ([searchText length] == 0) {
         self.searchResults = @"";
-       
+        
         [self.workflowsTable reloadData];
         [searchBar resignFirstResponder];
     }
-  
+    
     else if ([searchText length] >= 1){
-
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"TemplateName contains[c] %@ ",searchText];
-    _searchResults = [self.mainarray filteredArrayUsingPredicate:filter];
+        
+        NSPredicate *filter = [NSPredicate predicateWithFormat:@"TemplateName contains[c] %@ ",searchText];
+        _searchResults = [self.mainarray filteredArrayUsingPredicate:filter];
         if (_searchResults.count == 0) {
-                   self.mainarray = [[NSMutableArray alloc]init];
-                   [self.workflowsTable reloadData];
-
-               }
-               else{
-                   NSMutableArray *sortedArray = [[NSMutableArray alloc]init];
-                 
-                   sortedArray = [_searchResults mutableCopy];
-                   
-                   NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"WorkflowName" ascending:YES];
-                   self.mainarray = [sortedArray sortedArrayUsingDescriptors:@[sort]];
-                   [self.workflowsTable reloadData];
-               }
+            self.mainarray = [[NSMutableArray alloc]init];
+            [self.workflowsTable reloadData];
+            
+        }
+        else{
+            NSMutableArray *sortedArray = [[NSMutableArray alloc]init];
+            
+            sortedArray = [_searchResults mutableCopy];
+            
+            NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"WorkflowName" ascending:YES];
+            self.mainarray = [sortedArray sortedArrayUsingDescriptors:@[sort]];
+            [self.workflowsTable reloadData];
+        }
     }
 }
 

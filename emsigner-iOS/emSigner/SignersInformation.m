@@ -44,6 +44,7 @@
 @end
 
 @implementation SignersInformation
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -571,6 +572,7 @@
     
 }
 
+//Sign Button Clicked
 -(void)SignerActionInfo:(UIButton*)sender
 {
     //Aadu

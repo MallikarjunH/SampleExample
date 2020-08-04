@@ -82,6 +82,7 @@
     self.navigationController.navigationItem.title = @"Explore";
 }
 
+//Save or Next Button Action
 -(void) NextAction:(UIButton*)sender
 {
     //Adarsha
@@ -110,15 +111,17 @@
         
     } else {
         NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
-        NSString *  CategoryId = [[prefs valueForKey:@"workflowCategoryId"]stringValue];
+       // NSString *  CategoryId = [[prefs valueForKey:@"workflowCategoryId"]stringValue];
         NSString * base64data = [self createPdfWithName:@"sam" array:[NSArray arrayWithArray:_showMultImages]];
         
         NSData *convertToByrtes = [NSData dataWithContentsOfFile:base64data];
         NSString *base64image=[convertToByrtes base64EncodedStringWithOptions:0];
-        NSLog(@"Base64StringIS:%@", base64image);
+       // NSLog(@"Base64StringIS:%@", base64image);
         NSMutableDictionary * senddict = [[NSMutableDictionary alloc]init];
-        NSInteger categoryid = [CategoryId integerValue];
-        [senddict setValue:[NSNumber numberWithLong:categoryid] forKey:@"CategoryID"];
+        //NSInteger categoryid = [CategoryId integerValue]; //_workFlowId
+       // [senddict setValue:[NSNumber numberWithLong:categoryid] forKey:@"CategoryID"];
+        [senddict setValue:_workFlowId forKey:@"CategoryID"];
+        
         //[senddict setValue:CategoryId forKey:@"CategoryID"];
         [senddict setValue:base64image forKey:@"Base64FileData"];
         [senddict setValue:_categoryname forKey:@"DocumentNumber"];
@@ -127,6 +130,12 @@
         [_delegate sendDataToA:senddict];
         // parametersNotification
         [[NSNotificationCenter defaultCenter] postNotificationName:@"parametersNotification" object:senddict];
+        
+        NSDictionary* userInfo = @{@"attachemtDict": senddict };
+
+        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+        [nc postNotificationName:@"postAttachedDictData" object:self userInfo:userInfo];
+        
         //[self.navigationController popViewControllerAnimated:true];
         [self dismissViewControllerAnimated:true completion:nil];
         NSLog(@"%@",self.navigationController.viewControllers);}
