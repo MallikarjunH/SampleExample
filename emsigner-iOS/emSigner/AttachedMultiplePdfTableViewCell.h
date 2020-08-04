@@ -11,11 +11,14 @@
 @interface AttachedMultiplePdfTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *customView;
-@property (weak, nonatomic) IBOutlet UILabel *documentNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabelOfAttachment;
 @property (weak, nonatomic) IBOutlet UIImageView *pdfImage;
 @property (weak, nonatomic) IBOutlet UIButton *threedotsImageBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *noOfPages;
-@property (weak, nonatomic) IBOutlet UILabel *fileSize;
+@property (weak, nonatomic) IBOutlet UILabel *uploadedByNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fileSizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uploadedTimeLabel;
 
 @end

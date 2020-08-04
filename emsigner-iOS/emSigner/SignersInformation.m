@@ -104,7 +104,8 @@
                                              selector:@selector(receiveDeleteNotification:)
                                                  name:@"signersParameters"
                                                object:nil];
-    self.title = @"Employee Onboarding";
+    //self.title = @"Employee Onboarding";
+    self.title = _navigationTitle;
     tick = false;
     
 }

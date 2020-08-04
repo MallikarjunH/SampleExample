@@ -33,6 +33,7 @@
     PDFDocument *pdfDocument;
     NSString * base64String;
     NSURL *refURL;
+    NSDictionary * attachedDict;
     
 }
 
@@ -50,6 +51,7 @@
     _attachedToolBar.hidden = YES;
     
     [_uploadAttachment setTitle:@"Send Attachments" forState:UIControlStateNormal];
+   // _isAttached = false;
     
  /*   if (_isAttached == true){
         //elf.descText.hidden = false;
@@ -171,18 +173,45 @@
 -(void) triggerAction:(NSNotification *) notification
 {
     NSLog(@"Received Notification - Received Attachment");
+    attachedDict = [[NSDictionary alloc] init];
     
     NSDictionary *dict = notification.userInfo;
-    NSLog(@"Attachement Dict: %@",dict);
+    attachedDict = dict;
+  
+    if(dict.count > 0){
+        
+        attachedDict = dict;
+     /*   NSDictionary * attachmentDict = [dict valueForKey:@"attachemtDict"];
+        NSString * base64FileData = [attachmentDict valueForKey:@"Base64FileData"];
+        NSString * documentName = [attachmentDict valueForKey:@"DocumentName"]; */
+        //NSString * optionalPara = [attachmentDict valueForKey:@"OptionalParam1"];
+        
+      //  [self callForUploadAttachments:_documentID :documentName :self.descText.text :base64FileData];
+        
+    }else{
+        
+    }
+   // NSLog(@"Attachement Dict: %@",dict);
+    
    /* YourDataObject *message = [dict valueForKey:@"message"]; //attachemtDict
     if (message != nil) {
         // do stuff here with your message data
     }*/
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    if ([self isBeingDismissed] == YES) ///presented view controller
+    {
+        // remove observer here
+        [[NSNotificationCenter defaultCenter] removeObserver:@"postAttachedDictData"];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:@"postAttachedDictData"];
+}
 
 -(void) addbtnTapped:(UIButton *)sender {
     NSLog(@"Click on Add Attachment");
+    
+    _isAttached = true;
     
     [[NSUserDefaults standardUserDefaults] setValue:self.descText.text forKey:@"desc"];
     
@@ -575,18 +604,59 @@
 {
     if (_listArray) {
         return [_listArray count];
+    }else{
+        return 1;
     }
-    return 1;
     
+   /* if (_listArray) {
+           return [_listArray count];
+       }
+    return 1; */
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     AttachedMultiplePdfTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AttachedPdfTableViewCell" forIndexPath:indexPath];
     
-    //Check Document Name
-    descriptionStr=[[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[[_listArray objectAtIndex:indexPath.row] objectForKey:@"DocumentName"]]];
-    if ([[_listArray objectAtIndex:indexPath.row] objectForKey:@"Description"] == (id)[NSNull null]) {
+    NSString * attachmentName =[[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[[_listArray objectAtIndex:indexPath.row] objectForKey:@"AttachmentName"]]];
+    NSString * description =[[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[[_listArray objectAtIndex:indexPath.row] objectForKey:@"Description"]]];
+    NSString * noOfPages =[[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[[_listArray objectAtIndex:indexPath.row] objectForKey:@"NoOfPages"]]];
+   // NSString * uploadedByName =[[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[[_listArray objectAtIndex:indexPath.row] objectForKey:@"NoOfPages"]]];
+    NSString * fileSize =[[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[[_listArray objectAtIndex:indexPath.row] objectForKey:@"FileSize"]]];
+    NSString * uploadedTime =[[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[[_listArray objectAtIndex:indexPath.row] objectForKey:@"UploadedDate"]]];
+    
+    cell.descriptionLabel.text = description;
+    cell.nameLabel.text = attachmentName;
+    cell.noOfPages.text =  [NSString stringWithFormat: @"Number Of Pages : %@",noOfPages];
+    cell.uploadedByNameLabel.text =  @"Some Name";//uploadedByName;
+    cell.fileSizeLabel.text =  [NSString stringWithFormat: @"File Size : %@ KB",fileSize];
+    
+     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+     [formatter setDateFormat:@"MM-dd-yyyy HH:mm:ss a"];
+     NSDate *dates = [formatter dateFromString:uploadedTime];
+     formatter.dateFormat = @"dd MMMM yyyy, HH:mm";
+     cell.uploadedTimeLabel.text = [NSString stringWithFormat:@"%@",[formatter stringFromDate:dates]];
+    
+    
+    [cell.threedotsImageBtn addTarget:self action:@selector(threeDots:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    UIView *bgColorView = [[UIView alloc] init];
+       bgColorView.backgroundColor = [UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+       [cell setSelectedBackgroundView:bgColorView];
+       
+       if(indexPath.row == _currentSelectedRow)
+       {
+           
+           [tableView
+            selectRowAtIndexPath:indexPath
+            animated:TRUE
+            scrollPosition:UITableViewScrollPositionNone
+            ];
+           
+       }
+    
+  /*  if ([[_listArray objectAtIndex:indexPath.row] objectForKey:@"Description"] == (id)[NSNull null]) {
         
     } else {
         cell.documentNameLabel.text = [[_listArray objectAtIndex:indexPath.row] objectForKey:@"Description"];
@@ -594,14 +664,13 @@
     
     cell.dateLabelOfAttachment.text = descriptionStr;
     cell.noOfPages.text = [NSString stringWithFormat: @"Number Of Pages : %@", [[_listArray objectAtIndex:indexPath.row] objectForKey:@"PageNumbers"]];
-    cell.fileSize.text = [NSString stringWithFormat: @"File Size : %@ KB", [[_listArray objectAtIndex:indexPath.row] objectForKey:@"FileSize"]];
+    cell.fileSize.text = [NSString stringWithFormat: @"File Size : %@ KB", [[_listArray objectAtIndex:indexPath.row] objectForKey:@"FileSize"]]; */
     //    NSString *dateFromArray = [[_listArray objectAtIndex:indexPath.row] objectForKey:@"UploadDateTime"];
     //
     //    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     //    [formatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
     //    NSDate *dates = [formatter dateFromString:dateFromArray];
-    [cell.threedotsImageBtn addTarget:self action:@selector(threeDots:) forControlEvents:UIControlEventTouchUpInside];
-    //
+    
     //    dateCategoryString = [NSString string];
     //
     //    NSArray* date= [[[_listArray valueForKey:@"UploadDateTime"]objectAtIndex:indexPath.row] componentsSeparatedByString:@" "];
@@ -617,22 +686,6 @@
     
     
     // cell.dateLabelOfAttachment.text = [dateCategoryString transformedValue:dates];
-    
-    UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
-    [cell setSelectedBackgroundView:bgColorView];
-    
-    if(indexPath.row == _currentSelectedRow)
-    {
-        
-        [tableView
-         selectRowAtIndexPath:indexPath
-         animated:TRUE
-         scrollPosition:UITableViewScrollPositionNone
-         ];
-        
-    }
-    
     //
     return cell;
 }
@@ -640,7 +693,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 100.0;
+    return 120.0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1315,19 +1368,30 @@
         [self presentViewController:alert animated:true completion:nil];
     } else {
         
+       
         [[NSUserDefaults standardUserDefaults] setValue:self.descText.text forKey:@"desc"];
-    
-            UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UploadDocuments *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"UploadDocuments"];
-           // objTrackOrderVC.delegate = self;
-            objTrackOrderVC.uploadAttachment = true;
-            objTrackOrderVC.isDocStore = true;
-            objTrackOrderVC.documentId = _documentID;
-            objTrackOrderVC.post = _parametersForWorkflow;
-            objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
-            UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
-            [self presentViewController:objNavigationController animated:true completion:nil];
         
+        [self callForUploadAttachments:_documentID :_documentName :self.descText.text :_base64Image];
+        
+      /*  if(_isAttached == true){
+            NSLog(@"Attached Dcouemtn - True");
+        }else{
+             NSLog(@"Attached Dcouemtn - False");
+        }
+        
+        if (attachedDict.count > 0){
+             NSLog(@"Attach Dict is not empty");
+        }else{
+            NSLog(@"Attach - Attachment Data First");
+        } */
+        
+      /*  NSDictionary * attachmentDict = [dict valueForKey:@"attachemtDict"];
+        NSString * base64FileData = [attachmentDict valueForKey:@"Base64FileData"];
+        NSString * documentName = [attachmentDict valueForKey:@"DocumentName"];*/
+          
+      //  [self callForUploadAttachments:_documentID :_documentName :self.descText.text :_base64Image];
+        
+      
         /*if (_isAttached == false) {
             UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UploadDocuments *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"UploadDocuments"];
@@ -1466,9 +1530,23 @@
                     //   [self getAttachments];
                     // }
                     
+                    NSArray * msgArr = [responseValue valueForKey:@"Messages"];
+                    NSString *msg = @"";
+                    
+                    if (msgArr == (id)[NSNull null]){
+                        msg = @"No Message Found";
+                    }else{
+                        if (msgArr.count > 0){
+                             msg = [msgArr objectAtIndex:0];
+                        }else{
+                            msg = @"Uploaded Successfully";
+                        }
+                    }
+                    
+                    
                     UIAlertController * alert = [UIAlertController
                                                  alertControllerWithTitle:@""
-                                                 message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0]
+                                                 message:msg
                                                  preferredStyle:UIAlertControllerStyleAlert];
                     
                     //Add Buttons

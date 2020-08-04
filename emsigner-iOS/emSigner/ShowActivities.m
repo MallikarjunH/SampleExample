@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view from its nib.
     _showActivities.delegate = self;
     _showActivities.dataSource = self;
+    
     MutableCategoryName = [[NSMutableString alloc]initWithString:_categoryname];
     self.showActivities.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     

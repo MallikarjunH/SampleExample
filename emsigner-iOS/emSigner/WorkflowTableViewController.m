@@ -379,7 +379,8 @@ static int const kHeaderSectionTag = 6900;
         NSUInteger length = [[d valueForKey:@"TemplateName"] length];
         
         if (length >2) {
-            CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
+           // CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
+            CategoryName  = [d valueForKey:@"TemplateName"];
         }
         else
         {
@@ -396,7 +397,8 @@ static int const kHeaderSectionTag = 6900;
         NSUInteger length = [[d valueForKey:@"TemplateName"] length];
         
         if (length >2) {
-            CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
+            //CategoryName  = [[d valueForKey:@"TemplateName"]substringToIndex:2];
+            CategoryName  = [d valueForKey:@"TemplateName"];
         }
         else
         {
