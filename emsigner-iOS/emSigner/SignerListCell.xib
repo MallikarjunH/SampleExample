@@ -17,28 +17,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwA-ox-Z8u">
-                        <rect key="frame" x="8" y="8" width="30" height="18"/>
+                        <rect key="frame" x="60" y="10" width="30" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="MA5-Ve-6ZI"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0h-XG-1o7">
-                        <rect key="frame" x="8" y="28" width="54" height="16"/>
+                        <rect key="frame" x="60" y="30" width="54" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="aXd-aX-v4z"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mE0-wz-0Gn">
+                        <rect key="frame" x="15" y="10" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="YIZ-bz-nTL"/>
+                            <constraint firstAttribute="height" constant="35" id="gLS-Jq-AwY"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ZwA-ox-Z8u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="P6f-9M-U0l"/>
-                    <constraint firstItem="T0h-XG-1o7" firstAttribute="top" secondItem="ZwA-ox-Z8u" secondAttribute="bottom" constant="2" id="c3m-Xs-PdW"/>
-                    <constraint firstItem="ZwA-ox-Z8u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gl9-20-t2T"/>
-                    <constraint firstItem="T0h-XG-1o7" firstAttribute="leading" secondItem="ZwA-ox-Z8u" secondAttribute="leading" id="uOI-Y0-PRq"/>
+                    <constraint firstItem="mE0-wz-0Gn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="HA7-nS-U7D"/>
+                    <constraint firstItem="ZwA-ox-Z8u" firstAttribute="leading" secondItem="mE0-wz-0Gn" secondAttribute="trailing" constant="10" id="RwT-8q-Opo"/>
+                    <constraint firstItem="T0h-XG-1o7" firstAttribute="leading" secondItem="mE0-wz-0Gn" secondAttribute="trailing" constant="10" id="Wpg-gJ-jBX"/>
+                    <constraint firstItem="T0h-XG-1o7" firstAttribute="top" secondItem="ZwA-ox-Z8u" secondAttribute="bottom" constant="2" id="hwj-5y-FyF"/>
+                    <constraint firstAttribute="bottom" secondItem="T0h-XG-1o7" secondAttribute="bottom" constant="6" id="tAF-lW-gfh"/>
+                    <constraint firstItem="ZwA-ox-Z8u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="z4q-A4-Xp2"/>
+                    <constraint firstItem="mE0-wz-0Gn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zsa-MN-arn"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="subTitle" destination="T0h-XG-1o7" id="6dX-f6-Jn6"/>
                 <outlet property="title" destination="ZwA-ox-Z8u" id="okH-CQ-6Xe"/>
+                <outlet property="userTypeImg" destination="mE0-wz-0Gn" id="uui-u8-Rx1"/>
             </connections>
             <point key="canvasLocation" x="132.80000000000001" y="111.54422788605699"/>
         </tableViewCell>

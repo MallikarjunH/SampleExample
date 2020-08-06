@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *tickImageView;
 @property (weak, nonatomic) IBOutlet UILabel *pageCount;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signersHeight;
+@property (weak, nonatomic) IBOutlet UILabel *documentNameLabel;
 
 @end
 

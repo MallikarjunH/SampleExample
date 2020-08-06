@@ -48,7 +48,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *descText;
 
 @property(nonatomic,strong) NSMutableArray *addFile;
+@property(nonatomic,strong) NSString *isFromWF;
 
 - (IBAction)cancelBtn:(id)sender;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendButtonHeightContraint;
+
+- (IBAction)sendButtonInitiateWorkFlowButtonAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *sendButtonInitiateWorkFlowButtonOutlet;
 
 @end

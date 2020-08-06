@@ -39,6 +39,7 @@
     NSMutableArray *SignTypeArray;
     NSMutableArray* getSigners;
     NSMutableArray * SignType;
+    NSString * uploadedDocumentName;
 }
 
 @end
@@ -89,6 +90,7 @@
     [self.signersInfoTable registerNib:[UINib nibWithNibName:@"SignersCellTableViewCell" bundle:nil] forCellReuseIdentifier:@"SignersCellTableViewCell"];
     
     self.signersInfoTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    uploadedDocumentName = @"";
     
     [self getWorkFlow:self.categoryId];
     // Do any additional setup after loading the view from its nib.
@@ -115,8 +117,16 @@
     {
         NSMutableDictionary *myDictionary = (NSMutableDictionary *)notification.object;
         
-        [myDictionary setObject: [myDictionary objectForKey: @"CategoryID"] forKey: @"TemplateId"];
-        [myDictionary removeObjectForKey: @"CategoryID"];
+        uploadedDocumentName = [myDictionary objectForKey:@"DocumentName"];
+       // [myDictionary setObject: [myDictionary objectForKey: @"CategoryID"] forKey: @"TemplateId"];
+        //[myDictionary removeObjectForKey: @"CategoryID"];
+        
+        if ([myDictionary objectForKey:@"CategoryID"]) {
+           [myDictionary setObject: [myDictionary objectForKey: @"CategoryID"] forKey: @"TemplateId"];
+        }
+        if ([myDictionary objectForKey:@"CategoryID"]) {
+            [myDictionary removeObjectForKey: @"CategoryID"];
+        }
         
         [self.finalarray addObject:myDictionary];
        
@@ -386,7 +396,6 @@
     return 68;
 }
 
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UploadHeader *header = [_signersInfoTable dequeueReusableHeaderFooterViewWithIdentifier:@"UploadHeader"];
     
@@ -414,6 +423,7 @@
     cell.signerslbl.text = [[_signersArray objectAtIndex:indexPath.row]valueForKey:@"DocumentName"];
     [cell.SignerInfo addTarget:self action:@selector(SignerActionInfo:) forControlEvents:UIControlEventTouchUpInside];
     cell.pageCount.text = [NSString stringWithFormat:@"%@",[[_signersArray objectAtIndex:indexPath.row]valueForKey:@"PageSize"] ];
+    cell.documentNameLabel.text = uploadedDocumentName;
     
     if (signatoriesimg == false) {
         cell.SignerInfo.hidden = true;
@@ -501,7 +511,10 @@
     objTrackOrderVC.delegate = self;
     objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
     UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
-    objNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+    //objNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+    if (@available(iOS 13.0, *)) {
+     [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+    }
     [self presentViewController:objNavigationController animated:true completion:nil];
     
     //  [self.navigationController pushViewController:objTrackOrderVC animated:YES];
@@ -642,6 +655,9 @@
                 [objTrackOrderVC setModalPresentationStyle:UIModalPresentationFullScreen];
                 
                 UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
+                if (@available(iOS 13.0, *)) {
+                 [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+                }
                 [self presentViewController:objNavigationController animated:true completion:nil];
                 [self stopActivity];
                 
@@ -708,34 +724,34 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
- 
+    
     if (_getAllSigners.count > 0){
-    if (_signersArray.count > 1) {
-        switch (indexPath.row) {
-            case 0:
-                
-                if (_uniqueA.count >= 1) {
+        if (_signersArray.count > 1) {
+            switch (indexPath.row) {
+                case 0:
                     
-                 return 110;
-                    
-                } else return 50;
-                break;
-            case 1:
-                if (_uniqueA.count >= 2) {
-                     
-                    return 110;
-                     
-                 } else return 50;
-                break;
-            default:
-                return 50;
-                break;
+                    if (_uniqueA.count >= 1) {
+                        
+                        return 110; //return 110;
+                        
+                    } else return 50;
+                    break;
+                case 1:
+                    if (_uniqueA.count >= 2) {
+                        
+                        return 110;// return 110;
+                        
+                    } else return 50;
+                    break;
+                default:
+                    return 50;
+                    break;
+            }
+        } else {
+            return 60;// return 50;
         }
     } else {
-        return 50;
-    }
-    } else {
-        return 50;
+        return 60; //return 50;
     }
     
 }
@@ -858,6 +874,8 @@
  }
  */
 }
+
+//Send for Signature Button Click
 - (IBAction)uploadSignatories:(id)sender {
     
     if ([_getAllSign.firstObject containsObject:@"ME"]) {
@@ -943,7 +961,7 @@
                 AttachedVC *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"AttachedVC"];
                 objTrackOrderVC.documentID = [NSString stringWithFormat:@"%@",[_signersArray[0]valueForKey:@"DocumentID"]];
                 objTrackOrderVC.parametersForWorkflow = _post;
-             
+                objTrackOrderVC.isFromWF = @"Y";
                 objTrackOrderVC.document = @"ListAttachments";
                 UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
                 [self presentViewController:objNavigationController animated:true completion:nil];
@@ -1202,9 +1220,10 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AttachedVC *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"AttachedVC"];
-        objTrackOrderVC.documentID = [NSString stringWithFormat:@"%@",[_signersArray[0]valueForKey:@"DocumentID"]];
-        objTrackOrderVC.parametersForWorkflow = _post;
+        objTrackOrderVC.documentID = [NSString stringWithFormat:@"%@",[self->_signersArray[0]valueForKey:@"DocumentID"]];
+        objTrackOrderVC.parametersForWorkflow = self->_post;
         objTrackOrderVC.document = @"ListAttachments";
+        objTrackOrderVC.isFromWF = @"Y";
         objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
         objNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;

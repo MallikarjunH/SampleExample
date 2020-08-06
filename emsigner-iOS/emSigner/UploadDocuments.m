@@ -323,7 +323,7 @@
         previewVC.categoryname = self.categoryname;
         previewVC.documentName = self.documentName;
         previewVC.documentId = self.documentId;
-        previewVC.workflowId = self.workflowId;
+        previewVC.workflowId = self.workflowId; //document id
         previewVC.uploadAttachment = self.uploadAttachment;
         previewVC.post = self.post;
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:previewVC];

@@ -535,7 +535,7 @@ NSString *const MPBSignatureViewBundleName = @"MPBSignatureViewResources";
 
             objTrackOrderVC.parametersForWorkflow = _gotParametersForInitiateWorkFlow;
             objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
-            
+            objTrackOrderVC.isFromWF = @"N";
                        UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
                          self.continueBlock([self signature]);
                        [self presentViewController:objNavigationController animated:true completion:nil];

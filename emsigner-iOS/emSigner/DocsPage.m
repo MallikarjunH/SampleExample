@@ -147,7 +147,7 @@
                                }
                                
                            });
-            [self stopActivity];
+           // [self stopActivity];
 
         }
         else{
@@ -190,7 +190,7 @@
 
 -(void)profileDetails
 {
-    //[self startActivity:@"Loading..."];
+    [self startActivity:@"Loading..."];
     NSString *requestURL = [NSString stringWithFormat:@"%@AccountProfile",kMyProfile];
     
     [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
@@ -225,7 +225,7 @@
         else{
             
           
-            
+            [self stopActivity];
             //Add Buttons
             dispatch_async(dispatch_get_main_queue(),
                            ^{

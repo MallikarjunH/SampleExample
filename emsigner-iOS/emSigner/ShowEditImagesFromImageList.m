@@ -104,6 +104,7 @@
         objTrackOrderVC.parametersForWorkflow = _post;
         objTrackOrderVC.isDocStore = true;;
         objTrackOrderVC.document = @"ListAttachments";
+        objTrackOrderVC.isFromWF = @"N";
         
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
         [self presentViewController:objNavigationController animated:true completion:nil];

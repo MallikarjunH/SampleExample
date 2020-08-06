@@ -732,6 +732,7 @@ BOOL _isRotating;
             objTrackOrderVC.document = @"Attached Documents";
             objTrackOrderVC.isAttached = true;
             objTrackOrderVC.isDocStore = true;
+            objTrackOrderVC.isFromWF = @"N";
             UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
             if (@available(iOS 13.0, *)) {
                [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];

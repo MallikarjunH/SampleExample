@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SignerListCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *subTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *userTypeImg;
 
 @end
 

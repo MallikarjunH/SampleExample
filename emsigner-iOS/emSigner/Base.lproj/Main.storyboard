@@ -778,7 +778,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwX-nN-KiK">
-                                <rect key="frame" x="243" y="199" width="60" height="60"/>
+                                <rect key="frame" x="243" y="214" width="30" height="30"/>
                                 <state key="normal" image="Refresh-30"/>
                                 <connections>
                                     <action selector="reloadBtnPressed:" destination="ger-0i-mkV" eventType="touchUpInside" id="zp9-LB-hQe"/>
@@ -1672,13 +1672,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vnY-q8-o6O">
-                                <rect key="frame" x="0.0" y="145" width="320" height="379"/>
+                                <rect key="frame" x="0.0" y="145" width="320" height="339"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="EiM-8m-2ni" id="t9J-qo-w0w"/>
                                     <outlet property="delegate" destination="EiM-8m-2ni" id="kyp-u2-R6K"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" id="AfZ-o7-kRC">
+                                <rect key="frame" x="16" y="0.0" width="130" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-zb-ssO">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
@@ -1815,6 +1820,21 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laF-i1-K0f">
+                                <rect key="frame" x="202" y="484" width="108" height="40"/>
+                                <color key="backgroundColor" red="0.1595262885093689" green="0.36401769518852234" blue="0.81312590837478638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="bzC-V7-Fyk"/>
+                                    <constraint firstAttribute="height" constant="40" id="xgu-pj-80n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonInitiateWorkFlowButtonAction:" destination="EiM-8m-2ni" eventType="touchUpInside" id="y8D-s7-zyb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1823,12 +1843,14 @@
                             <constraint firstItem="cme-OI-NxR" firstAttribute="leading" secondItem="XFJ-x6-eVb" secondAttribute="leading" id="8oY-CO-4DZ"/>
                             <constraint firstItem="cme-OI-NxR" firstAttribute="trailing" secondItem="XFJ-x6-eVb" secondAttribute="trailing" id="Cbc-Gq-QMX"/>
                             <constraint firstItem="4kj-9R-R9W" firstAttribute="leading" secondItem="cme-OI-NxR" secondAttribute="leading" id="CqQ-Sv-UUh"/>
+                            <constraint firstAttribute="trailing" secondItem="laF-i1-K0f" secondAttribute="trailing" constant="10" id="EZ6-4a-O04"/>
                             <constraint firstItem="vnY-q8-o6O" firstAttribute="leading" secondItem="WHg-oI-Qwm" secondAttribute="leading" id="GJN-lx-r3f"/>
-                            <constraint firstItem="yOy-zb-ssO" firstAttribute="top" secondItem="vnY-q8-o6O" secondAttribute="bottom" id="I8t-Xt-wfj"/>
                             <constraint firstItem="3Nj-0U-UYY" firstAttribute="top" secondItem="yOy-zb-ssO" secondAttribute="bottom" id="IKR-O2-278"/>
                             <constraint firstItem="cme-OI-NxR" firstAttribute="top" secondItem="XFJ-x6-eVb" secondAttribute="bottom" constant="8" id="Kny-0A-Yh0"/>
                             <constraint firstAttribute="trailing" secondItem="yOy-zb-ssO" secondAttribute="trailing" id="MAI-v4-Q1J"/>
                             <constraint firstItem="3Nj-0U-UYY" firstAttribute="top" secondItem="yOy-zb-ssO" secondAttribute="bottom" id="XZd-4a-fNb"/>
+                            <constraint firstItem="yOy-zb-ssO" firstAttribute="top" secondItem="laF-i1-K0f" secondAttribute="bottom" id="avw-an-jHm"/>
+                            <constraint firstItem="laF-i1-K0f" firstAttribute="top" secondItem="vnY-q8-o6O" secondAttribute="bottom" id="cp1-jX-tiL"/>
                             <constraint firstItem="vnY-q8-o6O" firstAttribute="top" secondItem="cme-OI-NxR" secondAttribute="bottom" constant="30" id="dau-1n-pgF"/>
                             <constraint firstAttribute="trailing" secondItem="yOy-zb-ssO" secondAttribute="trailing" id="ebB-pN-JFq"/>
                             <constraint firstItem="yOy-zb-ssO" firstAttribute="leading" secondItem="WHg-oI-Qwm" secondAttribute="leading" id="ixY-WR-Uqv"/>
@@ -1849,12 +1871,14 @@
                         <outlet property="documentView" destination="S8h-55-Xxu" id="OaP-ps-wRi"/>
                         <outlet property="downloadBtn" destination="l92-wy-fvY" id="bDg-4r-FsR"/>
                         <outlet property="inactiveBtn" destination="0py-ub-JXc" id="GcU-EA-mdb"/>
+                        <outlet property="sendButtonHeightContraint" destination="xgu-pj-80n" id="Y9P-dZ-dv7"/>
+                        <outlet property="sendButtonInitiateWorkFlowButtonOutlet" destination="laF-i1-K0f" id="mTB-QJ-aPW"/>
                         <outlet property="uploadAttachment" destination="cme-OI-NxR" id="rrY-dr-unh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoY-Sd-QVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4266.666666666667" y="525"/>
+            <point key="canvasLocation" x="4265.625" y="525"/>
         </scene>
         <!--Document InfoVC-->
         <scene sceneID="ZaC-TC-nIM">

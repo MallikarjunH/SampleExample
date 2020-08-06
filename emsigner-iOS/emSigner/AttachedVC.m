@@ -312,6 +312,11 @@
     }
 }
 
+- (IBAction)sendButtonInitiateWorkFlowButtonAction:(id)sender {
+    
+    [self initiateWorkFlow];
+}
+
 -(void)initiateWorkFlow{
     
     [self startActivity:@""];
@@ -406,6 +411,20 @@
     //EMIOS-1108
     NSString *desc = [[NSUserDefaults standardUserDefaults] stringForKey:@"desc"];
     self.descText.text = desc;
+    
+    if ([_isFromWF isEqualToString:@"Y"]){
+        dispatch_async(dispatch_get_main_queue(),
+        ^{
+            self->_sendButtonHeightContraint.constant = 40;
+            self->_sendButtonInitiateWorkFlowButtonOutlet.hidden = NO;
+         });
+    }else{
+        dispatch_async(dispatch_get_main_queue(),
+        ^{
+            self->_sendButtonHeightContraint.constant = 0;
+            self->_sendButtonInitiateWorkFlowButtonOutlet.hidden = YES;
+         });
+    }
     
 }
 
@@ -1368,10 +1387,22 @@
         [self presentViewController:alert animated:true completion:nil];
     } else {
         
-       
-        [[NSUserDefaults standardUserDefaults] setValue:self.descText.text forKey:@"desc"];
+       //Test
+        if([_isFromWF isEqualToString:@"Y"]) {
+            
+            [self initiateWorkFlow];
+        }else{
+            
+            [[NSUserDefaults standardUserDefaults] setValue:self.descText.text forKey:@"desc"];
+                   
+             [self callForUploadAttachments:_documentID :_documentName :self.descText.text :_base64Image];
+        }
+        //Test
         
-        [self callForUploadAttachments:_documentID :_documentName :self.descText.text :_base64Image];
+        
+       /*  [[NSUserDefaults standardUserDefaults] setValue:self.descText.text forKey:@"desc"];
+               
+         [self callForUploadAttachments:_documentID :_documentName :self.descText.text :_base64Image]; */
         
       /*  if(_isAttached == true){
             NSLog(@"Attached Dcouemtn - True");
@@ -1730,5 +1761,6 @@
  // Pass the selected object to the new view controller.
  }
  */
+
 
 @end

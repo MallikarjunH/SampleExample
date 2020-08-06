@@ -22,12 +22,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lty-JX-0lJ">
-                        <rect key="frame" x="16" y="54" width="205" height="40"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lty-JX-0lJ">
+                        <rect key="frame" x="16" y="60" width="205" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="HF4-DZ-swr"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ibe-T8-yiq">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -87,33 +85,42 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8w9-y5-xmL">
+                        <rect key="frame" x="16" y="34" width="270" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Yi9-TZ-uqc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fQS-fk-vGy" firstAttribute="top" secondItem="BzI-on-QFJ" secondAttribute="top" id="12O-aH-y2U"/>
                     <constraint firstItem="BzI-on-QFJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1Ge-70-CFO"/>
                     <constraint firstItem="F2R-2s-KF9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="673-ER-pLa"/>
-                    <constraint firstItem="lty-JX-0lJ" firstAttribute="top" secondItem="BzI-on-QFJ" secondAttribute="bottom" constant="25" id="67J-3S-hwR"/>
                     <constraint firstItem="fQS-fk-vGy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6Jd-hs-BaA"/>
                     <constraint firstAttribute="trailing" secondItem="EQG-Z7-6SR" secondAttribute="trailing" constant="6" id="Bxq-4G-z4E"/>
-                    <constraint firstItem="lty-JX-0lJ" firstAttribute="leading" secondItem="BzI-on-QFJ" secondAttribute="leading" id="D45-pJ-uVd"/>
                     <constraint firstAttribute="trailing" secondItem="F2R-2s-KF9" secondAttribute="trailing" constant="6" id="E4b-38-rlg"/>
                     <constraint firstItem="BzI-on-QFJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Fdl-9s-ncO"/>
                     <constraint firstItem="8Ac-vm-UBi" firstAttribute="leading" secondItem="BzI-on-QFJ" secondAttribute="trailing" constant="5" id="Hsv-Hh-4MN"/>
                     <constraint firstItem="8Ac-vm-UBi" firstAttribute="top" secondItem="BzI-on-QFJ" secondAttribute="top" id="Kem-zq-2kQ"/>
+                    <constraint firstItem="8w9-y5-xmL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Mu6-bX-Csg"/>
+                    <constraint firstItem="8w9-y5-xmL" firstAttribute="top" secondItem="BzI-on-QFJ" secondAttribute="bottom" constant="5" id="Qpg-el-YPC"/>
                     <constraint firstItem="F2R-2s-KF9" firstAttribute="leading" secondItem="LzD-CM-IV1" secondAttribute="trailing" id="W2f-5X-ft4"/>
                     <constraint firstItem="EQG-Z7-6SR" firstAttribute="centerY" secondItem="fQS-fk-vGy" secondAttribute="centerY" id="aYL-UW-Kts"/>
                     <constraint firstItem="EQG-Z7-6SR" firstAttribute="leading" secondItem="fQS-fk-vGy" secondAttribute="trailing" constant="5" id="b2L-fB-xIa"/>
                     <constraint firstItem="LzD-CM-IV1" firstAttribute="top" secondItem="F2R-2s-KF9" secondAttribute="top" id="dOZ-YP-Xy4"/>
-                    <constraint firstAttribute="trailing" secondItem="lty-JX-0lJ" secondAttribute="trailing" constant="81" id="gka-a7-fO9"/>
                     <constraint firstItem="F2R-2s-KF9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-2.75" id="j8g-nq-O70"/>
+                    <constraint firstItem="EQG-Z7-6SR" firstAttribute="leading" secondItem="8w9-y5-xmL" secondAttribute="trailing" constant="10" id="svD-iy-9kj"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="SignerInfo" destination="F2R-2s-KF9" id="pxJ-3b-cCB"/>
+                <outlet property="documentNameLabel" destination="8w9-y5-xmL" id="ilS-Wa-UAF"/>
                 <outlet property="infoBtn" destination="EQG-Z7-6SR" id="2fg-1c-GZA"/>
                 <outlet property="pageCount" destination="8Ac-vm-UBi" id="edg-ug-ZLd"/>
                 <outlet property="signersCollectionView" destination="lty-JX-0lJ" id="vZp-ad-w2Y"/>
-                <outlet property="signersHeight" destination="HF4-DZ-swr" id="sLX-qs-7ai"/>
                 <outlet property="signerslbl" destination="BzI-on-QFJ" id="KhT-Lf-FgY"/>
                 <outlet property="tickImageView" destination="LzD-CM-IV1" id="33P-7P-oRd"/>
                 <outlet property="uploaddocument" destination="fQS-fk-vGy" id="ACs-PR-ZPX"/>
