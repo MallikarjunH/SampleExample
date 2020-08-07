@@ -85,20 +85,27 @@
 //Save or Next Button Action
 -(void) NextAction:(UIButton*)sender
 {
-    //Adarsha
-    
+    //Get todays date and time - to set file name
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"ddMMyyyy_mmss"];
+    NSString *dateString = [dateFormat stringFromDate:today];
+    //NSLog(@"date: %@", dateString);
     
     if (_uploadAttachment == true) {
         UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AttachedVC *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"AttachedVC"];
         // objTrackOrderVC.workFlowId = _workFlowID;
         
-        NSString * base64data = [self createPdfWithName:@"sam" array:[NSArray arrayWithArray:_showMultImages]];
+        //NSString * base64data = [self createPdfWithName:@"sam" array:[NSArray arrayWithArray:_showMultImages]];
+         NSString * base64data = [self createPdfWithName:[NSString stringWithFormat:@"document_%@",dateString] array:[NSArray arrayWithArray:_showMultImages]];
+         NSString* theFileName = [base64data lastPathComponent];
         
         NSData *convertToByrtes = [NSData dataWithContentsOfFile:base64data];
         NSString *base64image=[convertToByrtes base64EncodedStringWithOptions:0];
         objTrackOrderVC.base64Image = base64image;
-        objTrackOrderVC.documentName = _documentName;
+        //objTrackOrderVC.documentName = _documentName;
+        objTrackOrderVC.documentName = theFileName;
         objTrackOrderVC.isAttached = true;
         objTrackOrderVC.documentID = _documentId;
         objTrackOrderVC.parametersForWorkflow = _post;
@@ -114,7 +121,10 @@
     } else {
         NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
        // NSString *  CategoryId = [[prefs valueForKey:@"workflowCategoryId"]stringValue];
-        NSString * base64data = [self createPdfWithName:@"sam" array:[NSArray arrayWithArray:_showMultImages]];
+        
+      // NSString * base64data = [self createPdfWithName:@"sam" array:[NSArray arrayWithArray:_showMultImages]];
+       NSString * base64data = [self createPdfWithName:[NSString stringWithFormat:@"document_%@",dateString] array:[NSArray arrayWithArray:_showMultImages]];
+        NSString* theFileName = [base64data lastPathComponent];
         
         NSData *convertToByrtes = [NSData dataWithContentsOfFile:base64data];
         NSString *base64image=[convertToByrtes base64EncodedStringWithOptions:0];
@@ -127,7 +137,8 @@
         //[senddict setValue:CategoryId forKey:@"CategoryID"];
         [senddict setValue:base64image forKey:@"Base64FileData"];
         [senddict setValue:_categoryname forKey:@"DocumentNumber"];
-        [senddict setValue:_documentName forKey:@"DocumentName"];
+       // [senddict setValue:_documentName forKey:@"DocumentName"];
+        [senddict setValue:theFileName forKey:@"DocumentName"];
         [senddict setValue:@"" forKey:@"OptionalParam1"];
         [_delegate sendDataToA:senddict];
         // parametersNotification

@@ -56,6 +56,8 @@
     BOOL isdelegate;
     BOOL isopened;
     
+    NSString * dateValue;
+    NSString * timeValue;
 }
 @property (nonatomic) UIViewController *selectedController;
 
@@ -68,6 +70,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    dateValue = @"";
+    timeValue = @"";
     
     _pdfImageArray = [[NSMutableArray alloc] init];
     _addFile = [[NSMutableArray alloc] init];
@@ -494,14 +498,22 @@
    //_filterArray =  [_filterArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     //Decline
     NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @" "];
-   // NSDate* firstBit = [date objectAtIndex: 0];
-   // NSDate *secondBit = [date objectAtIndex:1];
+   
+    if (date.count > 0){
+        NSDate* firstBit = [date objectAtIndex: 0];
+        NSDate *secondBit = [date objectAtIndex:1];
+        NSDate *thirdBit = [date objectAtIndex:2];
+        
+        dateValue = [NSString stringWithFormat:@"%@",firstBit];
+        timeValue = [NSString stringWithFormat:@"%@ %@",secondBit,thirdBit];
+    }
     
-    NSString *dateFromArray = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
-    NSDate *dates = [formatter dateFromString:dateFromArray];
+  //  NSString *dateFromArray = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"];
+    
+  //  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  //  [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+  //  NSDate *dates = [formatter dateFromString:dateFromArray];
     
     if(_searchResults == nil || _searchResults.count == 0){
     
@@ -521,11 +533,14 @@
         cell5.documentName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
         cell5.profileName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
         
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+       // NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
         
-        dateCategoryString = [NSString string];
-        cell5.dateLable.text = [dateCategoryString transformedValue:dates];
-        cell5.timeLabel.text = [date objectAtIndex:1];
+        //dateCategoryString = [NSString string];
+        //cell5.dateLable.text = [dateCategoryString transformedValue:dates];
+        //cell5.timeLabel.text = [date objectAtIndex:1];
+        cell5.dateLable.text = dateValue;
+        cell5.timeLabel.text = timeValue;
+        
         long numberOfAttachmentString = [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"NoofAttachment"]intValue];
         
         cell5.attachmentsImage.hidden = YES;
@@ -555,7 +570,7 @@
         
         cell2.ownerName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
         cell2.pdfImage.image = [UIImage imageNamed: @"pending-1x.png"];
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+        //NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
         
         //[[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"SignatureType"]integerValue] == 2 ||
         
@@ -568,9 +583,11 @@
             cell2.docInfoBtn.hidden = NO;
             
         }
-        dateCategoryString = [NSString string];
-        cell2.dateLable.text = [dateCategoryString transformedValue:dates];
-        cell2.timeLabel.text = [date objectAtIndex:1];
+        //dateCategoryString = [NSString string];
+       // cell2.dateLable.text = [dateCategoryString transformedValue:dates];
+       // cell2.timeLabel.text = [date objectAtIndex:1];
+        cell2.dateLable.text = dateValue;
+        cell2.timeLabel.text = timeValue;
 
         long numberOfAttachmentString = [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"IsAttachment"]intValue];
         
@@ -606,11 +623,13 @@
         cell9.documentName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DocumentName"];
         cell9.pdfImage.image = [UIImage imageNamed: @"ico-waiting-32.png"];
         cell9.ownerName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
-        dateCategoryString = [NSString string];
-        cell9.dateLable.text = [dateCategoryString transformedValue:dates];
-        cell9.timeLabel.text = [date objectAtIndex:1];
-
+       // NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+       // dateCategoryString = [NSString string];
+        //cell9.dateLable.text = [dateCategoryString transformedValue:dates];
+        //cell9.timeLabel.text = [date objectAtIndex:1];
+        cell9.dateLable.text = dateValue;
+        cell9.timeLabel.text = timeValue;
+        
         if ([[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 2 || [[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 4 || [[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 5 )
         {
             cell9.docInfoBtn.hidden = YES;
@@ -654,13 +673,14 @@
         cell3.pdfImage.image = [UIImage imageNamed:@"completed-1x.png"];
 
         cell3.ownerName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+       // NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
        // NSString* firstBit = [date objectAtIndex: 0];
         
-        dateCategoryString = [NSString string];
-        cell3.dateLable.text = [dateCategoryString transformedValue:dates];
-        cell3.timeLabel.text = [date objectAtIndex:1];
-
+       // dateCategoryString = [NSString string];
+        //cell3.dateLable.text = [dateCategoryString transformedValue:dates];
+        //cell3.timeLabel.text = [date objectAtIndex:1];
+        cell3.dateLable.text = dateValue;
+        cell3.timeLabel.text = timeValue;
         
         if ([[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 2 || [[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 4 || [[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 5 )
         {
@@ -704,12 +724,14 @@
         cell4.mName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
         
         cell4.Lable1.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadedDatetime"] componentsSeparatedByString: @"T"];
-        NSString* firstBit = [date objectAtIndex: 0];
+      //  NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadedDatetime"] componentsSeparatedByString: @"T"];
+       // NSString* firstBit = [date objectAtIndex: 0];
         
-        dateCategoryString = [NSString string];
-        cell4.dateLable.text = [dateCategoryString transformedValue:dates];
-        cell4.timeLabel.text = [date objectAtIndex:1];
+       // dateCategoryString = [NSString string];
+       // cell4.dateLable.text = [dateCategoryString transformedValue:dates];
+        //cell4.timeLabel.text = [date objectAtIndex:1];
+        cell4.dateLable.text = dateValue;
+        cell4.timeLabel.text = timeValue;
 
         cell4.pdfImage.image = [UIImage imageNamed:@"recalled-1x.png"];
         cell4.docInfoBtn.imageView.image = [UIImage imageNamed:@"doc-info-1x.png"];
@@ -739,12 +761,14 @@
         cell1.mLable1.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
         cell1.pdfImage.image = [UIImage imageNamed: @"draft-1x.png"];
         cell1.mName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
-        NSString* firstBit = [date objectAtIndex: 0];
+       // NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+       // NSString* firstBit = [date objectAtIndex: 0];
         
-        dateCategoryString = [NSString string];
-        cell1.mdate.text = [dateCategoryString transformedValue:dates];
-        cell1.timeLabel.text = [date objectAtIndex:1];
+       // dateCategoryString = [NSString string];
+       // cell1.mdate.text = [dateCategoryString transformedValue:dates];
+       // cell1.timeLabel.text = [date objectAtIndex:1];
+        cell1.mdate.text = dateValue;
+        cell1.timeLabel.text = timeValue;
         cell1.pdfImage.image = [UIImage imageNamed: @"ico_inacive.png"];
         
         return cell1;
@@ -764,12 +788,14 @@
         cell1.mLable1.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
         cell1.pdfImage.image = [UIImage imageNamed: @"draft-1x.png"];
         cell1.mName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"'T'"];
-        NSString* firstBit = [date objectAtIndex: 0];
+       // NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"'T'"];
+       // NSString* firstBit = [date objectAtIndex: 0];
         
-        dateCategoryString = [NSString string];
-        cell1.mdate.text = [dateCategoryString transformedValue:dates];
-        cell1.timeLabel.text = [date objectAtIndex:1];
+        //dateCategoryString = [NSString string];
+       // cell1.mdate.text = [dateCategoryString transformedValue:dates];
+       // cell1.timeLabel.text = [date objectAtIndex:1];
+        cell1.mdate.text = dateValue;
+        cell1.timeLabel.text = timeValue;
 
         cell1.pdfImage.image = [UIImage imageNamed: @"ico-doc.png"];
         
@@ -792,12 +818,16 @@
         cell1.mLable1.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
         cell1.pdfImage.image = [UIImage imageNamed: @"draft-1x.png"];
         cell1.mName.text = [[_filterArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
-        NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadedTime"] componentsSeparatedByString: @"T"];
+       // NSArray* date= [[[_filterArray objectAtIndex:indexPath.row] objectForKey:@"UploadedTime"] componentsSeparatedByString: @"T"];
       //  NSString* firstBit = [date objectAtIndex: 0];
         
-        dateCategoryString = [NSString string];
-        cell1.mdate.text = [dateCategoryString transformedValue:dates];
-        cell1.timeLabel.text = [date objectAtIndex:1];
+       // dateCategoryString = [NSString string];
+       // cell1.mdate.text = [dateCategoryString transformedValue:dates];
+       // cell1.timeLabel.text = [date objectAtIndex:1];
+        cell1.mdate.text = dateValue;
+        cell1.timeLabel.text = timeValue;
+        
+        
         return cell1;
     }
     } else {
@@ -816,11 +846,14 @@
                cell5.documentName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DocumentName"];
                cell5.profileName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
                
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"'T'"];
+              // NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"'T'"];
                
-               dateCategoryString = [NSString string];
-               cell5.dateLable.text = [dateCategoryString transformedValue:dates];
-               cell5.timeLabel.text = [date objectAtIndex:1];
+               //dateCategoryString = [NSString string];
+              // cell5.dateLable.text = [dateCategoryString transformedValue:dates];
+              // cell5.timeLabel.text = [date objectAtIndex:1];
+               cell5.dateLable.text = dateValue;
+               cell5.timeLabel.text = timeValue;
+               
                long numberOfAttachmentString = [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"NoofAttachment"]intValue];
                
                cell5.attachmentsImage.hidden = YES;
@@ -850,7 +883,7 @@
                
                cell2.ownerName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
                cell2.pdfImage.image = [UIImage imageNamed: @"pending-1x.png"];
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+              // NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
                
                //[[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"SignatureType"]integerValue] == 2 ||
                
@@ -863,10 +896,13 @@
                    cell2.docInfoBtn.hidden = NO;
                    
                }
-               dateCategoryString = [NSString string];
-               cell2.dateLable.text = [dateCategoryString transformedValue:dates];
-               cell2.timeLabel.text = [date objectAtIndex:1];
+              // dateCategoryString = [NSString string];
+              // cell2.dateLable.text = [dateCategoryString transformedValue:dates];
+              // cell2.timeLabel.text = [date objectAtIndex:1];
+               cell2.dateLable.text = dateValue;
+               cell2.timeLabel.text = timeValue;
 
+               
                long numberOfAttachmentString = [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"NoofAttachment"]intValue];
                
                if (numberOfAttachmentString == 0) {
@@ -901,11 +937,14 @@
                cell9.documentName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DocumentName"];
                cell9.pdfImage.image = [UIImage imageNamed: @"ico-waiting-32.png"];
                cell9.ownerName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
-               dateCategoryString = [NSString string];
-               cell9.dateLable.text = [dateCategoryString transformedValue:dates];
-               cell9.timeLabel.text = [date objectAtIndex:1];
-
+              // NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+               
+               //dateCategoryString = [NSString string];
+               //cell9.dateLable.text = [dateCategoryString transformedValue:dates];
+               //cell9.timeLabel.text = [date objectAtIndex:1];
+               cell9.dateLable.text = dateValue;
+               cell9.timeLabel.text = timeValue;
+               
                if ([[[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 2 || [[[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 4 || [[[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 5 )
                {
                    cell9.docInfoBtn.hidden = YES;
@@ -949,13 +988,14 @@
                cell3.pdfImage.image = [UIImage imageNamed:@"completed-1x.png"];
 
                cell3.ownerName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+              // NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
               // NSString* firstBit = [date objectAtIndex: 0];
                
-               dateCategoryString = [NSString string];
-               cell3.dateLable.text = [dateCategoryString transformedValue:dates];
-               cell3.timeLabel.text = [date objectAtIndex:1];
-
+              // dateCategoryString = [NSString string];
+              // cell3.dateLable.text = [dateCategoryString transformedValue:dates];
+              // cell3.timeLabel.text = [date objectAtIndex:1];
+               cell3.dateLable.text = dateValue;
+               cell3.timeLabel.text = timeValue;
                
                if ([[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 2 || [[[_filterArray objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 4 || [[[_searchResults objectAtIndex:indexPath.row] valueForKey:@"WorkflowType"]integerValue] == 5 )
                {
@@ -999,13 +1039,16 @@
                cell4.mName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
                
                cell4.Lable1.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadedDatetime"] componentsSeparatedByString: @"T"];
-               NSString* firstBit = [date objectAtIndex: 0];
+              // NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadedDatetime"] componentsSeparatedByString: @"T"];
+              // NSString* firstBit = [date objectAtIndex: 0];
                
-               dateCategoryString = [NSString string];
-               cell4.dateLable.text = [dateCategoryString transformedValue:dates];
-               cell4.timeLabel.text = [date objectAtIndex:1];
+              // dateCategoryString = [NSString string];
+              // cell4.dateLable.text = [dateCategoryString transformedValue:dates];
+              // cell4.timeLabel.text = [date objectAtIndex:1];
+               cell4.dateLable.text = dateValue;
+               cell4.timeLabel.text = timeValue;
 
+               
                cell4.pdfImage.image = [UIImage imageNamed:@"recalled-1x.png"];
                cell4.docInfoBtn.imageView.image = [UIImage imageNamed:@"doc-info-1x.png"];
                //if (numberOfAttachmentString == 0) {
@@ -1034,12 +1077,15 @@
                cell1.mLable1.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
                cell1.pdfImage.image = [UIImage imageNamed: @"draft-1x.png"];
                cell1.mName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
-               NSString* firstBit = [date objectAtIndex: 0];
+               //NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"T"];
+             //  NSString* firstBit = [date objectAtIndex: 0];
                
-               dateCategoryString = [NSString string];
-               cell1.mdate.text = [dateCategoryString transformedValue:dates];
-               cell1.timeLabel.text = [date objectAtIndex:1];
+              // dateCategoryString = [NSString string];
+              // cell1.mdate.text = [dateCategoryString transformedValue:dates];
+              // cell1.timeLabel.text = [date objectAtIndex:1];
+               cell1.mdate.text = dateValue;
+               cell1.timeLabel.text = timeValue;
+               
                cell1.pdfImage.image = [UIImage imageNamed: @"ico_inacive.png"];
                
                return cell1;
@@ -1059,13 +1105,15 @@
                cell1.mLable1.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
                cell1.pdfImage.image = [UIImage imageNamed: @"draft-1x.png"];
                cell1.mName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"'T'"];
-               NSString* firstBit = [date objectAtIndex: 0];
+              // NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadTime"] componentsSeparatedByString: @"'T'"];
+              // NSString* firstBit = [date objectAtIndex: 0];
                
-               dateCategoryString = [NSString string];
-               cell1.mdate.text = [dateCategoryString transformedValue:dates];
-               cell1.timeLabel.text = [date objectAtIndex:1];
-
+              // dateCategoryString = [NSString string];
+              // cell1.mdate.text = [dateCategoryString transformedValue:dates];
+              // cell1.timeLabel.text = [date objectAtIndex:1];
+               cell1.mdate.text = dateValue;
+               cell1.timeLabel.text = timeValue;
+               
                cell1.pdfImage.image = [UIImage imageNamed: @"ico-doc.png"];
                
                return cell1;
@@ -1087,12 +1135,14 @@
                cell1.mLable1.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
                cell1.pdfImage.image = [UIImage imageNamed: @"draft-1x.png"];
                cell1.mName.text = [[_searchResults objectAtIndex:indexPath.row] objectForKey:@"Name"];
-               NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadedTime"] componentsSeparatedByString: @"T"];
+              // NSArray* date= [[[_searchResults objectAtIndex:indexPath.row] objectForKey:@"UploadedTime"] componentsSeparatedByString: @"T"];
              //  NSString* firstBit = [date objectAtIndex: 0];
                
-               dateCategoryString = [NSString string];
-               cell1.mdate.text = [dateCategoryString transformedValue:dates];
-               cell1.timeLabel.text = [date objectAtIndex:1];
+              // dateCategoryString = [NSString string];
+              // cell1.mdate.text = [dateCategoryString transformedValue:dates];
+             //  cell1.timeLabel.text = [date objectAtIndex:1];
+               cell1.mdate.text = dateValue;
+               cell1.timeLabel.text = timeValue;
                return cell1;
            }
         
@@ -2674,7 +2724,7 @@
                            {
                                //Do some thing here
                                
-                               [self getDocumentInfo:[[_filterArray objectAtIndex:sender.tag] valueForKey:@"WorkFlowId"]];
+                  [self getDocumentInfo:[[self->_filterArray objectAtIndex:sender.tag] valueForKey:@"WorkFlowId"]];
                                
                            }];
    DocLog = [UIAlertAction
