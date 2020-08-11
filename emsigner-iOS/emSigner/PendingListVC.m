@@ -113,22 +113,32 @@ BOOL _isRotating;
     setEnableMoveRestriction = NO;
     NSLog(@"%s",_passwordForPDF);
     statusCheck = false;
+    
     self.navigationController.navigationBar.topItem.title = @"";
     if (self.signatoryString != nil) {
         self.signatorylbl.text =[NSString stringWithFormat:@"%@",self.signatoryString];
     }
     //EMIOS1107
-           if (_isReviewer == true) {
+        /*   if (_isReviewer == true) { //_isSignatory
+               _pendingTabbar.items[1].title = @"Review";
+           } else {
+                _pendingTabbar.items[1].title = @"Sign";
+           }*/
+    //EMIOS1107
+    
+           if (_isSignatory == true && _isSignatory == true) {
+               _pendingTabbar.items[1].title = @"Sign & Review";
+           } else if (_isReviewer == true) { //_isSignatory
                _pendingTabbar.items[1].title = @"Review";
            } else {
                 _pendingTabbar.items[1].title = @"Sign";
            }
-    //EMIOS1107
-    
     
     self.pendingTabbar.delegate = self;
     
     [self.signatorylbl sizeToFit];
+    
+    _micButtonOutlet.hidden = YES;
     
     //    UIBarButtonItem* customBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(flipView:)];
     //    self.navigationItem.rightBarButtonItem = customBarButtonItem;
@@ -193,13 +203,7 @@ BOOL _isRotating;
     hud.margin = 10.f;
     hud.yOffset = 170;
     hud.removeFromSuperViewOnHide = YES;
-    
     [hud hide:YES afterDelay:1];
-    
-    //        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-    //        [panRecognizer setMinimumNumberOfTouches:1];
-    //        [panRecognizer setMaximumNumberOfTouches:1];
-    //        [self.MainpdfView addGestureRecognizer:panRecognizer];
 }
 
 
@@ -733,7 +737,8 @@ BOOL _isRotating;
             objTrackOrderVC.isAttached = true;
             objTrackOrderVC.isDocStore = true;
             objTrackOrderVC.isFromWF = @"N";
-           
+            objTrackOrderVC.isFromWorkFlow = @"N";
+            
             UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
             if (@available(iOS 13.0, *)) {
                [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];

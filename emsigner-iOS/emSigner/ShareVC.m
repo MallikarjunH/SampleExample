@@ -24,6 +24,7 @@
 {
     NSMutableArray * listArray;
     NSMutableArray * totalDocNames;
+    NSString *allDocumentsNames;
 }
 
 
@@ -45,6 +46,7 @@
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
 
+    allDocumentsNames = @"";
     //flag
     _flagStr = @"false";
 
@@ -106,9 +108,11 @@
 
 -(void) getDocumentNames
 {
-    //    /*************************Web Service*******************************/
+   
     [self startActivity:@"Refreshing"];
-    NSString *requestURL = [NSString stringWithFormat:@"%@GetDocumentidsByWorkflowid?WorkflowID=%@",kMultipleDoc,_workflowID];
+   // NSString *requestURL = [NSString stringWithFormat:@"%@GetDocumentidsByWorkflowid?WorkflowID=%@",kMultipleDoc,_workflowID];
+   
+    NSString *requestURL = [NSString stringWithFormat:@"%@DownloadWorkflowDocuments?WorkFlowId=%@",kMultipleDoc,_workflowID];
     //api/DownloadWorkflowDocuments //Parameter -WorkFlowId - check once
     
     [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
@@ -117,27 +121,27 @@
             if(status && ![[responseValue valueForKey:@"Response"] isKindOfClass:[NSNull class]])
 
         {
+            self->listArray=[responseValue valueForKey:@"Response"];
+            if (self->listArray != (id)[NSNull null])
+            {
+                for (int i = 0; self->listArray.count>i; i++) {
+                    NSDictionary * dict = self->listArray[i];
+                    NSString * isAttachment = [NSString stringWithFormat:@"%@",[dict objectForKey:@"IsAttachment"]];
+                    if([isAttachment isEqualToString:@"1"]){
+                    }
+                    else{
+                        [self->totalDocNames addObject:[dict valueForKey:@"DocumentName"]];
+                    }
+                }
+                self->allDocumentsNames =  [self->totalDocNames componentsJoinedByString:@", "];
+            }
+            else{
+                
+            }
             
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               listArray=[responseValue valueForKey:@"Response"];
-                               if (listArray != (id)[NSNull null])
-                               {
-                                   for (int i = 0; listArray.count>i; i++) {
-                                       NSDictionary * dict = listArray[i];
-
-                                       [self->totalDocNames addObject:[dict valueForKey:@"DocumentName"]];
-                                       
-                                   }
-                                   NSString * DocNames =   [totalDocNames componentsJoinedByString:@","];
-
-                                   self.pdfLable.text = DocNames;
-                                [self stopActivity];
-                               }
-                               else{
-                                   
-                               }
-                               
+                self.pdfLable.text = self->allDocumentsNames;
                                [self stopActivity];
                                
                            });
@@ -148,7 +152,6 @@
         
     }];
   
-    /*******************************************************************************/
 }
 
 

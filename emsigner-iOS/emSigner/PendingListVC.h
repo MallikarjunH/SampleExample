@@ -105,6 +105,8 @@
 //@property (strong, nonatomic) PDFView *MainpdfView;
 @property (strong, nonatomic) PDFDocument *pdfDocument;
 
+@property (weak, nonatomic) IBOutlet UIButton *micButtonOutlet;
+
 
 
 

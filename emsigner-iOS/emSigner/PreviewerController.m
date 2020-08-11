@@ -98,6 +98,7 @@
     objTrackOrderVC.documentId = self.documentId;
     objTrackOrderVC.uploadAttachment = self.uploadAttachment;
     objTrackOrderVC.workFlowId = self.workflowId;
+    objTrackOrderVC.isFromWorkFlow = _isFromWorkFlow;
     objTrackOrderVC.post = self.post;
      
     objTrackOrderVC.isDocStore = true;

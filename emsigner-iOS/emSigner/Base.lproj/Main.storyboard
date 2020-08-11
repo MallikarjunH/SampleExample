@@ -778,7 +778,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwX-nN-KiK">
-                                <rect key="frame" x="243" y="199" width="60" height="60"/>
+                                <rect key="frame" x="243" y="214" width="30" height="30"/>
                                 <state key="normal" image="Refresh-30"/>
                                 <connections>
                                     <action selector="reloadBtnPressed:" destination="ger-0i-mkV" eventType="touchUpInside" id="zp9-LB-hQe"/>
@@ -3977,7 +3977,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6e-kC-FBg">
-                                                    <rect key="frame" x="274" y="3" width="36" height="36"/>
+                                                    <rect key="frame" x="292" y="10" width="18" height="22"/>
                                                     <state key="normal" image="dots-vertical"/>
                                                 </button>
                                             </subviews>

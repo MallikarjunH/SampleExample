@@ -87,9 +87,13 @@
                     NSDictionary *dict = self->_documentNamesArray[i];
                     NSString *documentName = [dict objectForKey:@"DocumentName"];
                     NSString *documentId= [dict objectForKey:@"DocumentId"];
+                    NSString *IsAttachment = [NSString stringWithFormat:@"%@",[dict objectForKey:@"IsAttachment"]];
                     
-                    [self->documentNameListArray addObject:documentName];
-                    [self->documentIdListArray addObject:documentId];
+                    if([IsAttachment isEqualToString:@"0"]){ //is false
+                        [self->documentNameListArray addObject:documentName];
+                        [self->documentIdListArray addObject:documentId];
+                    }
+                   
                 }
                 [self stopActivity];
             }
@@ -176,7 +180,7 @@
 - (IBAction)postCommentButtonClicked:(id)sender {
     //selectedDocumentId
     NSLog(@"Selected Docment Name: %@",_selectedDocumentLabel.text);
-    NSLog(@"Selected Docment Id: %d",selectedDocumentId);
+    NSLog(@"Selected Docment Id: %@",selectedDocumentId);
     
     if([_selectedDocumentLabel.text isEqualToString:@"--Select Document--"]){
         UIAlertController * alert = [UIAlertController
@@ -202,9 +206,9 @@
             
             if (valid) {
                 
-                 [self PostCall];
+                 //[self PostCall];
                 
-                if ([_postButton.titleLabel.text  isEqual: @"POST"]) {
+                if ([_postButton.titleLabel.text  isEqual: @"Post"]) {
                  [self PostCall];
                  
                  }

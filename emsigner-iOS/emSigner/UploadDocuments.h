@@ -52,7 +52,7 @@
 @property(assign)BOOL isSelctd;
 -(void)imageFromScanner:(UIImage *)image;
 @property(strong,nonatomic) NSMutableArray * post;
-
+@property(strong,nonatomic) NSString * isFromWorkFlow;
 
 @end
 

@@ -242,6 +242,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:@"postAttachedDictData"];
 }
 
+-(void)dealloc {
+    NSLog(@"viewController is being deallocated");
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"postAttachedDictData" object:nil];
+}
+
 -(void) addbtnTapped:(UIButton *)sender {
     NSLog(@"Click on Add Attachment");
     
@@ -262,6 +267,7 @@
            objTrackOrderVC.isDocStore = true;
            objTrackOrderVC.documentId = _documentID;
            objTrackOrderVC.post = _parametersForWorkflow;
+           objTrackOrderVC.isFromWorkFlow = @"N";
            objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
            UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
            if (@available(iOS 13.0, *)) {
@@ -1620,7 +1626,9 @@
                     
                     //if ([_document isEqualToString:@"ListAttachments"]) {
                     //  _workFlowId = (NSString *)[responseValue valueForKey:@"Response"];
-                    [self ListAttachments];
+                  
+                    // [self ListAttachments];
+                   
                     [self stopActivity];
                     //EMIOS1108
                     self.descText.text = @"";
@@ -1647,7 +1655,10 @@
                     }
                     
                     
-                    UIAlertController * alert = [UIAlertController
+                    UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil];
+                    [alertView show];
+                    
+                  /*  UIAlertController * alert = [UIAlertController
                                                  alertControllerWithTitle:@""
                                                  message:msg
                                                  preferredStyle:UIAlertControllerStyleAlert];
@@ -1658,6 +1669,11 @@
                                                 actionWithTitle:@"OK"
                                                 style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * action) {
+                        
+                        dispatch_async(dispatch_get_main_queue(),
+                        ^{
+                             [self ListAttachments];
+                         });
                         //Handle your yes please button action here
                         // [self dismissViewControllerAnimated:YES completion:nil];
                     }];
@@ -1666,9 +1682,13 @@
                     
                     [alert addAction:yesButton];
                     
-                    [self presentViewController:alert animated:YES completion:nil];
+                    dispatch_async(dispatch_get_main_queue(),
+                    ^{
+                         [self presentViewController:alert animated:YES completion:nil];
+                     }); */
+                   // [self presentViewController:alert animated:YES completion:nil];
                     
-                    return;
+                   // return;
                     
                 });
                 
@@ -1690,6 +1710,18 @@
         }
         
     }];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex==0)
+    {
+        NSLog(@"Clicked on OK Button");
+       dispatch_async(dispatch_get_main_queue(),
+                      ^{
+           [self ListAttachments];
+       });
+        
+    }
 }
 
 #pragma mark - call for init workflow and dismiss view controller

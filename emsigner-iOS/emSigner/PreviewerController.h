@@ -27,4 +27,5 @@
 @property(nonatomic,strong)NSString *workflowId;
 @property(nonatomic,strong)NSString *documentId;
 @property(strong,nonatomic) NSMutableArray * post;
+@property(strong,nonatomic) NSString * isFromWorkFlow;
 @end

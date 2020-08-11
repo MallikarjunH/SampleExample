@@ -151,6 +151,16 @@
     }
 }
 
+-(void) dealloc {
+      [[NSNotificationCenter defaultCenter] removeObserver:@"parametersNotification"];
+      [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+        [[NSNotificationCenter defaultCenter] removeObserver:@"parametersNotification"];
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
     // [_signersInfoTable reloadData];
@@ -509,6 +519,7 @@
     objTrackOrderVC.navigationTitle = [NSString stringWithFormat:@"%@/%@",self.navigationTitle,[_sendarray[indexPather.row]valueForKey:@"DocumentName"]];
     objTrackOrderVC.categoryname = _categoryname;
     objTrackOrderVC.delegate = self;
+    objTrackOrderVC.isFromWorkFlow = @"Y";
     objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
     UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
     //objNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;

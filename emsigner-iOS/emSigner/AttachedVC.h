@@ -36,6 +36,8 @@
 @property (nonatomic, assign) NSInteger selectedRow;
 @property (nonatomic,strong) NSString *documentID;
 @property(nonatomic,strong) NSString *base64Image;
+@property(nonatomic,strong) NSString *isFromWorkFlow;
+
 @property(assign) BOOL isAttached;
 @property(assign) BOOL isDocStore;
 - (IBAction)inactiveBtn:(id)sender;

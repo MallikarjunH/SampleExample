@@ -54,7 +54,7 @@
     
     
     //self.title = @"Document Details";
-    self.title = @"Workflow Details";;
+    self.title = @"Workflow Logs";;
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];

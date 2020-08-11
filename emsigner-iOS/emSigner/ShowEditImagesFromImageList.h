@@ -41,6 +41,7 @@
 @property(strong,nonatomic) NSMutableArray * post;
 @property(assign)BOOL isSelected;
 @property(assign)BOOL isDocStore;
+@property(nonatomic,strong)NSString *isFromWorkFlow;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addMultipleDocs;
 //@property(strong,nonatomic) NSMutableArray *arrayToHoldImages;

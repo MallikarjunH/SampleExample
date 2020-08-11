@@ -13,6 +13,7 @@
                 <outlet property="MainpdfView" destination="THf-Sl-pgH" id="YHi-54-x7z"/>
                 <outlet property="Sign" destination="ckz-7H-yaW" id="HZk-NL-n0Q"/>
                 <outlet property="customViewForSiri" destination="cxJ-jO-EyX" id="B6s-2C-7Jl"/>
+                <outlet property="micButtonOutlet" destination="UcM-94-nwg" id="1fG-78-DCl"/>
                 <outlet property="pendingTabbar" destination="ai1-yp-KNS" id="ZwR-bb-mvf"/>
                 <outlet property="signatorylbl" destination="OhX-hd-XOe" id="CV0-c8-v1f"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

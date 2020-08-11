@@ -325,6 +325,7 @@
         previewVC.documentId = self.documentId;
         previewVC.workflowId = self.workflowId; //document id
         previewVC.uploadAttachment = self.uploadAttachment;
+        previewVC.isFromWorkFlow = _isFromWorkFlow;
         previewVC.post = self.post;
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:previewVC];
         if (@available(iOS 13.0, *)) {

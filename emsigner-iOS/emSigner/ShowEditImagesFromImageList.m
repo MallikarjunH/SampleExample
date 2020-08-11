@@ -159,6 +159,7 @@
     [dateFormat setDateFormat:@"ddMMyyyy_mmss"];
     NSString *dateString = [dateFormat stringFromDate:today];
     //NSLog(@"date: %@", dateString);
+    NSLog(@"IS From WorkFLow: %@", _isFromWorkFlow);
     
     if (_uploadAttachment == true) {
         UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -188,7 +189,7 @@
         objTrackOrderVC.isDocStore = true;;
         objTrackOrderVC.document = @"ListAttachments";
         objTrackOrderVC.isFromWF = @"N";
-      
+        
         NSMutableDictionary * senddict = [[NSMutableDictionary alloc]init];
         //NSInteger categoryid = [CategoryId integerValue]; //_workFlowId
         // [senddict setValue:[NSNumber numberWithLong:categoryid] forKey:@"CategoryID"];
@@ -208,7 +209,9 @@
         [senddict setValue:@"" forKey:@"OptionalParam1"];
         
         // parametersNotification
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"parametersNotification" object:senddict];
+        if([_isFromWorkFlow isEqualToString:@"Y"]){
+           [[NSNotificationCenter defaultCenter] postNotificationName:@"parametersNotification" object:senddict];
+        }
         
         NSDictionary* userInfo = @{@"attachemtDict": senddict };
 
@@ -252,9 +255,11 @@
         }
         
         [senddict setValue:@"" forKey:@"OptionalParam1"];
-       // [_delegate sendDataToA:senddict];
-        // parametersNotification
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"parametersNotification" object:senddict];
+        [_delegate sendDataToA:senddict];
+        
+       if([_isFromWorkFlow isEqualToString:@"Y"]){
+          [[NSNotificationCenter defaultCenter] postNotificationName:@"parametersNotification" object:senddict];
+       }
         
         NSDictionary* userInfo = @{@"attachemtDict": senddict };
 
