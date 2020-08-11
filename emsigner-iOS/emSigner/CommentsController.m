@@ -12,13 +12,18 @@
 #import "NSObject+Activity.h"
 #import "MBProgressHUD.h"
 #import "WebserviceManager.h"
-
+#import <ActionSheetPicker.h>
+#import "DocumentNameHeader.h"
 
 @interface CommentsController ()
 {
     NSMutableArray * commentsCountArray ;
     NSArray * countArr;
     NSString * commentId;
+    
+    NSMutableArray * documentNameListArray;
+    NSMutableArray * documentIdListArray;
+    NSString *selectedDocumentId;
 }
 @end
 
@@ -29,50 +34,40 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
-    /*self.navigationController.navigationBar.topItem.backBarButtonItem = [[UIBarButtonItem alloc]
-                                                                         initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];*/
-    // self.navigationController.navigationBar.topItem.title = @"Document Details";
-    
     self.title = @"Comments";;
-    self.navigationController.navigationBar.topItem.title = @" ";
+    
+    [_postButton setTitle:@"Post" forState:UIControlStateNormal];
+    
+   // self.navigationController.navigationBar.topItem.title = @" ";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    UITapGestureRecognizer *tapToCall = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToCall:)];
-    [self.commetsView addGestureRecognizer:tapToCall];
+    selectedDocumentId = @"";
     commentsCountArray = [[NSMutableArray alloc]init];
+    documentNameListArray = [[NSMutableArray alloc]init];
+    documentIdListArray = [[NSMutableArray alloc]init];
     
-    [self getCommentsByWorkflowID];
     self.commentsTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
-    self.commentsTextField.delegate = self;
-
+    //[self getCommentsByWorkflowID];
+   // [self getDocumentsById];
     
-    _docTableView.delegate = self;
-    _docTableView.dataSource = self;
-    self.docTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    _bgView.hidden = true;
-    _docTableView.hidden = true;
-    
-    //GetUserComments?workflowId=
-    [self.post_Btn setTitle:@"POST" forState:UIControlStateNormal];
-
+     [self getDocumentsById];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated {
     
-    
-    
 }
 
-//Adarsha Not working
+
+//GET Documents List Details
 -(void) getDocumentsById{
     _documentNamesArray = [[NSMutableArray alloc]init];
     [self startActivity:@"Refreshing"];
-    NSString *requestURL = [NSString stringWithFormat:@"%@DownloadWorkflowDocuments?WorkflowID=%@",kMultipleDoc,self.workflowID];
     
+    NSString *requestURL = [NSString stringWithFormat:@"%@DownloadWorkflowDocuments?WorkflowID=%@",kMultipleDoc,self.workflowID];
+    [self startActivity:@"Refreshing"];
     [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
          
         //  if(status)
@@ -80,21 +75,34 @@
             
         {
             
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               _documentNamesArray=[responseValue valueForKey:@"Response"];
-                                [_docTableView reloadData];
-                               [self stopActivity];
-                               
-                           });
+            self->_documentNamesArray=[responseValue valueForKey:@"Response"];
+            
+            [self->documentNameListArray removeAllObjects];
+            [self->documentIdListArray removeAllObjects];
+            
+            if(self->_documentNamesArray.count>0){
+                
+                for (int i=0; i< self->_documentNamesArray.count; i++) {
+                    
+                    NSDictionary *dict = self->_documentNamesArray[i];
+                    NSString *documentName = [dict objectForKey:@"DocumentName"];
+                    NSString *documentId= [dict objectForKey:@"DocumentId"];
+                    
+                    [self->documentNameListArray addObject:documentName];
+                    [self->documentIdListArray addObject:documentId];
+                }
+                [self stopActivity];
+            }
+            
+            [self getCommentsByWorkflowID];
             
         }
         else{
-            
+            [self stopActivity];
         }
         
     }];
-    [self stopActivity];
+
 }
 
 -(void)getCommentsByWorkflowID{
@@ -112,7 +120,7 @@
             
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               _getDcommentsArray=[responseValue valueForKey:@"Response"];
+                self->_getDcommentsArray=[responseValue valueForKey:@"Response"];
                                if (![[[responseValue valueForKey:@"Response"]valueForKey:@"DocumentId"] isKindOfClass:[NSNull class]]) {
                                    [self.commentsTableview reloadData];
                                } else {
@@ -127,60 +135,50 @@
         else{
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                 [self.commentsTableview reloadData];
+                // [self.commentsTableview reloadData];
+                  [self stopActivity];
             }
                            );
               
         }
         
     }];
-    [self stopActivity];
+   // [self stopActivity];
 }
 
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.commentsTextField resignFirstResponder];
-    return true;
+//Picket View
+- (IBAction)selectDocumentButtonClicked:(id)sender {
+    
+    // Done block:
+        ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+            NSLog(@"Picker: %@", picker);
+            NSLog(@"Selected Index: %ld", (long)selectedIndex);
+            NSLog(@"Selected Value: %@", selectedValue);
+            
+            self->_selectedDocumentLabel.text = selectedValue;
+            self->selectedDocumentId = self->documentIdListArray[selectedIndex];
+           // self->selectedDocumentId = self->documentIdListArray[selectedIndex];
+        };
+
+
+    // cancel block:
+        ActionStringCancelBlock cancel = ^(ActionSheetStringPicker *picker) {
+            NSLog(@"Block Picker Canceled");
+        };
+    
+    // Run!
+    [ActionSheetStringPicker showPickerWithTitle:@"Select Document" rows:documentNameListArray initialSelection:0 doneBlock:done cancelBlock:cancel origin:sender];
+    
+    
+    
 }
-
-- (void)tapToCall:(UITapGestureRecognizer *)sender
-{    
-   /* UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Select Document" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+- (IBAction)postCommentButtonClicked:(id)sender {
+    //selectedDocumentId
+    NSLog(@"Selected Docment Name: %@",_selectedDocumentLabel.text);
+    NSLog(@"Selected Docment Id: %d",selectedDocumentId);
     
-    for (int j= 0; j<_documentNamesArray.count; j++) {
-        NSString *str = [_documentNamesArray[j]valueForKey:@"DocumentName"];
-        [actionSheet addAction:[UIAlertAction actionWithTitle:str style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            self.commentLabel.text = [self.documentNamesArray[j]valueForKey:@"DocumentName"];
-            self.documentID = [self.documentNamesArray[j]valueForKey:@"DocumentId"];
-            //[self dismissViewControllerAnimated:YES completion:^{
-                
-            //}];
-
-        }]];
-
-    }
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        
-        // Cancel button tappped.
-       // [self dismissViewControllerAnimated:YES completion:^{
-       // }];
-    }]];
-
-    
-    // Present action sheet.
-    [self presentViewController:actionSheet animated:YES completion:nil];*/
-    _bgView.hidden = false;
-    _docTableView.hidden  = false;
-    //_commentsTableview.hidden = true;
-    [self getDocumentsById];
-}
-
-- (IBAction)PostBtn_Action:(UIButton*)sender {
-    // [self.commentsTableview reloadData];
-    
-    
-    if ([self.commentLabel.text  isEqual: @"Select Document"]) {
+    if([_selectedDocumentLabel.text isEqualToString:@"--Select Document--"]){
         UIAlertController * alert = [UIAlertController
                                      alertControllerWithTitle:nil
                                      message:@"Select the document!"
@@ -190,48 +188,54 @@
                                     actionWithTitle:@"Ok"
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
-                                        //Handle your yes please button action here
-                                    }];
+            //Handle your yes please button action here
+        }];
         [alert addAction:yesButton];
         [self presentViewController:alert animated:YES completion:nil];
         return;
-    }
-    if (self.commentsTextField.text.length > 0) {
-        NSString *isValid = self.commentsTextField.text;
+    }else{
         
-        BOOL valid = [self validateSpecialCharactor:isValid];
-        
-        if (valid) {
+        if (self.commentTextField.text.length > 0) {
+            NSString *isValid = self.commentTextField.text;
             
-            if ([self.post_Btn.titleLabel.text  isEqual: @"POST"]) {
-                [self PostCall];
+            BOOL valid = [self validateSpecialCharactor:isValid];
+            
+            if (valid) {
                 
+                 [self PostCall];
+                
+                if ([_postButton.titleLabel.text  isEqual: @"POST"]) {
+                 [self PostCall];
+                 
+                 }
+                 else{
+                 [self EditCall:commentId];
+                 }
             }
             else{
-                [self EditCall:commentId];
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                
+                // Configure for text only and offset down
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"Special Characters are not allowed.";//[NSString stringWithFormat:@"Page %@ of %lu", self.view.currentPage.label, (unsigned long)self.pdfDocument.pageCount];
+                hud.margin = 10.f;
+                hud.yOffset = 170;
+                hud.removeFromSuperViewOnHide = YES;
+                
+                [hud hide:YES afterDelay:2];
+                
             }
         }
-        else{
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            
-            // Configure for text only and offset down
-            hud.mode = MBProgressHUDModeText;
-            hud.labelText = @"Special Characters are not allowed.";//[NSString stringWithFormat:@"Page %@ of %lu", self.view.currentPage.label, (unsigned long)self.pdfDocument.pageCount];
-            hud.margin = 10.f;
-            hud.yOffset = 170;
-            hud.removeFromSuperViewOnHide = YES;
-            
-            [hud hide:YES afterDelay:2];
-            
-        }
     }
-    else{
-        [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Please enter comments." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-        return;
-    }
-  
-    
 }
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.commentTextField resignFirstResponder];
+    return true;
+}
+
 
 - (BOOL) validateSpecialCharactor: (NSString *) text {
     
@@ -247,36 +251,30 @@
         return true;
     }
     
-    
-//    NSString *Regex = @"[A-Za-z0-9^]*";
-//    NSPredicate *TestResult = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Regex];
-//    return [TestResult evaluateWithObject:text];
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (tableView == _commentsTableview) {
-           
-        DropDownCell *cell =[tableView dequeueReusableCellWithIdentifier:@"DropDownCell"];
-            countArr = [[_getDcommentsArray objectAtIndex:indexPath.section]valueForKey:@"Comments"];
-            cell.user_name.text = [countArr[indexPath.row] valueForKey:@"UserName"];
-            cell.comment_label.text = [countArr[indexPath.row] valueForKey:@"Comment"];
-            cell.date_label.text = [countArr[indexPath.row] valueForKey:@"CommentTime"];
-            NSLog(@"%@",[countArr[indexPath.row] valueForKey:@"Comment"]);
-            return cell;
-    } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DocCell" forIndexPath:indexPath];
-        cell.textLabel.text = [_documentNamesArray[indexPath.row] valueForKey:@"DocumentName"];
-        return cell;
-    }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return _getDcommentsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  NSArray* commentsArr = [[_getDcommentsArray objectAtIndex:section]valueForKey:@"Comments"];
-    if (tableView == self.commentsTableview){
-        return commentsArr.count;}
-    else  {return
-        _documentNamesArray.count;}
+    
+    NSArray* commentsArr = [[_getDcommentsArray objectAtIndex:section]valueForKey:@"Comments"];
+    
+    return commentsArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    DropDownCell *cell =[tableView dequeueReusableCellWithIdentifier:@"DropDownCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    countArr = [[_getDcommentsArray objectAtIndex:indexPath.section]valueForKey:@"Comments"];
+    cell.user_name.text = [countArr[indexPath.row] valueForKey:@"UserName"];
+    cell.comment_label.text = [countArr[indexPath.row] valueForKey:@"Comment"];
+    cell.date_label.text = [countArr[indexPath.row] valueForKey:@"CommentTime"];
+    NSLog(@"%@",[countArr[indexPath.row] valueForKey:@"Comment"]);
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -284,57 +282,25 @@
 }
 
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-
-    if (tableView ==_commentsTableview) {
-        return  _getDcommentsArray.count;
-    } else {
-        return  0;
-    }
-    
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == _docTableView) {
-        self.commentLabel.text = [self.documentNamesArray[indexPath.row]valueForKey:@"DocumentName"];
-        self.documentID = [self.documentNamesArray[indexPath.row]valueForKey:@"DocumentId"];
-    } else {
-        
-    }
-}
-
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
-    /* Create custom view to display section header... */
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, tableView.frame.size.width, 18)];
-    [label setFont:[UIFont boldSystemFontOfSize:12]];
-    UIImageView *DocImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
-    [DocImage setImage:[UIImage imageNamed:@"documentpotline.png"]];
-    NSString *string = [[_getDcommentsArray objectAtIndex:section]valueForKey:@"DocumentName"];
-    NSArray *commentsCount = [[_getDcommentsArray objectAtIndex:section]valueForKey:@"Comments"];
-    if (commentsCount.count == 0) {
-        _commentsTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        return _commentsTableview.tableFooterView;
-    }
-    /* Section header is in 0th index... */
-    if ([string isKindOfClass:[NSNull class]]) {
-        [label setText: @""];
+   DocumentNameHeader *headerView = [tableView dequeueReusableCellWithIdentifier:@"DocumentNameHeader"];
+  
+    headerView.documentNameLabel.text = [[_getDcommentsArray objectAtIndex:section]valueForKey:@"DocumentName"];
+    return headerView.contentView;
+    
+}
 
-    }
-    else {
-        [label setText:string];
-    }
-    //[label setText:string ? string : @""];
-    [view addSubview:DocImage];
-    [view addSubview:label];
-    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]];
-    //your background color...
-    return view;
-}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    return 50;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+      //  self.commentLabel.text = [self.documentNamesArray[indexPath.row]valueForKey:@"DocumentName"];
+      //  self.documentID = [self.documentNamesArray[indexPath.row]valueForKey:@"DocumentId"];
+}
+
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return YES if you want the specified item to be editable.
@@ -357,16 +323,14 @@
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         //insert your editAction here
         
-     self.commentsTextField.text = [[_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"Comment"];
-     commentId = [[_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"CommentId"];
+        self.commentTextField.text = [[self->_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"Comment"];
+        self->commentId = [[self->_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"CommentId"];
      dispatch_async(dispatch_get_main_queue(),
         ^{
-            [self.commentsTextField becomeFirstResponder];
+            [self.commentTextField becomeFirstResponder];
          });
-     self.commentLabel.text = [_getDcommentsArray[indexPath.section]valueForKey:@"DocumentName"];
-     [self.post_Btn setTitle:@"UPDATE" forState:UIControlStateNormal];
-
-
+        self.selectedDocumentLabel.text = [self->_getDcommentsArray[indexPath.section]valueForKey:@"DocumentName"];
+        [self->_postButton setTitle:@"UPDATE" forState:UIControlStateNormal];
         
     }];
     
@@ -387,7 +351,7 @@
                                     style:UIAlertActionStyleDestructive
                                     handler:^(UIAlertAction * action) {
                                         //Handle your yes please button action here
-                                        [self DeleteCall:[[_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"CommentId"] WorkflowId:[[_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"WorkflowId"]];
+            [self DeleteCall:[[self->_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"CommentId"] WorkflowId:[[self->_getDcommentsArray[indexPath.section]valueForKey:@"Comments"][indexPath.row]valueForKey:@"WorkflowId"]];
                                     }];
         UIAlertAction* cancel = [UIAlertAction
                                  actionWithTitle:@"Cancel"
@@ -445,7 +409,7 @@
                                                                style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * action) {
                                                                    [self getCommentsByWorkflowID];
-                                                                   [self.post_Btn setTitle:@"POST" forState:UIControlStateNormal];
+                                                                [_postButton setTitle:@"POST" forState:UIControlStateNormal];
 
                                                                }];
                                    
@@ -475,7 +439,7 @@
         [self startActivity:@""];
         
         // Login
-        NSString *post = [NSString stringWithFormat:@"CommentId=%@&Comment=%@",commentID,self.commentsTextField.text];
+        NSString *post = [NSString stringWithFormat:@"CommentId=%@&Comment=%@",commentID,self.commentTextField.text];
         
         
         [WebserviceManager sendSyncRequestWithURL:kUpdateComment method:SAServiceReqestHTTPMethodPOST body:post completionBlock:^(BOOL status, id responseValue){
@@ -487,8 +451,8 @@
                     dispatch_async(dispatch_get_main_queue(),
                     ^{
                         [[[UIAlertView alloc] initWithTitle:@"" message:@"User Comments Edited Successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                        self.commentsTextField.text = @"";
-                        [self.post_Btn setTitle:@"POST" forState:UIControlStateNormal];
+                        self.commentTextField.text = @"";
+                        [_postButton setTitle:@"POST" forState:UIControlStateNormal];
 
                         [self getCommentsByWorkflowID];
                     });
@@ -500,11 +464,11 @@
 
 -(void)PostCall
 {
-    
     [self startActivity:@""];
     
-    // Login
-    NSString *post = [NSString stringWithFormat:@"DocumentId=%@&Comment=%@",_documentID,self.commentsTextField.text];
+    //selectedDocumentId
+   // NSString *post = [NSString stringWithFormat:@"DocumentId=%@&Comment=%@",_documentID,self.commentTextField.text];
+    NSString *post = [NSString stringWithFormat:@"DocumentId=%@&Comment=%@",selectedDocumentId,self.commentTextField.text];
     [WebserviceManager sendSyncRequestWithURL:kSaveComment method:SAServiceReqestHTTPMethodPOST body:post completionBlock:^(BOOL status, id responseValue){
         
         if (status) {
@@ -514,8 +478,8 @@
                 dispatch_async(dispatch_get_main_queue(),
                 ^{
                 [[[UIAlertView alloc] initWithTitle:@"" message:@"User Comments Saved Successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                self.commentsTextField.text = @"";
-                [self.post_Btn setTitle:@"POST" forState:UIControlStateNormal];
+                self.commentTextField.text = @"";
+                    [self->_postButton setTitle:@"POST" forState:UIControlStateNormal];
 
                 [self getCommentsByWorkflowID];
                 });
@@ -525,14 +489,5 @@
 
 }
          
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

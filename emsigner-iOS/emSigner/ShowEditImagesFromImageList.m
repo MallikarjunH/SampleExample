@@ -18,6 +18,7 @@
 #import "SDImageCache.h"
 #import "MWCommon.h"
 #import "MWPhoto.h"
+#import "GlobalVariables.h"
 
 @interface ShowEditImagesFromImageList ()
 {
@@ -25,7 +26,8 @@
     NSString *pdfFileName;
     NSString *meta;
     NSMutableArray *_selections;
-    
+    NSString *editedDocumentName;
+    GlobalVariables * globalVariables;
 }
 
 @end
@@ -45,6 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    editedDocumentName = @"";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
@@ -64,7 +67,7 @@
                                                object:nil];
     
     _docresponsearray = [[NSMutableArray alloc]init];
-    
+    globalVariables=[GlobalVariables sharedInstance];
     self.showMultipleImages.delegate = self;
     self.showMultipleImages.dataSource = self;
     self.navigationController.navigationBar.topItem.title = @" ";
@@ -75,12 +78,77 @@
     self.navigationItem.rightBarButtonItems=@[anotherButton1];
     self.showMultipleImages.editing = YES;
     
-    self.title = @"Explore";
+   // self.title = @"Explore";
+    [self updateNavigationBarTitle:@"Document Name"];
     
 }
+
+-(void)updateNavigationBarTitle:(NSString*)titleName{
+    
+    editedDocumentName = titleName;
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+     [button addTarget:self
+                action:@selector(touchedOnNavigationTitle:)
+      forControlEvents:UIControlEventTouchUpInside];
+     [button setTitle:titleName forState:UIControlStateNormal];
+     button.frame = CGRectMake(0, 0, 100, 100);
+    // [self.navigationItem.titleView addSubview:button];
+     self.navigationItem.titleView = button;
+}
+
+-(void)touchedOnNavigationTitle:(UIButton*)sender {
+    NSLog(@"Clicked on Navigation Title");
+    
+    //Show Pop Up for Edit Title of Document
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@""
+                                                                   message:@"Edit document name"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+        //use alert.textFields[0].text
+        NSString *title = alert.textFields[0].text;
+        if([title isEqualToString:@""] || [title isEqualToString:@" "]){
+            //NSLog(@"Show Alrt");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Document Name Should Not Be Empty" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+
+                // Enter code here
+            }];
+            [alert addAction:defaultAction];
+
+            // Present action where needed
+            [self presentViewController:alert animated:YES completion:nil];
+           
+        }else{
+            NSLog(@"Save Document Name");
+            dispatch_async(dispatch_get_main_queue(),
+            ^{
+                [self updateNavigationBarTitle:alert.textFields[0].text];
+                //self.navigationController.navigationBar.topItem.title = alert.textFields[0].text;
+             });
+             
+        }
+    }];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+        //cancel action
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        // A block for configuring the text field prior to displaying the alert
+    }];
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationItem.title = @"Explore";
 }
+
 
 //Save or Next Button Action
 -(void) NextAction:(UIButton*)sender
@@ -105,15 +173,52 @@
         NSString *base64image=[convertToByrtes base64EncodedStringWithOptions:0];
         objTrackOrderVC.base64Image = base64image;
         //objTrackOrderVC.documentName = _documentName;
-        objTrackOrderVC.documentName = theFileName;
+       // objTrackOrderVC.documentName = theFileName;
+        
+        if([editedDocumentName isEqualToString:@"Document Name"]){
+            objTrackOrderVC.documentName = theFileName;
+        }else{
+            NSString *name = [NSString stringWithFormat:@"%@.pdf",editedDocumentName];
+            objTrackOrderVC.documentName = name;
+        }
+        
         objTrackOrderVC.isAttached = true;
         objTrackOrderVC.documentID = _documentId;
         objTrackOrderVC.parametersForWorkflow = _post;
         objTrackOrderVC.isDocStore = true;;
         objTrackOrderVC.document = @"ListAttachments";
         objTrackOrderVC.isFromWF = @"N";
+      
+        NSMutableDictionary * senddict = [[NSMutableDictionary alloc]init];
+        //NSInteger categoryid = [CategoryId integerValue]; //_workFlowId
+        // [senddict setValue:[NSNumber numberWithLong:categoryid] forKey:@"CategoryID"];
+        [senddict setValue:_workFlowId forKey:@"CategoryID"];
+        
+        //[senddict setValue:CategoryId forKey:@"CategoryID"];
+        [senddict setValue:base64image forKey:@"Base64FileData"];
+        [senddict setValue:_categoryname forKey:@"DocumentNumber"];
+        // [senddict setValue:_documentName forKey:@"DocumentName"];
+       // [senddict setValue:theFileName forKey:@"DocumentName"];
+        if([editedDocumentName isEqualToString:@"Document Name"]){
+            [senddict setValue:theFileName forKey:@"DocumentName"];
+        }else{
+            NSString *name = [NSString stringWithFormat:@"%@.pdf",editedDocumentName];
+            [senddict setValue:name forKey:@"DocumentName"];
+        }
+        [senddict setValue:@"" forKey:@"OptionalParam1"];
+        
+        // parametersNotification
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"parametersNotification" object:senddict];
+        
+        NSDictionary* userInfo = @{@"attachemtDict": senddict };
+
+        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+        [nc postNotificationName:@"postAttachedDictData" object:self userInfo:userInfo]; 
         
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
+        if (@available(iOS 13.0, *)) {
+                   [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+        }
         [self presentViewController:objNavigationController animated:true completion:nil];
         // [self.navigationController presentViewController:objTrackOrderVC animated:true completion:nil];
         
@@ -138,9 +243,16 @@
         [senddict setValue:base64image forKey:@"Base64FileData"];
         [senddict setValue:_categoryname forKey:@"DocumentNumber"];
        // [senddict setValue:_documentName forKey:@"DocumentName"];
-        [senddict setValue:theFileName forKey:@"DocumentName"];
+       // [senddict setValue:theFileName forKey:@"DocumentName"];
+        if([editedDocumentName isEqualToString:@"Document Name"]){
+           [senddict setValue:theFileName forKey:@"DocumentName"];
+        }else{
+            NSString *name = [NSString stringWithFormat:@"%@.pdf",editedDocumentName];
+            [senddict setValue:name forKey:@"DocumentName"];
+        }
+        
         [senddict setValue:@"" forKey:@"OptionalParam1"];
-        [_delegate sendDataToA:senddict];
+       // [_delegate sendDataToA:senddict];
         // parametersNotification
         [[NSNotificationCenter defaultCenter] postNotificationName:@"parametersNotification" object:senddict];
         

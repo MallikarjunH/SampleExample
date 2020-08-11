@@ -14,7 +14,8 @@ target 'emSigner' do
     pod 'Firebase/Messaging'
     pod 'IQKeyboardManager', '~> 6.5'
     pod 'IRLDocumentScanner', '~> 0.3'
-
+    pod 'ActionSheetPicker-3.0'\
+     
   #  pod 'NotificationBannerSwift'
   #  pod 'Reveal-SDK'
     

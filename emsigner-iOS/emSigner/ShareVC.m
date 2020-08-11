@@ -109,6 +109,7 @@
     //    /*************************Web Service*******************************/
     [self startActivity:@"Refreshing"];
     NSString *requestURL = [NSString stringWithFormat:@"%@GetDocumentidsByWorkflowid?WorkflowID=%@",kMultipleDoc,_workflowID];
+    //api/DownloadWorkflowDocuments //Parameter -WorkFlowId - check once
     
     [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
         
@@ -125,7 +126,7 @@
                                    for (int i = 0; listArray.count>i; i++) {
                                        NSDictionary * dict = listArray[i];
 
-                                       [totalDocNames addObject:[dict valueForKey:@"DocumentName"]];
+                                       [self->totalDocNames addObject:[dict valueForKey:@"DocumentName"]];
                                        
                                    }
                                    NSString * DocNames =   [totalDocNames componentsJoinedByString:@","];

@@ -1578,10 +1578,12 @@ enum
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-        UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //DisplayName
         DocumentLogVC *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"DocumentLogVC"];
         
         objTrackOrderVC.workflowID = [[_searchResults objectAtIndex:sender.tag] valueForKey:@"WorkFlowId"];;
+        
+        objTrackOrderVC.documentName = [[_searchResults objectAtIndex:sender.tag] valueForKey:@"DisplayName"];;
         [self.navigationController pushViewController:objTrackOrderVC animated:YES];
     }];
     UIAlertAction* Comments = [UIAlertAction
@@ -2021,20 +2023,20 @@ enum
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                _docInfoArray = [responseValue valueForKey:@"Response"];
+                self->_docInfoArray = [responseValue valueForKey:@"Response"];
                 
-                if (_docInfoArray != (id)[NSNull null])
+                if (self->_docInfoArray != (id)[NSNull null])
                 {
                     // [self.documentInfoTable reloadData];
                     
                     
-                    if(_docInfoArray.count == 1)
+                    if(self->_docInfoArray.count == 1)
                     {
                         UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                         DocumentInfoVC *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"DocumentInfoVC"];
-                        objTrackOrderVC.documentInfoArray = _docInfoArray[0];
+                        objTrackOrderVC.documentInfoArray = self->_docInfoArray[0];
                         
-                        NSString *names = [[_docInfoArray objectAtIndex:0]valueForKey:@"DocumentName"];
+                        NSString *names = [[self->_docInfoArray objectAtIndex:0]valueForKey:@"DocumentName"];
                         
                         objTrackOrderVC.titleString = names;
                         

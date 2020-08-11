@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *recalledCount;
 @property (strong, nonatomic) NSString *completedCount;
 @property (strong, nonatomic) NSString *documentId;
+@property (strong, nonatomic) NSString *callAttachmentAPI;
 
 + (instancetype)sharedInstance;
 

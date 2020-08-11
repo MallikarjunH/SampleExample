@@ -390,8 +390,8 @@ static int const kHeaderSectionTag = 6900;
                 responseArray = [responseValue valueForKey:@"Response"];
                 for (int i = 0; i<responseArray.count; i++) {
                    
-                    
-                    if ([[responseArray[i]valueForKey:@"Email_Id"]isEqualToString:loggedInUserEmail]) {
+                    NSString * email = [[AppDelegate AppDelegateInstance] strCheckNull:[NSString stringWithFormat:@"%@",[responseArray[i]valueForKey:@"Email_Id"]]];
+                    if ([email isEqualToString:loggedInUserEmail]) {
                         userTypeDict = [responseArray[i] mutableCopy];
                         userTypeDict[@"UserType"] = @"4";
                         [userTypeDict setValue:@"ME" forKey:@"FullName"];

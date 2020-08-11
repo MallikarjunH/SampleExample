@@ -323,6 +323,7 @@ BOOL _isRotating;
                        objTrackOrderVC.isAttached = true;
                        objTrackOrderVC.isDocStore = true;
                        objTrackOrderVC.isFromWF = @"N";
+                       
             objTrackOrderVC.document = @"Attached Documents";
             UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
             [self presentViewController:objNavigationController animated:true completion:nil];

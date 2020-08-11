@@ -10,8 +10,9 @@
 
 @interface DocumentLogTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *customView;
-@property (weak, nonatomic) IBOutlet UILabel *dateTimeLable;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLable;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
+@property (weak, nonatomic) IBOutlet UILabel *dateTimeLable;
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UILabel *actionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ipAddressLabel;
 @end

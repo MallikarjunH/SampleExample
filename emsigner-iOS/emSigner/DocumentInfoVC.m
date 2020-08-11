@@ -135,6 +135,7 @@
     //                else [cell addSubview:self.signcollectionView];
     //                [self.signcollectionView reloadData];
     //            }
+  
     if (indexPath.section == 0) {
         static NSString *CellIdentifier = @"cell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -146,8 +147,10 @@
             [cell.detailTextLabel setText:[_documentInfoArray  valueForKey:@"WorkflowName"]];
         }
         
+        NSString *docNumber = [[AppDelegate AppDelegateInstance] strCheckNull:[_documentInfoArray valueForKey:@"DocumentNumber"]];
+        
         if (indexPath.row == 1) {
-            [cell.detailTextLabel setText: [NSString stringWithFormat:@"%@%@",@"  ",[_documentInfoArray valueForKey:@"DocumentNumber"]]];
+            [cell.detailTextLabel setText: [NSString stringWithFormat:@"%@%@",@"  ",docNumber]];
         }
         if (indexPath.row == 2) {
             

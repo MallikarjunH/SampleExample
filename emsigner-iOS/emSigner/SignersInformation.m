@@ -962,8 +962,13 @@
                 objTrackOrderVC.documentID = [NSString stringWithFormat:@"%@",[_signersArray[0]valueForKey:@"DocumentID"]];
                 objTrackOrderVC.parametersForWorkflow = _post;
                 objTrackOrderVC.isFromWF = @"Y";
+                
+                
                 objTrackOrderVC.document = @"ListAttachments";
                 UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
+                if (@available(iOS 13.0, *)) {
+                           [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+                }
                 [self presentViewController:objNavigationController animated:true completion:nil];
        
             }
@@ -1224,6 +1229,7 @@
         objTrackOrderVC.parametersForWorkflow = self->_post;
         objTrackOrderVC.document = @"ListAttachments";
         objTrackOrderVC.isFromWF = @"Y";
+       
         objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
         objNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;

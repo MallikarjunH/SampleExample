@@ -327,7 +327,10 @@
         previewVC.uploadAttachment = self.uploadAttachment;
         previewVC.post = self.post;
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:previewVC];
-        objNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+        if (@available(iOS 13.0, *)) {
+                   [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+        }
+        //objNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
        // [self presentViewController:objNavigationController animated:true completion:nil];
        [self.navigationController pushViewController:previewVC animated:true];
         

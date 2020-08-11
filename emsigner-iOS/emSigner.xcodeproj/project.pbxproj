@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -86,6 +86,7 @@
 		06821D5923EBED1400A40B68 /* OverlayPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06821D5623EBED1400A40B68 /* OverlayPresentationController.m */; };
 		06821D5A23EBED1400A40B68 /* OverlayTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06821D5723EBED1400A40B68 /* OverlayTransitioningDelegate.m */; };
 		06871455220C391A00B61578 /* SPUserResizableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06871453220C391A00B61578 /* SPUserResizableView.m */; };
+		068E5D2524E254FF00BC841E /* DocumentNameHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 068E5D2424E254FF00BC841E /* DocumentNameHeader.m */; };
 		069B93E422130A7B00B05771 /* DelegateDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 069B93E222130A7B00B05771 /* DelegateDocument.m */; };
 		069B93E522130A7B00B05771 /* DelegateDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069B93E322130A7B00B05771 /* DelegateDocument.xib */; };
 		069D3DF823D5729100932607 /* SigningSiri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D3DF723D5729100932607 /* SigningSiri.swift */; };
@@ -413,6 +414,8 @@
 		06821D5723EBED1400A40B68 /* OverlayTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayTransitioningDelegate.m; sourceTree = "<group>"; };
 		06871453220C391A00B61578 /* SPUserResizableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUserResizableView.m; sourceTree = "<group>"; };
 		06871454220C391A00B61578 /* SPUserResizableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUserResizableView.h; sourceTree = "<group>"; };
+		068E5D2324E254FF00BC841E /* DocumentNameHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentNameHeader.h; sourceTree = "<group>"; };
+		068E5D2424E254FF00BC841E /* DocumentNameHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentNameHeader.m; sourceTree = "<group>"; };
 		069B93E122130A7B00B05771 /* DelegateDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateDocument.h; sourceTree = "<group>"; };
 		069B93E222130A7B00B05771 /* DelegateDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelegateDocument.m; sourceTree = "<group>"; };
 		069B93E322130A7B00B05771 /* DelegateDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DelegateDocument.xib; sourceTree = "<group>"; };
@@ -741,6 +744,8 @@
 				06058C2E2303E4EE00ACFC7B /* CommentsController.m */,
 				06058C30230406BA00ACFC7B /* DropDownCell.h */,
 				06058C31230406BA00ACFC7B /* DropDownCell.m */,
+				068E5D2324E254FF00BC841E /* DocumentNameHeader.h */,
+				068E5D2424E254FF00BC841E /* DocumentNameHeader.m */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -2060,38 +2065,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-emSigner/Pods-emSigner-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/IRLDocumentScanner/IRLDocumentScanner.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework",
-				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/TOCropViewController/TOCropViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-emSigner/Pods-emSigner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IRLDocumentScanner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSAL.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TOCropViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-emSigner/Pods-emSigner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2216,6 +2194,7 @@
 				069B93E422130A7B00B05771 /* DelegateDocument.m in Sources */,
 				D20AB3FC1DB3FE73009B925D /* WebserviceManager.m in Sources */,
 				C3F0620F1D50A52A008F19B3 /* CustomPopOverVC.m in Sources */,
+				068E5D2524E254FF00BC841E /* DocumentNameHeader.m in Sources */,
 				D271FFA41E2B595F00CB2E80 /* LMNavigationController.m in Sources */,
 				C304C0A11F010138007800EF /* DocsStoreMultiplePdf.m in Sources */,
 				C3FA5BDC1EDFF522006373F0 /* InprogressMultiplePdf.m in Sources */,

@@ -17,6 +17,7 @@
 #import "UploadDocuments.h"
 #import "NSString+DateAsAppleTime.h"
 #import "LMNavigationController.h"
+#import "GlobalVariables.h"
 
 
 @interface AttachedVC ()
@@ -33,8 +34,10 @@
     PDFDocument *pdfDocument;
     NSString * base64String;
     NSURL *refURL;
-    NSDictionary * attachedDict;
+   // NSDictionary * attachedDict;
     NSDateFormatter *formatter;
+    
+    
 }
 
 @property (nonatomic, weak) NSIndexPath *selectedIndexPath;
@@ -50,7 +53,7 @@
     
     _attachedToolBar.hidden = YES;
     
-    [_uploadAttachment setTitle:@"Add Attachments" forState:UIControlStateNormal];
+   // [_uploadAttachment setTitle:@"Add Attachments" forState:UIControlStateNormal];
     //[_uploadAttachment setTitle:@"Send Attachments" forState:UIControlStateNormal];
     // _isAttached = false;
     
@@ -66,6 +69,7 @@
     _addFile = [[NSMutableArray alloc] init];
     _listArray = [[NSMutableArray alloc]init];
     formatter = [[NSDateFormatter alloc] init];
+ 
     
     //Empty cell keep blank
     self.attachedTableView.contentInset = UIEdgeInsetsMake(0, 0, 65, 0);
@@ -108,14 +112,14 @@
     title.textColor = UIColor.whiteColor;
     [navigationview addSubview:title];
     
-  /*  //Right BUtton
+    //Right BUtton
     UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 58, 8, 50, 30)];
      [rightBtn setImage:[UIImage imageNamed:@"plusWhiteIcon"] forState:UIControlStateNormal];
      // [rightBtn setTitle:@"Send" forState:UIControlStateNormal];
      [rightBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
      [rightBtn setTag:2];
      [rightBtn addTarget:self action:@selector(addbtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-     [navigationview addSubview:rightBtn];  */
+     [navigationview addSubview:rightBtn];
     
     
     /*  if (_isDocStore == true)
@@ -160,8 +164,14 @@
     arrImg = [[NSMutableArray alloc]init];
     
     //if ([_document isEqualToString:@"ListAttachments"]) {
+    
+   
+   
+   // [self callForUploadAttachments:self->_documentID :_documentName :self.descText.text :base64String];
+    
     [self ListAttachments];
-    //[self initiateWorkFlow];
+   
+//    [self initiateWorkFlow];
     
     //}
     // else
@@ -175,20 +185,39 @@
 -(void) triggerAction:(NSNotification *) notification
 {
     NSLog(@"Received Notification - Received Attachment");
-    attachedDict = [[NSDictionary alloc] init];
+    
+    _attachedDict = [[NSDictionary alloc] init];
     
     NSDictionary *dict = notification.userInfo;
-    attachedDict = dict;
+    _attachedDict = dict;
     
     if(dict.count > 0){
         
-         attachedDict = dict;
+        _attachedDict = dict;
          NSDictionary * attachmentDict = [dict valueForKey:@"attachemtDict"];
          NSString * base64FileData = [attachmentDict valueForKey:@"Base64FileData"];
          NSString * documentName = [attachmentDict valueForKey:@"DocumentName"];
          NSString * optionalPara = [attachmentDict valueForKey:@"OptionalParam1"];
         
-         [self callForUploadAttachments:_documentID :documentName :self.descText.text :base64FileData];
+    
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+
+            @synchronized(self) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+
+                           [self callForUploadAttachments:self->_documentID :documentName :self.descText.text :base64FileData];
+                });
+                
+               /* dispatch_async(dispatch_get_main_queue(), ^(void){
+
+                    [self ListAttachments];
+                }); */
+            }
+        });
+        
+       // [self callForUploadAttachments:self->_documentID :documentName :self.descText.text :base64FileData];
+       
         
     }else{
         
@@ -216,20 +245,32 @@
 -(void) addbtnTapped:(UIButton *)sender {
     NSLog(@"Click on Add Attachment");
     
-    _isAttached = true;
-    
-    [[NSUserDefaults standardUserDefaults] setValue:self.descText.text forKey:@"desc"];
-    
-    UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UploadDocuments *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"UploadDocuments"];
-    objTrackOrderVC.uploadAttachment = true;
-    objTrackOrderVC.isDocStore = true;
-    objTrackOrderVC.documentId = _documentID;
-    objTrackOrderVC.post = _parametersForWorkflow;
-    objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
-    [self presentViewController:objNavigationController animated:true completion:nil];
-    
+    if ((_descText.text.length == (id)[NSNull null]) || ([_descText.text isEqualToString:@""])) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Please enter the description" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:true completion:nil];
+    } else {
+        
+        _isAttached = true;
+           
+           [[NSUserDefaults standardUserDefaults] setValue:self.descText.text forKey:@"desc"];
+           
+           UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+           UploadDocuments *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"UploadDocuments"];
+           objTrackOrderVC.uploadAttachment = true;
+           objTrackOrderVC.isDocStore = true;
+           objTrackOrderVC.documentId = _documentID;
+           objTrackOrderVC.post = _parametersForWorkflow;
+           objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
+           UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
+           if (@available(iOS 13.0, *)) {
+                      [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+           }
+           [self presentViewController:objNavigationController animated:true completion:nil];
+           
+    }
+   
     /*  if (self.descText.text.length > 0) {
      
      UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Pick Options" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -575,13 +616,11 @@
 
 -(void)refresh:(UIRefreshControl *)refreshControl
 {
-    
-    [self viewWillAppear:YES];
-    
-    [_attachedTableView reloadData];
+   // [self viewWillAppear:YES];
+    [self ListAttachments];
+   // [_attachedTableView reloadData];
     [refreshControl endRefreshing];
-    
-    
+
 }
 
 //Network Connection Checks
@@ -1424,6 +1463,9 @@
         objTrackOrderVC.post = _parametersForWorkflow;
         objTrackOrderVC.modalPresentationStyle = UIModalPresentationFullScreen;
         UINavigationController *objNavigationController = [[UINavigationController alloc]initWithRootViewController:objTrackOrderVC];
+        if (@available(iOS 13.0, *)) {
+                   [objNavigationController setModalPresentationStyle: UIModalPresentationFullScreen];
+        }
         [self presentViewController:objNavigationController animated:true completion:nil]; 
         
         
@@ -1574,13 +1616,15 @@
             {
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
-                    [self stopActivity];
+                    
                     
                     //if ([_document isEqualToString:@"ListAttachments"]) {
                     //  _workFlowId = (NSString *)[responseValue valueForKey:@"Response"];
                     [self ListAttachments];
+                    [self stopActivity];
                     //EMIOS1108
                     self.descText.text = @"";
+                    
                     //clear the test
                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"desc"];
                     // }

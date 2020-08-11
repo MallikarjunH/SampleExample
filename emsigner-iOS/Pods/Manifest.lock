@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.5.0)
   - DACircularProgress (2.3.1)
   - Firebase/Analytics (6.18.0):
     - Firebase/Core
@@ -105,6 +106,7 @@ PODS:
   - TOCropViewController (2.5.2)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Firebase/Analytics
   - Firebase/Messaging
   - IQKeyboardManager (~> 6.5)
@@ -113,7 +115,8 @@ DEPENDENCIES:
   - MWPhotoBrowser (~> 2.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
+    - ActionSheetPicker-3.0
     - DACircularProgress
     - Firebase
     - FirebaseAnalytics
@@ -140,6 +143,7 @@ SPEC REPOS:
     - TOCropViewController
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 6d79f6f3b98e2b21d218dd65a39f634ff37a27e5
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Firebase: 0490eca762a72e4f1582319539153897f1508dee
   FirebaseAnalytics: 058d71e714a1a6804d9e0f25e3bb18e377a51579
@@ -165,6 +169,6 @@ SPEC CHECKSUMS:
   SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
   TOCropViewController: e9da34f484aedd4e5d5a8ab230ba217cfe16c729
 
-PODFILE CHECKSUM: 5dff22907dab1ab3c943c96355569d89a1a9e62f
+PODFILE CHECKSUM: 26404ebb399f365015fcb7e7335a167e6ecec032
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1
