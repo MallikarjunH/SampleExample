@@ -16,6 +16,7 @@
 #import "SingletonAPI.h"
 #import "LMNavigationController.h"
 #import "MBProgressHUD.h"
+#import "SingletonAPI.h"
 
 @interface SignatoriesPage ()
 {

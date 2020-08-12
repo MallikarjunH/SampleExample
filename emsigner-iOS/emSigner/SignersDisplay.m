@@ -234,8 +234,31 @@ static int const kHeaderSectionTag = 6900;
             }
         }
         
+        
+      if(SingletonAPI.sharedInstance.signerDataArray.count>0 && SingletonAPI.sharedInstance.signerDataArray != nil){
+            
+            Boolean boolValue = [SingletonAPI.sharedInstance.signerDataArray isEqualToArray:self.docName];
+            if(boolValue == YES){
+                NSLog(@"Do not show error: Both are same");
+            }else{
+                NSLog(@"Show  error: Both are not same same");
+                UIAlertView *passwordAlertView = [[UIAlertView alloc]initWithTitle: @"Error"
+                                                                           message: @"Signatory order should same in all documents"
+                                                                          delegate: nil
+                                                                 cancelButtonTitle: @"OK"
+                                                                 otherButtonTitles: nil];
+                passwordAlertView.alertViewStyle = UIAlertViewStyleDefault;
+                [passwordAlertView show];
+                return;
+            }
+        }
+        else{
+            SingletonAPI.sharedInstance.signerDataArray = self.docName;
+        }
+        
+        
         [self.navigationController dismissViewControllerAnimated:true completion:^ {
-            [_delegate sendDataTosigners:self.docName SubscriberDict:sendingvalues SignType:SignType DataForNameAndEmailID:self.arrayForCollectionViewForTap];
+            [self->_delegate sendDataTosigners:self.docName SubscriberDict:sendingvalues SignType:self->SignType DataForNameAndEmailID:self.arrayForCollectionViewForTap];
             
         }];
         

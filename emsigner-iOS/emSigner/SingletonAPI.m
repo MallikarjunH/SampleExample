@@ -16,6 +16,7 @@
         _sharedInstance = [[SingletonAPI alloc] init];
         _sharedInstance.changePasswordDict = [[NSMutableDictionary alloc] init];
         _sharedInstance.pdfImageArray = [[NSMutableArray alloc] init];
+        _sharedInstance.signerDataArray = [[NSMutableArray alloc] init];
     });
     return _sharedInstance;
 }

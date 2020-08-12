@@ -12,5 +12,6 @@
 + (SingletonAPI*)sharedInstance;
 @property (nonatomic, strong) NSMutableDictionary *changePasswordDict;
 @property (nonatomic, strong) NSMutableArray *pdfImageArray;
+@property (nonatomic, strong) NSMutableArray *signerDataArray;
 
 @end

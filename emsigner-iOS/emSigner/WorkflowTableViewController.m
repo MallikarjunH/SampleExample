@@ -21,6 +21,7 @@
 #import "BaseViewController.h"
 #import "FlexiformsPage.h"
 #import "CustomHeader.h"
+#import "SingletonAPI.h"
 
 static int const kHeaderSectionTag = 6900;
 
@@ -330,6 +331,7 @@ static int const kHeaderSectionTag = 6900;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    [SingletonAPI.sharedInstance.signerDataArray removeAllObjects];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
