@@ -1,0 +1,20 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.5.0)
+  - IQKeyboardManagerSwift (6.5.5)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  trunk:
+    - ActionSheetPicker-3.0
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 6d79f6f3b98e2b21d218dd65a39f634ff37a27e5
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+
+PODFILE CHECKSUM: 036597915050ee5c5b28825b7559a57538855d98
+
+COCOAPODS: 1.9.1

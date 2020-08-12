@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0623AD0324E39FB9006A6635 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0623AD0124E39F7E006A6635 /* QuartzCore.framework */; };
+		0623AD0524E39FCA006A6635 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0623AD0424E39FCA006A6635 /* UIKit.framework */; };
+		0623AD0724E39FD2006A6635 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0623AD0624E39FD2006A6635 /* Foundation.framework */; };
+		0623AD0924E39FE6006A6635 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0623AD0824E39FE6006A6635 /* CoreGraphics.framework */; };
+		0623AD0B24E39FEC006A6635 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0623AD0A24E39FEC006A6635 /* CoreImage.framework */; };
+		0623AD0D24E39FFE006A6635 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0623AD0C24E39FFE006A6635 /* PDFKit.framework */; };
 		06437E0B24D3037F009B7812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06437E0A24D3037F009B7812 /* AppDelegate.swift */; };
 		06437E0D24D3037F009B7812 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06437E0C24D3037F009B7812 /* SceneDelegate.swift */; };
 		06437E0F24D3037F009B7812 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06437E0E24D3037F009B7812 /* ViewController.swift */; };
@@ -14,9 +20,16 @@
 		06437E1524D3037F009B7812 /* emSigner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06437E1324D3037F009B7812 /* emSigner.xcdatamodeld */; };
 		06437E1724D30382009B7812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06437E1624D30382009B7812 /* Assets.xcassets */; };
 		06437E1A24D30382009B7812 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06437E1824D30382009B7812 /* LaunchScreen.storyboard */; };
+		F054536E4C5F6A600B062E14 /* Pods_emSigner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073789E98212265E85DC7200 /* Pods_emSigner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0623AD0124E39F7E006A6635 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0623AD0424E39FCA006A6635 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0623AD0624E39FD2006A6635 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0623AD0824E39FE6006A6635 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0623AD0A24E39FEC006A6635 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		0623AD0C24E39FFE006A6635 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
 		06437E0724D3037F009B7812 /* emSigner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emSigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06437E0A24D3037F009B7812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06437E0C24D3037F009B7812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +39,9 @@
 		06437E1624D30382009B7812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06437E1924D30382009B7812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06437E1B24D30382009B7812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		073789E98212265E85DC7200 /* Pods_emSigner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_emSigner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		078C837EF12E745460DE10C5 /* Pods-emSigner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emSigner.debug.xcconfig"; path = "Target Support Files/Pods-emSigner/Pods-emSigner.debug.xcconfig"; sourceTree = "<group>"; };
+		AC3F9B3E0818A58B964071C1 /* Pods-emSigner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emSigner.release.xcconfig"; path = "Target Support Files/Pods-emSigner/Pods-emSigner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +49,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0623AD0324E39FB9006A6635 /* QuartzCore.framework in Frameworks */,
+				0623AD0D24E39FFE006A6635 /* PDFKit.framework in Frameworks */,
+				0623AD0524E39FCA006A6635 /* UIKit.framework in Frameworks */,
+				F054536E4C5F6A600B062E14 /* Pods_emSigner.framework in Frameworks */,
+				0623AD0924E39FE6006A6635 /* CoreGraphics.framework in Frameworks */,
+				0623AD0724E39FD2006A6635 /* Foundation.framework in Frameworks */,
+				0623AD0B24E39FEC006A6635 /* CoreImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +67,8 @@
 			children = (
 				06437E0924D3037F009B7812 /* emSigner */,
 				06437E0824D3037F009B7812 /* Products */,
+				8090843CBC5D06EF8763B0E8 /* Pods */,
+				C26A437FF8EC3C1684AA8977 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +83,87 @@
 		06437E0924D3037F009B7812 /* emSigner */ = {
 			isa = PBXGroup;
 			children = (
-				06437E0A24D3037F009B7812 /* AppDelegate.swift */,
-				06437E0C24D3037F009B7812 /* SceneDelegate.swift */,
+				06A73B8D24E39C7900C9EE00 /* AppAndSceneDelegate */,
+				06A73B8E24E39C8A00C9EE00 /* Model */,
+				06A73B8F24E39C9100C9EE00 /* Views */,
+				06A73B9024E39C9900C9EE00 /* Controllers */,
+				06A73B9224E39CDB00C9EE00 /* WebServices */,
 				06437E0E24D3037F009B7812 /* ViewController.swift */,
 				06437E1024D3037F009B7812 /* Main.storyboard */,
-				06437E1624D30382009B7812 /* Assets.xcassets */,
 				06437E1824D30382009B7812 /* LaunchScreen.storyboard */,
+				06437E1624D30382009B7812 /* Assets.xcassets */,
 				06437E1B24D30382009B7812 /* Info.plist */,
 				06437E1324D3037F009B7812 /* emSigner.xcdatamodeld */,
 			);
 			path = emSigner;
+			sourceTree = "<group>";
+		};
+		06A73B8D24E39C7900C9EE00 /* AppAndSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				06437E0A24D3037F009B7812 /* AppDelegate.swift */,
+				06437E0C24D3037F009B7812 /* SceneDelegate.swift */,
+			);
+			path = AppAndSceneDelegate;
+			sourceTree = "<group>";
+		};
+		06A73B8E24E39C8A00C9EE00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		06A73B8F24E39C9100C9EE00 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06A73B9024E39C9900C9EE00 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06A73B9124E39CCB00C9EE00 /* Login */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		06A73B9124E39CCB00C9EE00 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		06A73B9224E39CDB00C9EE00 /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebServices;
+			sourceTree = "<group>";
+		};
+		8090843CBC5D06EF8763B0E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				078C837EF12E745460DE10C5 /* Pods-emSigner.debug.xcconfig */,
+				AC3F9B3E0818A58B964071C1 /* Pods-emSigner.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C26A437FF8EC3C1684AA8977 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0623AD0C24E39FFE006A6635 /* PDFKit.framework */,
+				0623AD0A24E39FEC006A6635 /* CoreImage.framework */,
+				0623AD0824E39FE6006A6635 /* CoreGraphics.framework */,
+				0623AD0624E39FD2006A6635 /* Foundation.framework */,
+				0623AD0424E39FCA006A6635 /* UIKit.framework */,
+				0623AD0124E39F7E006A6635 /* QuartzCore.framework */,
+				073789E98212265E85DC7200 /* Pods_emSigner.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06437E1E24D30382009B7812 /* Build configuration list for PBXNativeTarget "emSigner" */;
 			buildPhases = (
+				EC981D449D8B0BC699A477A5 /* [CP] Check Pods Manifest.lock */,
 				06437E0324D3037F009B7812 /* Sources */,
 				06437E0424D3037F009B7812 /* Frameworks */,
 				06437E0524D3037F009B7812 /* Resources */,
+				C40EAE72D5619D9B17202B89 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +233,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C40EAE72D5619D9B17202B89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-emSigner/Pods-emSigner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-emSigner/Pods-emSigner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-emSigner/Pods-emSigner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC981D449D8B0BC699A477A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-emSigner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		06437E0324D3037F009B7812 /* Sources */ = {
@@ -220,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -286,6 +426,7 @@
 		};
 		06437E1F24D30382009B7812 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 078C837EF12E745460DE10C5 /* Pods-emSigner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +444,7 @@
 		};
 		06437E2024D30382009B7812 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC3F9B3E0818A58B964071C1 /* Pods-emSigner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
