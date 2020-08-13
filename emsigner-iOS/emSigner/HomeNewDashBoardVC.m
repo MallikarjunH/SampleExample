@@ -1583,7 +1583,7 @@ enum
         
         objTrackOrderVC.workflowID = [[_searchResults objectAtIndex:sender.tag] valueForKey:@"WorkFlowId"];;
         
-        objTrackOrderVC.documentName = [[_searchResults objectAtIndex:sender.tag] valueForKey:@"DisplayName"];;
+        objTrackOrderVC.documentName = [[_searchResults objectAtIndex:sender.tag] valueForKey:@"DisplayName"];
         [self.navigationController pushViewController:objTrackOrderVC animated:YES];
     }];
     UIAlertAction* Comments = [UIAlertAction

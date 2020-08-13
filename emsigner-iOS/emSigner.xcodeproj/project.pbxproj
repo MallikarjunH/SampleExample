@@ -822,6 +822,37 @@
 			path = FXBlurView;
 			sourceTree = "<group>";
 		};
+		0650CAC424E524B900442542 /* LMDropdown */ = {
+			isa = PBXGroup;
+			children = (
+				D271FFA21E2B595F00CB2E80 /* LMNavigationController.h */,
+				D271FFA31E2B595F00CB2E80 /* LMNavigationController.m */,
+				C30360ED1E2C981F00578EDF /* LMMenuCell.h */,
+				C30360EE1E2C981F00578EDF /* LMMenuCell.m */,
+			);
+			name = LMDropdown;
+			sourceTree = "<group>";
+		};
+		0650CAC524E5257900442542 /* ParallelSigning */ = {
+			isa = PBXGroup;
+			children = (
+				06B803B22223E5F600942F1A /* ParallelSigning.h */,
+				06B803B32223E5F600942F1A /* ParallelSigning.m */,
+				06B803B42223E5F600942F1A /* ParallelSigning.xib */,
+			);
+			name = ParallelSigning;
+			sourceTree = "<group>";
+		};
+		0650CAC624E5259000442542 /* DelegateDocument */ = {
+			isa = PBXGroup;
+			children = (
+				069B93E122130A7B00B05771 /* DelegateDocument.h */,
+				069B93E222130A7B00B05771 /* DelegateDocument.m */,
+				069B93E322130A7B00B05771 /* DelegateDocument.xib */,
+			);
+			name = DelegateDocument;
+			sourceTree = "<group>";
+		};
 		065FBF1124CFC8A5007B6E76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +865,8 @@
 		065FBF1224CFC8AD007B6E76 /* VIews */ = {
 			isa = PBXGroup;
 			children = (
+				06F6057621DF790B00FAABC0 /* LoadingCell */,
+				06D3B71524728C3E001BC378 /* CustomHeader */,
 			);
 			name = VIews;
 			sourceTree = "<group>";
@@ -842,6 +875,7 @@
 			isa = PBXGroup;
 			children = (
 				C3FABDFA1E373D6800EAF5D7 /* Login */,
+				C312E89B1E646D19009DC7A2 /* Forgot Password */,
 				C3F57FAF1F14D16D006C51FE /* GetOTP */,
 				D2D054671D3BA209007EAE97 /* Side Menu */,
 				063C5B6524D4174300B1F0FE /* Account */,
@@ -864,6 +898,12 @@
 		065FBF1524CFC8F0007B6E76 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				C31160581E5AFF8200E93385 /* Textview Placeholder */,
+				0650CAC424E524B900442542 /* LMDropdown */,
+				06821D5123EBED1400A40B68 /* CustomAnimation */,
+				06D97D132313ABBE00CC682A /* PageViewController */,
+				C33C34321E27B9610000ABC0 /* Float Buttton */,
+				C3FEE8D31E2893D100509D99 /* MBProgressbar */,
 				065FBF1724CFC9A1007B6E76 /* ImageCrop */,
 				069D3DF623D5726600932607 /* SiriForSigning */,
 				06871452220C390700B61578 /* PlaceHolder */,
@@ -1029,7 +1069,6 @@
 		06D3B71524728C3E001BC378 /* CustomHeader */ = {
 			isa = PBXGroup;
 			children = (
-				06D3B71924728CBE001BC378 /* New Group */,
 				06D3B71624728C92001BC378 /* CustomHeader.h */,
 				0670EE0E24740F0000791A15 /* UploadHeader.xib */,
 				06D3B71724728C92001BC378 /* CustomHeader.m */,
@@ -1038,13 +1077,6 @@
 				0670EE0C24740E7900791A15 /* UploadHeader.m */,
 			);
 			name = CustomHeader;
-			sourceTree = "<group>";
-		};
-		06D3B71924728CBE001BC378 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		06D64D5224696BF000A28387 /* IRLDocumentForWorkflows */ = {
@@ -1082,7 +1114,6 @@
 		06F6057621DF790B00FAABC0 /* LoadingCell */ = {
 			isa = PBXGroup;
 			children = (
-				C3F50ADF1E08076200EFA46D /* Frameworks */,
 				06F6057221DF78F900FAABC0 /* LoadingCell.xib */,
 				06F6057121DF78F900FAABC0 /* LoadingCell.m */,
 				06F6057021DF78F900FAABC0 /* LoadingCell.h */,
@@ -1206,6 +1237,8 @@
 			children = (
 				C3A12D1E1D93B8A50077BF5D /* ForgotPasswordVC.h */,
 				C3A12D1F1D93B8A50077BF5D /* ForgotPasswordVC.m */,
+				06732E512150F26F007BEC69 /* ForgotPasswordUpdated.h */,
+				06732E522150F26F007BEC69 /* ForgotPasswordUpdated.m */,
 			);
 			name = "Forgot Password";
 			sourceTree = "<group>";
@@ -1411,52 +1444,35 @@
 				065FBF1324CFC8B8007B6E76 /* Controller */,
 				065FBF1624CFC904007B6E76 /* WebServices */,
 				065FBF1524CFC8F0007B6E76 /* HelperClasses */,
-				06D3B71524728C3E001BC378 /* CustomHeader */,
 				06D64D5224696BF000A28387 /* IRLDocumentForWorkflows */,
-				06821D5123EBED1400A40B68 /* CustomAnimation */,
-				06D97D132313ABBE00CC682A /* PageViewController */,
 				06058C2C2303E4BC00ACFC7B /* Comments */,
 				06CB9FE222E5C01F0091AA46 /* SubclassAnnotationsPdf */,
 				06710B8422CDFCC4005BD9EA /* WorkFlow */,
+				C3F6DCC91D38FAAC00223CA9 /* Status */,
 				06BBF70C22019B8100172797 /* VCFloatingActionButton */,
-				06E29AF62354327E00AE0282 /* GoogleService-Info.plist */,
-				06593B7221268FAF00B07C0D /* emsigner-with-ico2.png */,
 				0616026F2109CB9D00FFCF11 /* All Documents */,
-				C3F69A381EEA7BAB0081B586 /* emSigner.entitlements */,
-				C3F2A27A1D34F0EE00BFA456 /* Main.storyboard */,
-				C368B10B1EF6CA9A00F0458F /* emSigner Mobile App Description (2).pdf */,
 				C3FAB75B1E823A8C00238BC7 /* Pdf Listview */,
-				D271FFA21E2B595F00CB2E80 /* LMNavigationController.h */,
-				D271FFA31E2B595F00CB2E80 /* LMNavigationController.m */,
-				C30360ED1E2C981F00578EDF /* LMMenuCell.h */,
-				C30360EE1E2C981F00578EDF /* LMMenuCell.m */,
 				C397ECCE1E3B635C00844B53 /* Document Info */,
-				C312E89B1E646D19009DC7A2 /* Forgot Password */,
 				C312E89A1E6427E6009DC7A2 /* Recall */,
 				06E1CFBA211882B4007B93C2 /* Signatories Page */,
 				C312E8991E63F9A7009DC7A2 /* Decline */,
 				C3FBB0BC1EF7973E00348996 /* PopOver Multiple Document */,
-				C3F6DCC91D38FAAC00223CA9 /* Status */,
-				C3FEE8D31E2893D100509D99 /* MBProgressbar */,
-				C33C34321E27B9610000ABC0 /* Float Buttton */,
 				C34009851DE04D5D007008AE /* DropDown View */,
 				C3009DD61D641C01006DB84E /* Document Log */,
-				C31160581E5AFF8200E93385 /* Textview Placeholder */,
 				C3F6DCAF1D38E69100223CA9 /* DashBoard */,
+				0611D85621D5F63000C01C9C /* DateCategory */,
+				0650CAC624E5259000442542 /* DelegateDocument */,
+				0650CAC524E5257900442542 /* ParallelSigning */,
+				06E29AF62354327E00AE0282 /* GoogleService-Info.plist */,
+				06593B7221268FAF00B07C0D /* emsigner-with-ico2.png */,
+				C3F69A381EEA7BAB0081B586 /* emSigner.entitlements */,
+				C3F2A27A1D34F0EE00BFA456 /* Main.storyboard */,
+				C368B10B1EF6CA9A00F0458F /* emSigner Mobile App Description (2).pdf */,
 				C3F2A27D1D34F0EE00BFA456 /* Assets.xcassets */,
 				C3F2A27F1D34F0EE00BFA456 /* LaunchScreen.storyboard */,
 				C3F2A2821D34F0EE00BFA456 /* Info.plist */,
+				C3F50ADF1E08076200EFA46D /* Frameworks */,
 				C3F2A2711D34F0EE00BFA456 /* Supporting Files */,
-				06732E512150F26F007BEC69 /* ForgotPasswordUpdated.h */,
-				06732E522150F26F007BEC69 /* ForgotPasswordUpdated.m */,
-				0611D85621D5F63000C01C9C /* DateCategory */,
-				06F6057621DF790B00FAABC0 /* LoadingCell */,
-				069B93E122130A7B00B05771 /* DelegateDocument.h */,
-				069B93E222130A7B00B05771 /* DelegateDocument.m */,
-				069B93E322130A7B00B05771 /* DelegateDocument.xib */,
-				06B803B22223E5F600942F1A /* ParallelSigning.h */,
-				06B803B32223E5F600942F1A /* ParallelSigning.m */,
-				06B803B42223E5F600942F1A /* ParallelSigning.xib */,
 			);
 			path = emSigner;
 			sourceTree = "<group>";

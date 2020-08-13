@@ -154,29 +154,47 @@
 //Picket View
 - (IBAction)selectDocumentButtonClicked:(id)sender {
     
-    // Done block:
-        ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-            NSLog(@"Picker: %@", picker);
-            NSLog(@"Selected Index: %ld", (long)selectedIndex);
-            NSLog(@"Selected Value: %@", selectedValue);
-            
-            self->_selectedDocumentLabel.text = selectedValue;
-            self->selectedDocumentId = self->documentIdListArray[selectedIndex];
-           // self->selectedDocumentId = self->documentIdListArray[selectedIndex];
-        };
+    if(documentIdListArray.count>0){
+        
+        // Done block:
+            ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+                NSLog(@"Picker: %@", picker);
+                NSLog(@"Selected Index: %ld", (long)selectedIndex);
+                NSLog(@"Selected Value: %@", selectedValue);
+                
+                self->_selectedDocumentLabel.text = selectedValue;
+                self->selectedDocumentId = self->documentIdListArray[selectedIndex];
+               // self->selectedDocumentId = self->documentIdListArray[selectedIndex];
+            };
 
 
-    // cancel block:
-        ActionStringCancelBlock cancel = ^(ActionSheetStringPicker *picker) {
-            NSLog(@"Block Picker Canceled");
-        };
-    
-    // Run!
-    [ActionSheetStringPicker showPickerWithTitle:@"Select Document" rows:documentNameListArray initialSelection:0 doneBlock:done cancelBlock:cancel origin:sender];
-    
-    
-    
+        // cancel block:
+            ActionStringCancelBlock cancel = ^(ActionSheetStringPicker *picker) {
+                NSLog(@"Block Picker Canceled");
+            };
+        
+        // Run!
+        [ActionSheetStringPicker showPickerWithTitle:@"Select Document" rows:documentNameListArray initialSelection:0 doneBlock:done cancelBlock:cancel origin:sender];
+    }
+    else{
+        
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:nil
+                                     message:@"No Documents Available"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        //Add Buttons
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+            //Handle your yes please button action here
+        }];
+        [alert addAction:yesButton];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
 }
+
 - (IBAction)postCommentButtonClicked:(id)sender {
     //selectedDocumentId
     NSLog(@"Selected Docment Name: %@",_selectedDocumentLabel.text);
@@ -259,7 +277,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return _getDcommentsArray.count;
+    NSInteger numOfSections = 0;
+       if ([_getDcommentsArray count]>0)
+       {
+           self.commentsTableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+           numOfSections                = _getDcommentsArray.count;
+           self.commentsTableview.backgroundView = nil;
+       }
+       else
+       {
+           UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.commentsTableview.bounds.size.width, self.commentsTableview.bounds.size.height)];
+           // noDataLabel.text             = @"No documents available";
+           noDataLabel.text             = @"No comments available!";
+           noDataLabel.numberOfLines = 0;
+           noDataLabel.textColor        = [UIColor grayColor];
+           noDataLabel.textAlignment    = NSTextAlignmentCenter;
+           self.commentsTableview.backgroundView = noDataLabel;
+           self.commentsTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+           
+           //hide right bar button item if there is no data
+           self.navigationItem.rightBarButtonItem = nil;
+       }
+       
+       return numOfSections;
+    
+   // return _getDcommentsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

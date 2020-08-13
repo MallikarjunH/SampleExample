@@ -126,7 +126,7 @@ BOOL _isRotating;
            }*/
     //EMIOS1107
     
-           if (_isSignatory == true && _isSignatory == true) {
+           if (_isSignatory == true && _isReviewer == true) {
                _pendingTabbar.items[1].title = @"Sign & Review";
            } else if (_isReviewer == true) { //_isSignatory
                _pendingTabbar.items[1].title = @"Review";
@@ -1154,7 +1154,8 @@ BOOL _isRotating;
         UIStoryboard *newStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DocumentLogVC *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"DocumentLogVC"];
         
-        objTrackOrderVC.workflowID = _workFlowID;
+        objTrackOrderVC.workflowID = self->_workFlowID;
+        objTrackOrderVC.documentName = self->_myTitle;
         [self.navigationController pushViewController:objTrackOrderVC animated:YES];
     }];
     UIAlertAction* Download = [UIAlertAction

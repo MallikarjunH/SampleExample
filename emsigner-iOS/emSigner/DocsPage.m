@@ -120,7 +120,7 @@
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               [self startActivity:@"Loading"];
+                            //   [self startActivity:@"Loading"];
 
                                _responseArray=[responseValue valueForKey:@"Response"];
                                
