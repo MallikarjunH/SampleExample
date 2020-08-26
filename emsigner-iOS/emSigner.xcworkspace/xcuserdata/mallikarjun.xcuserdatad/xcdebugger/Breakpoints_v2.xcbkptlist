@@ -439,22 +439,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F9BA9FE5-D23D-47FE-8C0E-E6895E207C3B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/HomeNewDashBoardVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8D7B5A65-F071-4225-A5B9-23324AE2D59F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -478,8 +462,8 @@
             filePath = "emSigner/PendingListVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1984"
-            endingLineNumber = "1984"
+            startingLineNumber = "1985"
+            endingLineNumber = "1985"
             landmarkName = "-actionSheet:didDismissWithButtonIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -606,8 +590,8 @@
             filePath = "emSigner/PendingListVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1992"
-            endingLineNumber = "1992"
+            startingLineNumber = "1993"
+            endingLineNumber = "1993"
             landmarkName = "-eSignCall"
             landmarkType = "7">
          </BreakpointContent>
@@ -622,42 +606,10 @@
             filePath = "emSigner/PendingListVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1994"
-            endingLineNumber = "1994"
+            startingLineNumber = "1995"
+            endingLineNumber = "1995"
             landmarkName = "-eSignCall"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7F9710E9-9D4A-47D5-96F9-31C58C3FC017 - 787395891970cfdd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PendingListVC eSignCall]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/PendingListVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1994"
-                  endingLineNumber = "1994"
-                  offsetFromSymbolStart = "233">
-               </Location>
-               <Location
-                  uuid = "7F9710E9-9D4A-47D5-96F9-31C58C3FC017 - a7da728fe3186f41"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__26-[PendingListVC eSignCall]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/PendingListVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1996"
-                  endingLineNumber = "1996"
-                  offsetFromSymbolStart = "58">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -706,38 +658,6 @@
             endingLineNumber = "949"
             landmarkName = "-callForSendDocument"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "84313238-DE18-47F9-B9BD-D26DAB9CC258 - f5dbf6500fe4a6c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PendingListVC callForSendDocument]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/PendingListVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "950"
-                  endingLineNumber = "950"
-                  offsetFromSymbolStart = "1468">
-               </Location>
-               <Location
-                  uuid = "84313238-DE18-47F9-B9BD-D26DAB9CC258 - d41d1e76d575876a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[PendingListVC callForSendDocument]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/PendingListVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "952"
-                  endingLineNumber = "952"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -754,38 +674,6 @@
             endingLineNumber = "325"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F3CC658B-10B0-49AC-8067-8047B40046B2 - 9b355bfa92a0068c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__64-[CompleteMultipleDocumentVC tableView:didSelectRowAtIndexPath:]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/CompleteMultipleDocumentVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "325"
-                  endingLineNumber = "325"
-                  offsetFromSymbolStart = "255">
-               </Location>
-               <Location
-                  uuid = "F3CC658B-10B0-49AC-8067-8047B40046B2 - 32b8aefcfb986d1b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__64-[CompleteMultipleDocumentVC tableView:didSelectRowAtIndexPath:]_block_invoke_2"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/CompleteMultipleDocumentVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "325"
-                  endingLineNumber = "325"
-                  offsetFromSymbolStart = "18">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -919,22 +807,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9F746500-EF3B-410E-A3E1-F355C0F828CB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/AttachedVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "DFACF722-B88C-42A7-AA81-96384DA98F45"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -945,22 +817,6 @@
             startingLineNumber = "743"
             endingLineNumber = "743"
             landmarkName = "-dissmissCellPopup:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D1395D54-DD54-4137-B5AC-E5C3829E7254"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/PendingListVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "-preparePDFViewWithPageMode:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1271,22 +1127,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "83FFBC9B-72C4-4CDC-AD54-C1CC2AE5F4DF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/ShowEditImagesFromImageList.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "-receiveNotification:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9B9BB21C-9CB8-4618-9F06-6B13E34B6938"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1294,8 +1134,8 @@
             filePath = "emSigner/ShowEditImagesFromImageList.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "-Deletedocument:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1310,8 +1150,8 @@
             filePath = "emSigner/ShowEditImagesFromImageList.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "-createPdfWithName:array:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1358,8 +1198,8 @@
             filePath = "emSigner/ShowEditImagesFromImageList.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "-createPdfWithName:array:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2018,38 +1858,6 @@
             endingLineNumber = "406"
             landmarkName = "-loginWithLoginBtn:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3E0F63A1-3B3A-441C-8C7C-34009F8739CF - 4667e8fd26b19cac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController loginWithLoginBtn:]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/ViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
-                  offsetFromSymbolStart = "3240">
-               </Location>
-               <Location
-                  uuid = "3E0F63A1-3B3A-441C-8C7C-34009F8739CF - 4b4ea924be25b38f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[ViewController loginWithLoginBtn:]_block_invoke_5"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/ViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "408"
-                  endingLineNumber = "408"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2386,38 +2194,6 @@
             endingLineNumber = "474"
             landmarkName = "-sendsign:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D4A2A9A7-6B36-4D32-869A-5CFE1DD75AF6 - 4280b4a1ac743ae8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SignersDisplay sendsign:]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/SignersDisplay.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "474"
-                  endingLineNumber = "474"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "D4A2A9A7-6B36-4D32-869A-5CFE1DD75AF6 - 6a3031ac6800637d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__27-[SignersDisplay sendsign:]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/SignersDisplay.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "474"
-                  endingLineNumber = "474"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2686,8 +2462,8 @@
             filePath = "emSigner/ShowEditImagesFromImageList.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
+            startingLineNumber = "422"
+            endingLineNumber = "422"
             landmarkName = "-createPdfWithName:array:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2834,54 +2610,6 @@
             endingLineNumber = "791"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FBE5341F-9533-4D35-B2F5-C78826384F97"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/BaseViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "cntroller"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "FBE5341F-9533-4D35-B2F5-C78826384F97 - d709441d66204a28"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[BaseViewController cntroller]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/BaseViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  uuid = "FBE5341F-9533-4D35-B2F5-C78826384F97 - cea5a453a264ee9e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[BaseViewController setCntroller:]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/BaseViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "49">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3054,8 +2782,8 @@
             filePath = "emSigner/HomeNewDashBoardVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2036"
-            endingLineNumber = "2036"
+            startingLineNumber = "2037"
+            endingLineNumber = "2037"
             landmarkName = "-getDocumentInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3070,8 +2798,8 @@
             filePath = "emSigner/HomeNewDashBoardVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2044"
-            endingLineNumber = "2044"
+            startingLineNumber = "2045"
+            endingLineNumber = "2045"
             landmarkName = "-getDocumentInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3086,8 +2814,8 @@
             filePath = "emSigner/HomeNewDashBoardVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2039"
-            endingLineNumber = "2039"
+            startingLineNumber = "2040"
+            endingLineNumber = "2040"
             landmarkName = "-getDocumentInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3143,22 +2871,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A7DA72C9-0482-4DFE-834A-E828E0667BA8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/DocumentLogVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-getDocumentLogDetailsAPICall"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5582A5D9-1483-4234-839C-D3F6F84107F8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -3166,8 +2878,8 @@
             filePath = "emSigner/HomeNewDashBoardVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1702"
-            endingLineNumber = "1702"
+            startingLineNumber = "1703"
+            endingLineNumber = "1703"
             landmarkName = "-verticalDotsBtnClicked:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3182,8 +2894,8 @@
             filePath = "emSigner/HomeNewDashBoardVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1712"
-            endingLineNumber = "1712"
+            startingLineNumber = "1713"
+            endingLineNumber = "1713"
             landmarkName = "-verticalDotsBtnClicked:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3287,54 +2999,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E51B8BE5-264D-4D12-A31E-30AB5DD67E34"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/AttachedVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "189210EB-ADE2-4F4A-94D3-FB55B825ACE8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/AttachedVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "001834F8-9998-48F2-A2EE-F13876A6F33F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/AttachedVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "870C918B-AD13-4933-A8E2-B7147E35B105"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -3383,22 +3047,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BF775FC9-0364-4C6C-B86E-26558CFF3A5E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "emSigner/AttachedVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A7791A5E-32BF-49AF-A2BB-84CF029C2C8F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -3410,38 +3058,6 @@
             endingLineNumber = "203"
             landmarkName = "-triggerAction:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A7791A5E-32BF-49AF-A2BB-84CF029C2C8F - fb4fd7e5fe2f0fe8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AttachedVC triggerAction:]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/AttachedVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203"
-                  offsetFromSymbolStart = "409">
-               </Location>
-               <Location
-                  uuid = "A7791A5E-32BF-49AF-A2BB-84CF029C2C8F - 974b4c25dc89fb7e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__28-[AttachedVC triggerAction:]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/AttachedVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203"
-                  offsetFromSymbolStart = "15">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3490,38 +3106,6 @@
             endingLineNumber = "117"
             landmarkName = "-getCommentsByWorkflowID"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DF724A69-DB74-4E0E-B344-9C6DD5390C8C - e40733ed22359d0e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[CommentsController getCommentsByWorkflowID]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/CommentsController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "244">
-               </Location>
-               <Location
-                  uuid = "DF724A69-DB74-4E0E-B344-9C6DD5390C8C - 7a2331fb2d2b3299"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__45-[CommentsController getCommentsByWorkflowID]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/CommentsController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "70">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3778,38 +3362,6 @@
             endingLineNumber = "118"
             landmarkName = "-getDocumentNames"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "770E7D88-C2DE-4AD2-A622-666A434C71A1 - 3b7654831c5d52fd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ShareVC getDocumentNames]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/ShareVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "155">
-               </Location>
-               <Location
-                  uuid = "770E7D88-C2DE-4AD2-A622-666A434C71A1 - 69c5e63ba735e04e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__27-[ShareVC getDocumentNames]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/ShareVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3858,38 +3410,6 @@
             endingLineNumber = "260"
             landmarkName = "-savebtnAction:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "59A7B6A0-25EC-46C0-950B-69B008644768 - ebb3057b85113a4c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SignersDisplay savebtnAction:]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/SignersDisplay.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
-                  offsetFromSymbolStart = "2701">
-               </Location>
-               <Location
-                  uuid = "59A7B6A0-25EC-46C0-950B-69B008644768 - d67e0ac5432b5864"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__32-[SignersDisplay savebtnAction:]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/SignersDisplay.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4078,8 +3598,8 @@
             filePath = "emSigner/PendingListVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1159"
-            endingLineNumber = "1159"
+            startingLineNumber = "1160"
+            endingLineNumber = "1160"
             landmarkName = "-moreBtnClicked"
             landmarkType = "7">
          </BreakpointContent>
@@ -4146,38 +3666,6 @@
             endingLineNumber = "300"
             landmarkName = "-DoneBtnAction:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "461C6FD5-F1D3-4F79-85CC-05917CF65880 - 804d40a2b2bcfc96"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ReviewerController DoneBtnAction:]"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/ReviewerController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "300"
-                  endingLineNumber = "300"
-                  offsetFromSymbolStart = "6926">
-               </Location>
-               <Location
-                  uuid = "461C6FD5-F1D3-4F79-85CC-05917CF65880 - adbe3690a8599fab"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[ReviewerController DoneBtnAction:]_block_invoke"
-                  moduleName = "emSigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/eMudra/emsigner-iOS/emSigner/ReviewerController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "302"
-                  endingLineNumber = "302"
-                  offsetFromSymbolStart = "58">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4193,6 +3681,198 @@
             startingLineNumber = "302"
             endingLineNumber = "302"
             landmarkName = "-DoneBtnAction:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A13FF621-1A25-4622-A11F-2B13D08AD21C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/ReviewerController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "-DoneBtnAction:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFBEF332-C99D-4ADC-BC66-FCAC514CF86B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/AttachedVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
+            landmarkName = "-ListAttachments"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43184DA7-84C8-4103-9C94-52C77C68514D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/AttachedVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1730"
+            endingLineNumber = "1730"
+            landmarkName = "-dismissVC:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34C8C9C6-0270-40EF-8F51-6B30399FE4B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/AttachedVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "773"
+            endingLineNumber = "773"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9862753B-4FDD-4E99-838A-A4F255EE1AB4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/AttachedVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "831"
+            endingLineNumber = "831"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3EA2A61-B921-4410-92CF-E63B162DBAB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/DocumentLogVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-getDocumentLogDetailsAPICall"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24C76289-5FBE-4DE9-916E-98FB88061140"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/DocsPage.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-dashBoardCount"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57B9F95B-0657-494C-A699-921E77D72F76"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/DocsPage.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-profileDetails"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D078F092-CE5C-45E6-BA5C-AE9320E3739D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/ShowEditImagesFromImageList.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "545"
+            endingLineNumber = "545"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C785F84-AB7F-41E6-BCB0-5100B0BD5E62"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/ShowEditImagesFromImageList.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "-receiveNotification:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "194F2652-1BF6-418E-BBAC-CFC01FFD896B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/ShowEditImagesFromImageList.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "529"
+            endingLineNumber = "529"
+            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DECFDA1-F7C0-4923-A566-F6703FB5D248"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emSigner/ShowEditImagesFromImageList.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
+            landmarkName = "-preview:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

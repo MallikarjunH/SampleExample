@@ -336,9 +336,9 @@
 
 - (void) navigationbtnTapped:(UIButton *)sender {
     
-    NSLog(@"Tag : %ld", (long)sender.tag);
-    
-    if (sender.tag == 1) {
+   // NSLog(@"Tag : %ld", (long)sender.tag);
+    [[self presentingViewController] dismissViewControllerAnimated:NO completion:nil];
+    /*  if (sender.tag == 1) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LMNavigationController *objTrackOrderVC= [sb  instantiateViewControllerWithIdentifier:@"HomeNavController"];
         [[[[UIApplication sharedApplication] delegate] window] setRootViewController:objTrackOrderVC];
@@ -361,7 +361,7 @@
             });
             
         }
-    }
+    }*/
 }
 
 - (IBAction)sendButtonInitiateWorkFlowButtonAction:(id)sender {
@@ -703,7 +703,7 @@
     //[formatter setDateFormat:@"MM-dd-yyyy HH:mm:ss a"];
     [formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss a"];
     NSDate *dates = [formatter dateFromString:uploadedTime];
-    formatter.dateFormat = @"dd MMMM yyyy, HH:mm";
+    formatter.dateFormat = @"dd MMMM yyyy, HH:mm a";
     
     NSString *finalDate = [NSString stringWithFormat:@"%@",[formatter stringFromDate:dates]];
     if (finalDate == (id)[NSNull null]){
@@ -823,7 +823,7 @@
         /*************************Web Service*******************************/
         
         [self startActivity:@"Loading..."];
-        
+        // /api/GetFileData //DocumentId
         NSString *requestURL = [NSString stringWithFormat:@"%@GetDraftFileData?workFlowId=%@",kOpenPDFImage,[[_listArray objectAtIndex:indexPath.row] valueForKey:@"DocumentId"]];
         [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
             

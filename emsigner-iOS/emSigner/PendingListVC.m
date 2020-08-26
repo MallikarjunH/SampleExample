@@ -1155,6 +1155,7 @@ BOOL _isRotating;
         DocumentLogVC *objTrackOrderVC= [newStoryBoard instantiateViewControllerWithIdentifier:@"DocumentLogVC"];
         
         objTrackOrderVC.workflowID = self->_workFlowID;
+        objTrackOrderVC.documentId = self->_documentID;
         objTrackOrderVC.documentName = self->_myTitle;
         [self.navigationController pushViewController:objTrackOrderVC animated:YES];
     }];

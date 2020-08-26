@@ -47,7 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    [self startActivity:@"Loading"];
+ //   [self startActivity:@"Loading"];
 
     self.title = _titleName;
     [self.navigationController.navigationBar setTitleTextAttributes:
@@ -80,7 +80,7 @@
     _docsTableView.dataSource =self;
     self.tabbar.delegate = self;
     
-    [self startActivity:@"Loading"];
+  //  [self startActivity:@"Loading"];
     [self dashBoardCount];
     [self profileDetails];
     [self.tabbar setSelectedItem:[self.tabbar.items objectAtIndex:0]];

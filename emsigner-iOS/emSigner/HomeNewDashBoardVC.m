@@ -1573,7 +1573,7 @@ enum
         [self.navigationController presentViewController:objTrackOrderVC animated:YES completion:nil];
     }];
     
-    UIAlertAction* Doclog = [UIAlertAction
+  /*  UIAlertAction* Doclog = [UIAlertAction
                              actionWithTitle:@"Document log"
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
@@ -1585,7 +1585,8 @@ enum
         
         objTrackOrderVC.documentName = [[_searchResults objectAtIndex:sender.tag] valueForKey:@"DisplayName"];
         [self.navigationController pushViewController:objTrackOrderVC animated:YES];
-    }];
+    }];*/
+    
     UIAlertAction* Comments = [UIAlertAction
                                actionWithTitle:@"Comments"
                                style:UIAlertActionStyleDefault
@@ -1800,7 +1801,7 @@ enum
     
     [Info setValue:[[UIImage imageNamed:@"information-outline-2.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
     [Decline setValue:[[UIImage imageNamed:@"cancel.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
-    [Doclog setValue:[[UIImage imageNamed:@"stack-exchange.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
+   // [Doclog setValue:[[UIImage imageNamed:@"stack-exchange.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
     [Comments setValue:[[UIImage imageNamed:@"comments"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
     [Download setValue:[[UIImage imageNamed:@"download.png"]
                         imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
@@ -1808,7 +1809,7 @@ enum
     [Share setValue:[[UIImage imageNamed:@"share-variant.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forKey:@"image"];
     [Info setValue:kCAAlignmentLeft forKey:@"titleTextAlignment"];
     [Decline setValue:kCAAlignmentLeft forKey:@"titleTextAlignment"];
-    [Doclog setValue:kCAAlignmentLeft forKey:@"titleTextAlignment"];
+   // [Doclog setValue:kCAAlignmentLeft forKey:@"titleTextAlignment"];
     [Comments setValue:kCAAlignmentLeft forKey:@"titleTextAlignment"];
     [Download setValue:kCAAlignmentLeft forKey:@"titleTextAlignment"];
     [Share setValue:kCAAlignmentLeft forKey:@"titleTextAlignment"];
@@ -1828,7 +1829,7 @@ enum
     } else {
         [view addAction:Info];
         [view addAction:Decline];
-        [view addAction:Doclog];
+      //  [view addAction:Doclog];
         [view addAction:Comments];
         [view addAction:Download];
         [view addAction:Share];

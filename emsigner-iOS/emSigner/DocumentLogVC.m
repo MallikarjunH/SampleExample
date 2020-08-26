@@ -71,7 +71,8 @@
 -(void)getDocumentLogDetailsAPICall {
     
     [self startActivity:@"Loading..."];
-    NSString *requestURL = [NSString stringWithFormat:@"%@GetDocumentLog?workflowId=%@",kDocumentlog,_workflowID];
+    //NSString *requestURL = [NSString stringWithFormat:@"%@GetDocumentLog?workflowId=%@",kDocumentlog,_workflowID];
+    NSString *requestURL = [NSString stringWithFormat:@"%@GetDocumentLog?DocumentId=%@",kDocumentlog,_documentId];
     
     [WebserviceManager sendSyncRequestWithURLGet:requestURL method:SAServiceReqestHTTPMethodGET body:requestURL completionBlock:^(BOOL status, id responseValue) {
         
@@ -90,6 +91,10 @@
                 NSArray * docArr = [docLogs firstObject];
                 
                 if(docArr.count > 0){
+                    [self->actionArray removeAllObjects];
+                    [self->dateTimeArray removeAllObjects];
+                    [self->ipAddressArray removeAllObjects];
+                    [self->userEmailArray removeAllObjects];
                     
                     for(int i=0;i<docArr.count;i++){
                         
@@ -172,7 +177,7 @@
     DocumentLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DocumentLogTableViewCell"];
     cell.dateTimeLable.text = [NSString stringWithFormat:@" %@",dateTimeArray[indexPath.row]];
     cell.userLabel.text = [NSString stringWithFormat:@"User: %@",userEmailArray[indexPath.row]];
-    cell.actionLabel.text = [NSString stringWithFormat:@"Action: %@",actionArray[indexPath.row]];
+    cell.actionLabel.text = [NSString stringWithFormat:@"Activity: %@",actionArray[indexPath.row]];
     cell.ipAddressLabel.text = [NSString stringWithFormat:@"IP Address: %@",ipAddressArray[indexPath.row]];
     
     return  cell;

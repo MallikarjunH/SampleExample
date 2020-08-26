@@ -20,6 +20,11 @@
 		06437E1524D3037F009B7812 /* emSigner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06437E1324D3037F009B7812 /* emSigner.xcdatamodeld */; };
 		06437E1724D30382009B7812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06437E1624D30382009B7812 /* Assets.xcassets */; };
 		06437E1A24D30382009B7812 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06437E1824D30382009B7812 /* LaunchScreen.storyboard */; };
+		06BB947524F6072A00E1B06D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BB947424F6072A00E1B06D /* LoginViewController.swift */; };
+		06BB947C24F6098F00E1B06D /* ATCWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BB947824F6098F00E1B06D /* ATCWalkthroughViewController.swift */; };
+		06BB947D24F6098F00E1B06D /* ATCWalkthroughViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BB947924F6098F00E1B06D /* ATCWalkthroughViewController.xib */; };
+		06BB947E24F6098F00E1B06D /* ATCClassicWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BB947A24F6098F00E1B06D /* ATCClassicWalkthroughViewController.swift */; };
+		06BB947F24F6098F00E1B06D /* ATCClassicWalkthroughViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BB947B24F6098F00E1B06D /* ATCClassicWalkthroughViewController.xib */; };
 		F054536E4C5F6A600B062E14 /* Pods_emSigner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073789E98212265E85DC7200 /* Pods_emSigner.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,11 @@
 		06437E1624D30382009B7812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06437E1924D30382009B7812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06437E1B24D30382009B7812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06BB947424F6072A00E1B06D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		06BB947824F6098F00E1B06D /* ATCWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCWalkthroughViewController.swift; sourceTree = "<group>"; };
+		06BB947924F6098F00E1B06D /* ATCWalkthroughViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCWalkthroughViewController.xib; sourceTree = "<group>"; };
+		06BB947A24F6098F00E1B06D /* ATCClassicWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCClassicWalkthroughViewController.swift; sourceTree = "<group>"; };
+		06BB947B24F6098F00E1B06D /* ATCClassicWalkthroughViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCClassicWalkthroughViewController.xib; sourceTree = "<group>"; };
 		073789E98212265E85DC7200 /* Pods_emSigner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_emSigner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		078C837EF12E745460DE10C5 /* Pods-emSigner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emSigner.debug.xcconfig"; path = "Target Support Files/Pods-emSigner/Pods-emSigner.debug.xcconfig"; sourceTree = "<group>"; };
 		AC3F9B3E0818A58B964071C1 /* Pods-emSigner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emSigner.release.xcconfig"; path = "Target Support Files/Pods-emSigner/Pods-emSigner.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +98,7 @@
 				06A73B8F24E39C9100C9EE00 /* Views */,
 				06A73B9024E39C9900C9EE00 /* Controllers */,
 				06A73B9224E39CDB00C9EE00 /* WebServices */,
+				06BB947624F607FE00E1B06D /* HelperClasses */,
 				06437E0E24D3037F009B7812 /* ViewController.swift */,
 				06437E1024D3037F009B7812 /* Main.storyboard */,
 				06437E1824D30382009B7812 /* LaunchScreen.storyboard */,
@@ -132,6 +143,7 @@
 		06A73B9124E39CCB00C9EE00 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				06BB947424F6072A00E1B06D /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -141,6 +153,25 @@
 			children = (
 			);
 			path = WebServices;
+			sourceTree = "<group>";
+		};
+		06BB947624F607FE00E1B06D /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				06BB947724F6082E00E1B06D /* OnboardingScreen */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		06BB947724F6082E00E1B06D /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				06BB947A24F6098F00E1B06D /* ATCClassicWalkthroughViewController.swift */,
+				06BB947B24F6098F00E1B06D /* ATCClassicWalkthroughViewController.xib */,
+				06BB947824F6098F00E1B06D /* ATCWalkthroughViewController.swift */,
+				06BB947924F6098F00E1B06D /* ATCWalkthroughViewController.xib */,
+			);
+			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 		8090843CBC5D06EF8763B0E8 /* Pods */ = {
@@ -226,7 +257,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BB947D24F6098F00E1B06D /* ATCWalkthroughViewController.xib in Resources */,
 				06437E1A24D30382009B7812 /* LaunchScreen.storyboard in Resources */,
+				06BB947F24F6098F00E1B06D /* ATCClassicWalkthroughViewController.xib in Resources */,
 				06437E1724D30382009B7812 /* Assets.xcassets in Resources */,
 				06437E1224D3037F009B7812 /* Main.storyboard in Resources */,
 			);
@@ -283,7 +316,10 @@
 			files = (
 				06437E0F24D3037F009B7812 /* ViewController.swift in Sources */,
 				06437E0B24D3037F009B7812 /* AppDelegate.swift in Sources */,
+				06BB947E24F6098F00E1B06D /* ATCClassicWalkthroughViewController.swift in Sources */,
 				06437E0D24D3037F009B7812 /* SceneDelegate.swift in Sources */,
+				06BB947524F6072A00E1B06D /* LoginViewController.swift in Sources */,
+				06BB947C24F6098F00E1B06D /* ATCWalkthroughViewController.swift in Sources */,
 				06437E1524D3037F009B7812 /* emSigner.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

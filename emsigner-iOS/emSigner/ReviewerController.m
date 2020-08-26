@@ -27,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.signersArray = [[NSMutableArray alloc]init];
-
+    
     _customView.hidden=false;
     _doneBtn.enabled = YES;
     [_doneBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -47,7 +47,7 @@
     //
     
     _reviewerTextView.delegate = self;
-   // _reviewerTextView.placeholder = @"Please share your remarks";
+    // _reviewerTextView.placeholder = @"Please share your remarks";
     _reviewerTextView.textColor = [UIColor blackColor];
     
     //
@@ -106,13 +106,13 @@
         {
             return NO;
         }
-       // if (length > 0 && [text rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]].location == NSNotFound) {
-            _doneBtn.enabled = YES;
-           // [_doneBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-       // } else {
-           // _doneBtn.enabled = YES;
-           // [_doneBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-       // }
+        // if (length > 0 && [text rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]].location == NSNotFound) {
+        _doneBtn.enabled = YES;
+        // [_doneBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        // } else {
+        // _doneBtn.enabled = YES;
+        // [_doneBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        // }
         
     }
     
@@ -136,19 +136,19 @@
     else{
         return true;
     }
-//    NSString *Regex = @"[A-Za-z0-9^]*";
-//    NSPredicate *TestResult = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Regex];
-//    return [TestResult evaluateWithObject:text];
+    //    NSString *Regex = @"[A-Za-z0-9^]*";
+    //    NSPredicate *TestResult = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Regex];
+    //    return [TestResult evaluateWithObject:text];
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (void)showModal:(UIModalPresentationStyle) style style:(MPBCustomStyleSignatureViewController*) controller
 {
@@ -157,7 +157,7 @@
     signatureViewController.modalPresentationStyle = style;
     signatureViewController.strExcutedFrom=@"Waiting for Others";
     
-
+    
     signatureViewController.gotParametersForInitiateWorkFlow = _requestArray;
     signatureViewController.d = self.d;
     signatureViewController.subscriberIdarray = self.subscriberIdarray;
@@ -188,7 +188,7 @@
     BOOL valid = [self validateSpecialCharactor:isValid];
     [self.reviewerTextView resignFirstResponder];
     if (valid){
-
+        
         //[self.pendingvc isEqualToString:@"PendingVcYes"] &&
         if (_isReviewer == true && _isSignatory == true) {
             NSUserDefaults *PendingVcYes = [NSUserDefaults standardUserDefaults];
@@ -197,19 +197,19 @@
             [self showModal:UIModalPresentationFullScreen style:[MPBDefaultStyleSignatureViewController alloc]];
             return;
         }
-       
-     
+        
+        
         if (_requestArray.count != 0) {
             NSString* WorkflowType = [[NSUserDefaults standardUserDefaults]valueForKey:@"WorkflowType"];
             
             
-           // NSString *base64image=[initWorkFlowImage base64EncodedStringWithOptions:0];
+            // NSString *base64image=[initWorkFlowImage base64EncodedStringWithOptions:0];
             NSLog(@"%@",_subscriberIdarray);
             NSLog(@"%@",_d);
             
             for (int i = 0; i<_requestArray.count; i++) {
                 int insertPosition = 0;
-
+                
                 NSMutableDictionary* sendingvalues = [[NSMutableDictionary alloc]init];
                 _signersArray = [NSMutableArray new];
                 NSArray * signatories = [_requestArray[i]valueForKey:@"Signatories"];
@@ -222,7 +222,7 @@
                 [sendingvalues setValue:WorkflowType forKey:@"WorkflowType"];
                 
                 
-               if ([_subscriberIdarray[i]isEqualToString:@"Signer"]) {
+                if ([_subscriberIdarray[i]isEqualToString:@"Signer"]) {
                     
                     [sendingvalues setObject:@"true" forKey:@"IsSign"];
                     [sendingvalues setObject:@"false" forKey:@"IsReviewer"];
@@ -255,7 +255,7 @@
                         [signatoriesDict setObject:@"" forKey:@"SignatureImage"];
                         [signatoriesDict setObject:[signatories[j]valueForKey:@"pageId"] forKey:@"pageId"];
                         if (![_subscriberIdarray containsObject:@"Signer"]) {
-                             insertPosition = j;
+                            insertPosition = j;
                         }
                         [_signersArray replaceObjectAtIndex:j withObject:signatoriesDict];
                     }
@@ -279,50 +279,59 @@
                 
             }
             if ([_subscriberIdarray containsObject:@"Signer"] && [_subscriberIdarray containsObject:@"Reviewer"]) {
-                 [self showModal:UIModalPresentationFullScreen style:[MPBDefaultStyleSignatureViewController alloc]];
+                [self showModal:UIModalPresentationFullScreen style:[MPBDefaultStyleSignatureViewController alloc]];
             }
             else if([_subscriberIdarray containsObject:@"Reviewer"]){
-            [self callinitWorkFlowApi:_requestArray];
+                [self callinitWorkFlowApi:_requestArray];
             }
         }
         
         else
         {
-                [self dismissViewControllerAnimated:true completion:nil];
-                //   if ([self signature] != nil) {
-                [self startActivity:@"Reviewing"];
+            [self dismissViewControllerAnimated:true completion:nil];
+            //   if ([self signature] != nil) {
+            [self startActivity:@"Reviewing"];
             
             NSString *checkPassword  = @"111111";
+            
+            NSString *post = [NSString stringWithFormat:@"WorkflowId=%@&SignatureImage=%@&Password=%@&workflowType=%@&ReviewerComment=%@",_workflowID,@"",checkPassword,_workFlowType,self.reviewerTextView.text];
+            post = [[post stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+                    stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
+            [WebserviceManager sendSyncRequestWithURL:kSignatureImage method:SAServiceReqestHTTPMethodPOST body:post completionBlock:^(BOOL status, id responseValue){
                 
-                NSString *post = [NSString stringWithFormat:@"WorkflowId=%@&SignatureImage=%@&Password=%@&workflowType=%@&ReviewerComment=%@",_workflowID,@"",checkPassword,_workFlowType,self.reviewerTextView.text];
-                post = [[post stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
-                        stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
-                [WebserviceManager sendSyncRequestWithURL:kSignatureImage method:SAServiceReqestHTTPMethodPOST body:post completionBlock:^(BOOL status, id responseValue){
+                if (status) {
+                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Password"];
                     
-                    if (status) {
-                        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Password"];
-                        
-                        //[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:checkPassword];
-                        NSNumber * isSuccessNumber = (NSNumber *)[responseValue valueForKey:@"IsSuccess"];
-                        if([isSuccessNumber boolValue] == YES)
-                        {
-                            dispatch_async(dispatch_get_main_queue(),
-                                           ^{
-                                               [self stopActivity];
-                                               UIAlertView * alert15 =[[UIAlertView alloc ] initWithTitle:@"" message:[[responseValue valueForKey:@"Messages"] objectAtIndex:0] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                                               [alert15 show];
-                                               
-                                               UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                               LMNavigationController *objTrackOrderVC= [sb  instantiateViewControllerWithIdentifier:@"HomeNavController"];
-                                               [[[[UIApplication sharedApplication] delegate] window] setRootViewController:objTrackOrderVC];
-                                               
-                                           });
+                    //[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:checkPassword];
+                    NSNumber * isSuccessNumber = (NSNumber *)[responseValue valueForKey:@"IsSuccess"];
+                    if([isSuccessNumber boolValue] == YES)
+                    {
+                        dispatch_async(dispatch_get_main_queue(),
+                                       ^{
+                            [self stopActivity];
+                            UIAlertView * alert15 =[[UIAlertView alloc ] initWithTitle:@"" message:[[responseValue valueForKey:@"Messages"] objectAtIndex:0] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                            [alert15 show];
                             
-                        }
+                            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                            LMNavigationController *objTrackOrderVC= [sb  instantiateViewControllerWithIdentifier:@"HomeNavController"];
+                            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:objTrackOrderVC];
+                            
+                        });
+                        
                     }
-                    [self stopActivity];
-                    
-                }];
+                    else{
+                        
+                        dispatch_async(dispatch_get_main_queue(),
+                                       ^{
+                            UIAlertView * alert15 =[[UIAlertView alloc ] initWithTitle:@"Error" message: @"Something went wrong at the server end!Please try again later!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                            [alert15 show];
+                            
+                        });
+                    }
+                }
+                [self stopActivity];
+                
+            }];
             
         }
     }
@@ -370,68 +379,68 @@
                 {
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
-//                                       UIAlertController * alert = [UIAlertController
-//                                                                    alertControllerWithTitle:@""
-//                                                                    message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0]
-//                                                                    preferredStyle:UIAlertControllerStyleAlert];
-//
-//                                       //Add Buttons
-//
-//                                       UIAlertAction* yesButton = [UIAlertAction
-//                                                                   actionWithTitle:@"OK"
-//                                                                   style:UIAlertActionStyleDefault
-//                                                                   handler:^(UIAlertAction * action) {
-//                                                                       //Handle your yes please button action here
-//                                                                       //                                                                       [self.navigationController popToRootViewControllerAnimated:true];
-//
-//
-//                                                                   }];
-//
-//                                       //Add your buttons to alert controller
-//
-//                                       [alert addAction:yesButton];
-//                                       [self presentViewController:alert animated:YES completion:nil];
-                                       
-                                       
-                                       
-                                       [self stopActivity];
-                                       
-                                       UIAlertView * alert15 =[[UIAlertView alloc ] initWithTitle:@"" message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                                       [alert15 show];
-                                       
-                                       UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                       LMNavigationController *objTrackOrderVC= [sb  instantiateViewControllerWithIdentifier:@"HomeNavController"];
-                                       [[[[UIApplication sharedApplication] delegate] window] setRootViewController:objTrackOrderVC];
-                                     //  [self.navigationController popToRootViewControllerAnimated:true]
-                                       ;
-                                   });
+                        //                                       UIAlertController * alert = [UIAlertController
+                        //                                                                    alertControllerWithTitle:@""
+                        //                                                                    message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0]
+                        //                                                                    preferredStyle:UIAlertControllerStyleAlert];
+                        //
+                        //                                       //Add Buttons
+                        //
+                        //                                       UIAlertAction* yesButton = [UIAlertAction
+                        //                                                                   actionWithTitle:@"OK"
+                        //                                                                   style:UIAlertActionStyleDefault
+                        //                                                                   handler:^(UIAlertAction * action) {
+                        //                                                                       //Handle your yes please button action here
+                        //                                                                       //                                                                       [self.navigationController popToRootViewControllerAnimated:true];
+                        //
+                        //
+                        //                                                                   }];
+                        //
+                        //                                       //Add your buttons to alert controller
+                        //
+                        //                                       [alert addAction:yesButton];
+                        //                                       [self presentViewController:alert animated:YES completion:nil];
+                        
+                        
+                        
+                        [self stopActivity];
+                        
+                        UIAlertView * alert15 =[[UIAlertView alloc ] initWithTitle:@"" message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                        [alert15 show];
+                        
+                        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        LMNavigationController *objTrackOrderVC= [sb  instantiateViewControllerWithIdentifier:@"HomeNavController"];
+                        [[[[UIApplication sharedApplication] delegate] window] setRootViewController:objTrackOrderVC];
+                        //  [self.navigationController popToRootViewControllerAnimated:true]
+                        ;
+                    });
                     
                 }
                 else
                 {
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
-                                       UIAlertController * alert = [UIAlertController
-                                                                    alertControllerWithTitle:@""
-                                                                    message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0]
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-                                       
-                                       //Add Buttons
-                                       
-                                       UIAlertAction* yesButton = [UIAlertAction
-                                                                   actionWithTitle:@"OK"
-                                                                   style:UIAlertActionStyleDefault
-                                                                   handler:^(UIAlertAction * action) {
-                                                                       //Handle your yes please button action here
-                                                                       
-                                                                   }];
-                                       
-                                       //Add your buttons to alert controller
-                                       
-                                       [alert addAction:yesButton];
-                                       [self presentViewController:alert animated:YES completion:nil];
-                                       [self stopActivity];
-                                   });
+                        UIAlertController * alert = [UIAlertController
+                                                     alertControllerWithTitle:@""
+                                                     message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0]
+                                                     preferredStyle:UIAlertControllerStyleAlert];
+                        
+                        //Add Buttons
+                        
+                        UIAlertAction* yesButton = [UIAlertAction
+                                                    actionWithTitle:@"OK"
+                                                    style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction * action) {
+                            //Handle your yes please button action here
+                            
+                        }];
+                        
+                        //Add your buttons to alert controller
+                        
+                        [alert addAction:yesButton];
+                        [self presentViewController:alert animated:YES completion:nil];
+                        [self stopActivity];
+                    });
                     
                 }
             }
@@ -439,29 +448,29 @@
             {
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
-                                   UIAlertController * alert = [UIAlertController
-                                                                alertControllerWithTitle:@""
-                                                                message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0]
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-                                   
-                                   //Add Buttons
-                                   
-                                   UIAlertAction* yesButton = [UIAlertAction
-                                                               actionWithTitle:@"OK"
-                                                               style:UIAlertActionStyleDefault
-                                                               handler:^(UIAlertAction * action) {
-                                                                   //Handle your yes please button action here
-                                                                   
-                                                               }];
-                                   
-                                   //Add your buttons to alert controller
-                                   
-                                   [alert addAction:yesButton];
-                                   
-                                   [self presentViewController:alert animated:YES completion:nil];
-                                   
-                                   [self stopActivity];
-                               });
+                    UIAlertController * alert = [UIAlertController
+                                                 alertControllerWithTitle:@""
+                                                 message:[[responseValue valueForKey:@"Messages"]objectAtIndex:0]
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    //Add Buttons
+                    
+                    UIAlertAction* yesButton = [UIAlertAction
+                                                actionWithTitle:@"OK"
+                                                style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * action) {
+                        //Handle your yes please button action here
+                        
+                    }];
+                    
+                    //Add your buttons to alert controller
+                    
+                    [alert addAction:yesButton];
+                    
+                    [self presentViewController:alert animated:YES completion:nil];
+                    
+                    [self stopActivity];
+                });
                 
             }
             
@@ -470,36 +479,36 @@
             [self stopActivity];
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               UIAlertController * alert = [UIAlertController
-                                                            alertControllerWithTitle:@""
-                                                            message:@"WorkFlow initiating Failed."
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-                               
-                               //Add Buttons
-                               
-                               UIAlertAction* yesButton = [UIAlertAction
-                                                           actionWithTitle:@"OK"
-                                                           style:UIAlertActionStyleDefault
-                                                           handler:^(UIAlertAction * action) {
-                                                               //Handle your yes please button action here
-                                                               
-                                                           }];
-                               
-                               //Add your buttons to alert controller
-                               
-                               [alert addAction:yesButton];
-                               
-                               [self presentViewController:alert animated:YES completion:nil];
-                               
-                               [self stopActivity];
-                           });
+                UIAlertController * alert = [UIAlertController
+                                             alertControllerWithTitle:@""
+                                             message:@"WorkFlow initiating Failed."
+                                             preferredStyle:UIAlertControllerStyleAlert];
+                
+                //Add Buttons
+                
+                UIAlertAction* yesButton = [UIAlertAction
+                                            actionWithTitle:@"OK"
+                                            style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * action) {
+                    //Handle your yes please button action here
+                    
+                }];
+                
+                //Add your buttons to alert controller
+                
+                [alert addAction:yesButton];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+                [self stopActivity];
+            });
             
         }
     }];
     
 }
 - (IBAction)CancelClicked:(id)sender {
-     [self dismissViewControllerAnimated:YES completion:Nil];
+    [self dismissViewControllerAnimated:YES completion:Nil];
 }
 
 @end

@@ -17,6 +17,7 @@
 @property (nonatomic) NSDictionary *documentNamesDic;
 @property (nonatomic, strong) NSString *workflowID;
 @property (nonatomic, strong) NSString *documentName;
+@property (nonatomic, strong) NSString *documentId;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *docArray;
