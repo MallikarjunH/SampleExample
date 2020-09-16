@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -10,50 +10,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ATCClassicWalkthroughViewController" customModule="WalkthroughOnboarding" customModuleProvider="target">
             <connections>
-                <outlet property="containerView" destination="t6a-rE-WeO" id="rYi-Ci-nug"/>
-                <outlet property="imageContainerView" destination="iBB-wU-Tzs" id="d6w-49-mcW"/>
-                <outlet property="imageView" destination="NRA-v9-Ctm" id="VFH-wj-tKJ"/>
-                <outlet property="titleLabel" destination="yRL-uJ-wL1" id="gnd-SK-0Kn"/>
+                <outlet property="imageView" destination="9zq-wj-QYF" id="BYb-uA-Nnp"/>
+                <outlet property="titleLabel" destination="My7-De-3yl" id="7Pd-9o-VQs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6a-rE-WeO" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBB-wU-Tzs" userLabel="Image Container View">
-                            <rect key="frame" x="137.5" y="200" width="100" height="100"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="night-stars-wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="NRA-v9-Ctm">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRL-uJ-wL1" userLabel="Title Label">
-                            <rect key="frame" x="166.5" y="370" width="42" height="20.5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My7-De-3yl">
+                    <rect key="frame" x="20" y="741.5" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro1-img" translatesAutoresizingMaskIntoConstraints="NO" id="9zq-wj-QYF">
+                    <rect key="frame" x="0.0" y="280" width="414" height="336"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="My7-De-3yl" secondAttribute="bottom" constant="100" id="FAq-SS-Sbh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="My7-De-3yl" secondAttribute="trailing" constant="20" id="O5B-ki-aUw"/>
+                <constraint firstAttribute="trailing" secondItem="9zq-wj-QYF" secondAttribute="trailing" id="PtX-hI-wg3"/>
+                <constraint firstItem="9zq-wj-QYF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fap-1D-av8"/>
+                <constraint firstItem="My7-De-3yl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="nUu-3B-QLI"/>
+                <constraint firstItem="9zq-wj-QYF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xFD-CV-67G"/>
+                <constraint firstItem="9zq-wj-QYF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="y23-bh-JWO"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="86.956521739130437" y="112.5"/>
         </view>
     </objects>
     <resources>
-        <image name="night-stars-wallpaper" width="320" height="568"/>
+        <image name="intro1-img" width="426" height="336"/>
     </resources>
 </document>

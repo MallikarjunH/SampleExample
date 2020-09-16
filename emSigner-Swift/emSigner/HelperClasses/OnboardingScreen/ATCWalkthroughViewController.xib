@@ -22,8 +22,8 @@
             <subviews>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="15L-4h-hYT">
                     <rect key="frame" x="168" y="594" width="39" height="37"/>
-                    <color key="pageIndicatorTintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0d-pQ-Ot6">
                     <rect key="frame" x="317" y="50" width="33" height="30"/>

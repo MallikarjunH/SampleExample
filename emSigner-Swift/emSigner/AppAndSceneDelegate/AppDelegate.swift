@@ -17,12 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let introVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewController")
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = introVC
-        self.window?.makeKeyAndVisible()
-        
+         let userIsLoggedIn = UserDefaults.standard.bool(forKey: "userLoggedIn")
+        // let showIntroScreen = UserDefaults.standard.bool(forKey: "showIntroScreen")
+         
+         if userIsLoggedIn { //Home Screen
+             let homeVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController")
+             
+             self.window = UIWindow(frame: UIScreen.main.bounds)
+             self.window?.rootViewController = homeVC
+             self.window?.makeKeyAndVisible()
+         }else{
+
+           /*  if showIntroScreen { //Login Screen
+                 
+                 let loginVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController")
+                 
+                 self.window = UIWindow(frame: UIScreen.main.bounds)
+                 self.window?.rootViewController = loginVC
+                 self.window?.makeKeyAndVisible()
+                 
+             }
+             else{ //Into Screen */
+                 let introVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IntroScreenVC")
+                 
+                 self.window = UIWindow(frame: UIScreen.main.bounds)
+                 self.window?.rootViewController = introVC
+                 self.window?.makeKeyAndVisible()
+             //}
+         }
         return true
     }
 

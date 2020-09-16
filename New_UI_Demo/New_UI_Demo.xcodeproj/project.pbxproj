@@ -15,6 +15,11 @@
 		06012768250B43890088F9AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06012766250B43890088F9AB /* LaunchScreen.storyboard */; };
 		06012770250B43D40088F9AB /* DocStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0601276F250B43D40088F9AB /* DocStoreViewController.swift */; };
 		06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */; };
+		06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012773250B52940088F9AB /* SelectWorkFlowTableViewCell.swift */; };
+		06012776250B52A80088F9AB /* SelectWorkFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012775250B52A80088F9AB /* SelectWorkFlowViewController.swift */; };
+		06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */; };
+		06AB2EC72511CEFF003C5C0E /* ProfileTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */; };
+		06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		06012769250B43890088F9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0601276F250B43D40088F9AB /* DocStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocStoreViewController.swift; sourceTree = "<group>"; };
 		06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocStoreTableViewCell.swift; sourceTree = "<group>"; };
+		06012773250B52940088F9AB /* SelectWorkFlowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkFlowTableViewCell.swift; sourceTree = "<group>"; };
+		06012775250B52A80088F9AB /* SelectWorkFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkFlowViewController.swift; sourceTree = "<group>"; };
+		06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopTableViewCell.swift; sourceTree = "<group>"; };
+		06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +72,9 @@
 			children = (
 				0601275B250B43860088F9AB /* AppDelegate.swift */,
 				0601275D250B43860088F9AB /* SceneDelegate.swift */,
-				0601276F250B43D40088F9AB /* DocStoreViewController.swift */,
-				06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */,
+				06AB2EC12511CE83003C5C0E /* DocStore */,
+				06AB2EC22511CE9A003C5C0E /* WorfFlow */,
+				06AB2EC32511CEB0003C5C0E /* Profile */,
 				0601275F250B43860088F9AB /* ViewController.swift */,
 				06012761250B43860088F9AB /* Main.storyboard */,
 				06012764250B43890088F9AB /* Assets.xcassets */,
@@ -71,6 +82,34 @@
 				06012769250B43890088F9AB /* Info.plist */,
 			);
 			path = New_UI_Demo;
+			sourceTree = "<group>";
+		};
+		06AB2EC12511CE83003C5C0E /* DocStore */ = {
+			isa = PBXGroup;
+			children = (
+				0601276F250B43D40088F9AB /* DocStoreViewController.swift */,
+				06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */,
+			);
+			path = DocStore;
+			sourceTree = "<group>";
+		};
+		06AB2EC22511CE9A003C5C0E /* WorfFlow */ = {
+			isa = PBXGroup;
+			children = (
+				06012775250B52A80088F9AB /* SelectWorkFlowViewController.swift */,
+				06012773250B52940088F9AB /* SelectWorkFlowTableViewCell.swift */,
+			);
+			path = WorfFlow;
+			sourceTree = "<group>";
+		};
+		06AB2EC32511CEB0003C5C0E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */,
+				06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */,
+				06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +185,14 @@
 			files = (
 				06012760250B43860088F9AB /* ViewController.swift in Sources */,
 				06012770250B43D40088F9AB /* DocStoreViewController.swift in Sources */,
+				06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */,
+				06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */,
+				06012776250B52A80088F9AB /* SelectWorkFlowViewController.swift in Sources */,
 				0601275C250B43860088F9AB /* AppDelegate.swift in Sources */,
 				0601275E250B43860088F9AB /* SceneDelegate.swift in Sources */,
+				06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */,
 				06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */,
+				06AB2EC72511CEFF003C5C0E /* ProfileTopTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
