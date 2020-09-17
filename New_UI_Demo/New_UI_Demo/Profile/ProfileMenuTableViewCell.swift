@@ -10,6 +10,9 @@ import UIKit
 
 class ProfileMenuTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var typeImg: UIImageView!
+    @IBOutlet weak var typeNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

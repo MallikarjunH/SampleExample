@@ -10,7 +10,7 @@ import UIKit
 
 class DocStoreViewController: UIViewController {
     
-    var docTypeImgArray = ["draft-1x","pending-1x","completed-1x", "completed-1x","pending-1x", "draft-1x"]
+    var docTypeImgArray = ["draft","pending","completed", "completed","pending", "draft"]
     var sentByNameArray = ["Harhsitha B","Mallikarjun","Sandeep Patil", "Mahesh Kothare","Rajesh Shelke", "Test Test"]
     var docnameArray = ["Appointment Letter format.pdf", "Holidays_list_2020.pdf", "Sample.pdf", "Test Document.pdf", "Appointment Letter format.pdf", "somedocument.pdf"]
     // var dateArray = ["10/09/20 22"]
@@ -40,6 +40,8 @@ extension DocStoreViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DocStoreTableViewCell", for: indexPath) as! DocStoreTableViewCell
+        cell.selectionStyle = .none
+        
         cell.docTypeImg.image = UIImage(named: docTypeImgArray[indexPath.row])
         cell.documentNamelLabel.text = docnameArray[indexPath.row]
         cell.sentByNameLabel.text = "send by: \(sentByNameArray[indexPath.row])"

@@ -35,11 +35,19 @@ extension SelectWorkFlowViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectWorkFlowTableViewCell", for: indexPath) as! SelectWorkFlowTableViewCell
+        cell.selectionStyle = .none
+        
         cell.titleLabel.text = nameArray[indexPath.row]
         
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        self.navigationController?.pushViewController(profileVC, animated: true)
+        
+    }
     
 }
