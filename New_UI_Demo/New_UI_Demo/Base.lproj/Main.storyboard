@@ -229,7 +229,7 @@
             </objects>
             <point key="canvasLocation" x="4215.9420289855079" y="-76.339285714285708"/>
         </scene>
-        <!--Select Work Flow View Controller-->
+        <!--Work Flows-->
         <scene sceneID="gC0-7Y-nL0">
             <objects>
                 <viewController storyboardIdentifier="SelectWorkFlowViewController" id="5Rj-aj-PM8" customClass="SelectWorkFlowViewController" customModule="New_UI_Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -330,13 +330,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Jh-jQ-LYi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RJ6-lI-5sF"/>
+                    <navigationItem key="navigationItem" title="Work Flows" id="RJ6-lI-5sF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkI-NV-VCD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6117.3913043478269" y="-76.339285714285708"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--My Account-->
         <scene sceneID="Jfg-Fh-EB9">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="DSW-TN-10V" customClass="ProfileViewController" customModule="New_UI_Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -448,7 +448,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8f3-S5-hp3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gbC-0s-ZvX"/>
+                    <navigationItem key="navigationItem" title="My Account" id="gbC-0s-ZvX"/>
                     <connections>
                         <outlet property="mainTableView" destination="FyQ-IK-mSG" id="Lnz-uC-wz2"/>
                     </connections>
@@ -488,6 +488,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W5z-S4-Tf5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.47843137254901957" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -507,6 +511,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yNe-Zy-osk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.47843137254901957" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -526,6 +534,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fkB-16-i48">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.47843137254901957" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -545,6 +557,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GXR-Id-IF1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.47843137254901957" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
