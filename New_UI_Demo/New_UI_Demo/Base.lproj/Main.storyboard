@@ -27,18 +27,18 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DashboardCollectionViewCell" id="JTI-Xf-oad" customClass="DashboardCollectionViewCell" customModule="New_UI_Demo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hnQ-0A-m2Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEb-da-aji">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="125"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For Others" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-QM-G3I">
-                                                            <rect key="frame" x="5" y="65" width="110" height="49"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For Others" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-QM-G3I">
+                                                            <rect key="frame" x="5" y="87" width="110" height="32"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -49,17 +49,29 @@
                                                                 <constraint firstAttribute="width" constant="40" id="jZT-Zx-xge"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="124" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgu-Gu-vDd">
+                                                            <rect key="frame" x="48" y="65" width="24" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="17" id="Gn9-G4-4KT"/>
+                                                                <constraint firstAttribute="width" constant="24" id="Q1f-Sw-W4J"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="eQT-QM-G3I" secondAttribute="trailing" constant="5" id="7H0-HS-j1R"/>
-                                                        <constraint firstItem="eQT-QM-G3I" firstAttribute="leading" secondItem="EEb-da-aji" secondAttribute="leading" constant="5" id="AIC-1f-feD"/>
-                                                        <constraint firstAttribute="bottom" secondItem="eQT-QM-G3I" secondAttribute="bottom" constant="6" id="ODq-rm-q9T"/>
-                                                        <constraint firstAttribute="width" constant="110" id="RqG-pm-HPl"/>
+                                                        <constraint firstItem="Vgu-Gu-vDd" firstAttribute="top" secondItem="8Ju-yb-glm" secondAttribute="bottom" constant="10" id="2f3-8A-J4M"/>
+                                                        <constraint firstAttribute="bottom" secondItem="eQT-QM-G3I" secondAttribute="bottom" constant="6" id="CVI-Tm-njm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eQT-QM-G3I" secondAttribute="trailing" constant="5" id="JBt-nM-vBm"/>
+                                                        <constraint firstItem="eQT-QM-G3I" firstAttribute="top" secondItem="Vgu-Gu-vDd" secondAttribute="bottom" constant="5" id="UFf-SJ-GBI"/>
+                                                        <constraint firstItem="Vgu-Gu-vDd" firstAttribute="centerX" secondItem="8Ju-yb-glm" secondAttribute="centerX" id="UxE-BZ-9q0"/>
                                                         <constraint firstItem="8Ju-yb-glm" firstAttribute="centerX" secondItem="EEb-da-aji" secondAttribute="centerX" id="V1D-nX-h1O"/>
                                                         <constraint firstItem="8Ju-yb-glm" firstAttribute="top" secondItem="EEb-da-aji" secondAttribute="top" constant="15" id="X6n-up-SJC"/>
-                                                        <constraint firstAttribute="height" constant="110" id="mrX-LB-Hxw"/>
-                                                        <constraint firstItem="eQT-QM-G3I" firstAttribute="top" secondItem="8Ju-yb-glm" secondAttribute="bottom" constant="10" id="zh0-3s-au0"/>
+                                                        <constraint firstItem="eQT-QM-G3I" firstAttribute="leading" secondItem="EEb-da-aji" secondAttribute="leading" constant="5" id="YJZ-OI-YDB"/>
+                                                        <constraint firstAttribute="width" constant="120" id="sjQ-fa-rSw"/>
+                                                        <constraint firstAttribute="height" constant="125" id="vRj-6W-QY7"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -71,7 +83,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="customSize" width="120" height="120"/>
+                                        <size key="customSize" width="120" height="125"/>
                                         <connections>
                                             <outlet property="mainBGView" destination="EEb-da-aji" id="HDt-qV-sC2"/>
                                             <outlet property="typeImg" destination="8Ju-yb-glm" id="kik-hd-v5a"/>

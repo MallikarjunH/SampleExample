@@ -57,7 +57,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width - 40
         
-        cellSize = CGSize(width: screenWidth / 3.0, height: 110)
+        cellSize = CGSize(width: screenWidth / 3.0, height: 125)
         
         return cellSize
         
@@ -67,7 +67,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         //return UIEdgeInsets(top: 10, left: 13, bottom: 10, right: 13)
-        return UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
+        return UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
     }
     
     

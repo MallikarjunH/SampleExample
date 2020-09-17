@@ -66,6 +66,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                //NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Light", size: 17.0)!
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.light)
             ]
+        //UIFontWeightUltraLight,UIFontWeightThin,UIFontWeightLight,UIFontWeightRegular,UIFontWeightMedium,UIFontWeightSemibold,UIFontWeightBold,UIFontWeightHeavy,UIFontWeightBlack
+            
             let regularText1 = NSAttributedString(string: "You are subscribed to ", attributes: regularAttribute)
             let boldText = NSAttributedString(string: "Professional ", attributes: boldAttribute)
             let regularText2 = NSAttributedString(string: "Plan", attributes: regularAttribute)
@@ -74,7 +76,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             newString.append(regularText1)
             newString.append(boldText)
             newString.append(regularText2)
-            //lbl.attributedText = newString
+            
             cell.subscriptionPlanLabel.attributedText = newString
             
             return cell
