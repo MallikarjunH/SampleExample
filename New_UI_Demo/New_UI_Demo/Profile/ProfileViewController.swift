@@ -103,4 +103,39 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+        }
+        else{
+            if indexPath.row == 0 {
+                print("Clikced on About")
+                
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let aboutsVC = storyBoard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
+                self.navigationController?.pushViewController(aboutsVC, animated: true)
+            }
+            else if indexPath.row == 1 {
+                print("Clikced on My Profile")
+                
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let myProfileVC = storyBoard.instantiateViewController(withIdentifier: "MyProfileDetailsViewController") as! MyProfileDetailsViewController
+                self.navigationController?.pushViewController(myProfileVC, animated: true)
+            }
+            else if indexPath.row == 2 {
+                print("Clikced on Change Password")
+                
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let changePasswordVC = storyBoard.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
+                self.navigationController?.pushViewController(changePasswordVC, animated: true)
+            }
+            else if indexPath.row == 3 {
+                 print("Clikced on Feedback")
+            }
+            else if indexPath.row == 4 { 
+                print("Clikced on Logout")
+            }
+        }
+    }
+    
 }

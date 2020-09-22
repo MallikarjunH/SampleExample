@@ -13,6 +13,7 @@ class DashboardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainBGView: UIView!
     @IBOutlet weak var typeImg: UIImageView!
     @IBOutlet weak var typeName: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -16,6 +16,8 @@ class DashboardViewController: UIViewController {
     
     var categoryImgArray = ["pending","waitingForOthers","declined","recalled","completed"]
     
+    var countArray = ["34", "87", "50", "14", "242"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +38,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DashboardCollectionViewCell", for: indexPath) as! DashboardCollectionViewCell
         
         cell.typeName.text = categoryNameArray[indexPath.item]
+        cell.countLabel.text = countArray[indexPath.item]
         cell.typeImg.image = UIImage(named: categoryImgArray[indexPath.item])
         
         return cell
@@ -67,7 +70,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         //return UIEdgeInsets(top: 10, left: 13, bottom: 10, right: 13)
-        return UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
+        return UIEdgeInsets(top: 15, left: 5, bottom: 15, right: 5)
     }
     
     

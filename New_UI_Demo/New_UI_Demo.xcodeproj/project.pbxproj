@@ -17,11 +17,14 @@
 		06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */; };
 		06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012773250B52940088F9AB /* SelectWorkFlowTableViewCell.swift */; };
 		06012776250B52A80088F9AB /* SelectWorkFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012775250B52A80088F9AB /* SelectWorkFlowViewController.swift */; };
+		060F7DB02513487C007FF6BD /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */; };
+		060F7DB625139610007FF6BD /* MyProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */; };
 		06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */; };
 		06AB2EC72511CEFF003C5C0E /* ProfileTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */; };
 		06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */; };
 		06AB2ECC25120614003C5C0E /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2ECB25120614003C5C0E /* DashboardViewController.swift */; };
 		06AB2ECE25120660003C5C0E /* DashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2ECD2512065F003C5C0E /* DashboardCollectionViewCell.swift */; };
+		06FD6E7F25188BF4000F6F67 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD6E7E25188BF4000F6F67 /* ChangePasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +40,14 @@
 		06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocStoreTableViewCell.swift; sourceTree = "<group>"; };
 		06012773250B52940088F9AB /* SelectWorkFlowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkFlowTableViewCell.swift; sourceTree = "<group>"; };
 		06012775250B52A80088F9AB /* SelectWorkFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkFlowViewController.swift; sourceTree = "<group>"; };
+		060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopTableViewCell.swift; sourceTree = "<group>"; };
 		06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewCell.swift; sourceTree = "<group>"; };
 		06AB2ECB25120614003C5C0E /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		06AB2ECD2512065F003C5C0E /* DashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		06FD6E7E25188BF4000F6F67 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,9 @@
 				06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */,
 				06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */,
 				06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */,
+				060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */,
+				060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */,
+				06FD6E7E25188BF4000F6F67 /* ChangePasswordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -198,12 +207,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				06012760250B43860088F9AB /* ViewController.swift in Sources */,
+				060F7DB02513487C007FF6BD /* AboutUsViewController.swift in Sources */,
 				06AB2ECE25120660003C5C0E /* DashboardCollectionViewCell.swift in Sources */,
+				06FD6E7F25188BF4000F6F67 /* ChangePasswordViewController.swift in Sources */,
 				06012770250B43D40088F9AB /* DocStoreViewController.swift in Sources */,
 				06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */,
 				06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */,
 				06012776250B52A80088F9AB /* SelectWorkFlowViewController.swift in Sources */,
 				0601275C250B43860088F9AB /* AppDelegate.swift in Sources */,
+				060F7DB625139610007FF6BD /* MyProfileDetailsViewController.swift in Sources */,
 				0601275E250B43860088F9AB /* SceneDelegate.swift in Sources */,
 				06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */,
 				06AB2ECC25120614003C5C0E /* DashboardViewController.swift in Sources */,
