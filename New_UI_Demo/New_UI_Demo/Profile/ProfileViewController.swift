@@ -131,6 +131,11 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             }
             else if indexPath.row == 3 {
                  print("Clikced on Feedback")
+                 
+                if let url = URL(string: "https://itunes.apple.com/us/app/apple-store/id1246670687?mt=8") {
+                    UIApplication.shared.open(url)
+                }
+                
             }
             else if indexPath.row == 4 { 
                 print("Clikced on Logout")

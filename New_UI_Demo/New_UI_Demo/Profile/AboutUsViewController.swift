@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class AboutUsViewController: UIViewController {
+class AboutUsViewController: UIViewController,MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,4 +26,47 @@ class AboutUsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
+    
+    @IBAction func writeToUsButtonClicked(_ sender: Any) {
+        
+        if MFMailComposeViewController.canSendMail() {
+            sendEmail()
+        }
+        else{
+            
+        }
+    }
+
+    @IBAction func termsOfUseButtonClicked(_ sender: Any) {
+        
+        if let url = URL(string: "https://emsigner.com/Areas/Home/termsofservice") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func privacyButtonClicked(_ sender: Any) {
+        
+        if let url = URL(string: "https://emsigner.com/Areas/Home/privacypolicy") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["mallikarjun.h1410@gmail.com"])
+           // mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
 }
+

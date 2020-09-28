@@ -790,7 +790,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="sOe-cR-Fos" firstAttribute="top" secondItem="su8-K9-hKZ" secondAttribute="bottom" constant="5" id="6du-lS-x5H"/>
                                                 <constraint firstItem="sOe-cR-Fos" firstAttribute="leading" secondItem="3eA-ns-b0D" secondAttribute="leading" constant="20" id="AoS-2c-Fu7"/>
@@ -899,6 +899,38 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="138" id="R9y-u1-oIn">
+                                        <rect key="frame" x="0.0" y="313" width="414" height="138"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R9y-u1-oIn" id="QAr-45-ZM5">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDV-Ek-dXO">
+                                                    <rect key="frame" x="20" y="54" width="374" height="50"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="r6K-IN-KHp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <state key="normal" title="SAVE">
+                                                        <color key="titleColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="saveButtonClicked:" destination="dPQ-eb-AeT" eventType="touchUpInside" id="yL1-oq-umq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="CDV-Ek-dXO" secondAttribute="trailing" constant="20" id="hZU-4I-EcC"/>
+                                                <constraint firstItem="CDV-Ek-dXO" firstAttribute="top" secondItem="QAr-45-ZM5" secondAttribute="top" constant="54" id="k4l-V5-0ZW"/>
+                                                <constraint firstItem="CDV-Ek-dXO" firstAttribute="leading" secondItem="QAr-45-ZM5" secondAttribute="leading" constant="20" id="kl3-rn-TL5"/>
+                                                <constraint firstAttribute="bottom" secondItem="CDV-Ek-dXO" secondAttribute="bottom" constant="34" id="lXP-kg-ATf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -954,6 +986,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="support@emsigner.com"/>
+                                <connections>
+                                    <action selector="writeToUsButtonClicked:" destination="dtH-mh-2jR" eventType="touchUpInside" id="7FB-nU-1nl"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2W-9Y-Yaq">
                                 <rect key="frame" x="204" y="298.5" width="6" height="25"/>
@@ -971,6 +1006,9 @@
                                     <constraint firstAttribute="height" constant="30" id="STO-ay-gSO"/>
                                 </constraints>
                                 <state key="normal" title="Privacy Policy"/>
+                                <connections>
+                                    <action selector="privacyButtonClicked:" destination="dtH-mh-2jR" eventType="touchUpInside" id="J6j-fa-Sxe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYc-Ir-jVm">
                                 <rect key="frame" x="100" y="296" width="89" height="30"/>
@@ -978,6 +1016,9 @@
                                     <constraint firstAttribute="height" constant="30" id="Mmv-ed-qOm"/>
                                 </constraints>
                                 <state key="normal" title="Terms of use"/>
+                                <connections>
+                                    <action selector="termsOfUseButtonClicked:" destination="dtH-mh-2jR" eventType="touchUpInside" id="BLL-CI-wKX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>

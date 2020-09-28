@@ -89,6 +89,7 @@ class ChangePasswordViewController: UITableViewController {
         }
         
     }
+    
     @objc func imageTapped2(tapGestureRecognizer: UITapGestureRecognizer)
     {
         //let tappedImage = tapGestureRecognizer.view as! UIImageView
@@ -105,6 +106,7 @@ class ChangePasswordViewController: UITableViewController {
         }
         
     }
+    
     @objc func imageTapped3(tapGestureRecognizer: UITapGestureRecognizer)
     {
         //let tappedImage = tapGestureRecognizer.view as! UIImageView
@@ -122,5 +124,9 @@ class ChangePasswordViewController: UITableViewController {
         
     }
     
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        
+        print("Clicked on Save Button")
+    }
     
 }
