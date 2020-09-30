@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PDFKit/PDFKit.h>
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet PDFView *pdfView;
+@property (strong, nonatomic) PDFDocument *pdfDocument;
 
 @end
 
