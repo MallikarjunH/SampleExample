@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.title = "My Account"
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         mainTableView.tableFooterView = UIView()
         
         

@@ -28,6 +28,8 @@ class ChangePasswordViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Change Password"
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         configureUIForShowHideButtonOnTextField()
     }
     

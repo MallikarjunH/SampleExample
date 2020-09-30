@@ -17,6 +17,7 @@ class AboutUsViewController: UIViewController,MFMailComposeViewControllerDelegat
         // Do any additional setup after loading the view.
         
         self.title = "About Us"
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
     }
 
@@ -33,7 +34,7 @@ class AboutUsViewController: UIViewController,MFMailComposeViewControllerDelegat
             sendEmail()
         }
         else{
-            
+            print("I am in writeToUsButtonClicked else method")
         }
     }
 
@@ -62,6 +63,7 @@ class AboutUsViewController: UIViewController,MFMailComposeViewControllerDelegat
             present(mail, animated: true)
         } else {
             // show failure alert
+            print("Show Failure Alert")
         }
     }
     

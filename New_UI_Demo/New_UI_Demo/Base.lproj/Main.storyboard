@@ -1205,29 +1205,29 @@
                                                     <rect key="frame" x="15" y="10" width="384" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dtSigner-reviewer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlW-qW-KEq">
-                                                            <rect key="frame" x="15" y="16" width="137" height="20"/>
+                                                            <rect key="frame" x="49" y="15" width="137" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="pRQ-El-zth"/>
+                                                                <constraint firstAttribute="height" constant="20" id="EH2-aH-Jjo"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rtArrow" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-QE-G4t">
-                                                            <rect key="frame" x="355" y="16" width="18" height="18"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder-black" translatesAutoresizingMaskIntoConstraints="NO" id="qWp-ew-pas">
+                                                            <rect key="frame" x="12" y="13" width="25" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="18" id="R1A-R6-Olq"/>
-                                                                <constraint firstAttribute="width" constant="18" id="aRt-e9-qUV"/>
+                                                                <constraint firstAttribute="height" constant="25" id="ALp-H1-SUn"/>
+                                                                <constraint firstAttribute="width" constant="25" id="MWH-0f-9lP"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="4Hy-Ch-i2L"/>
-                                                        <constraint firstItem="WlW-qW-KEq" firstAttribute="top" secondItem="wP5-JR-yiC" secondAttribute="top" constant="16" id="TmV-fu-jZQ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="b8V-QE-G4t" secondAttribute="trailing" constant="11" id="e0w-SQ-zWJ"/>
-                                                        <constraint firstItem="b8V-QE-G4t" firstAttribute="top" secondItem="wP5-JR-yiC" secondAttribute="top" constant="16" id="izB-Eo-e0n"/>
-                                                        <constraint firstItem="WlW-qW-KEq" firstAttribute="leading" secondItem="wP5-JR-yiC" secondAttribute="leading" constant="15" id="sOz-Pw-zhl"/>
+                                                        <constraint firstItem="qWp-ew-pas" firstAttribute="leading" secondItem="wP5-JR-yiC" secondAttribute="leading" constant="12" id="5JW-YW-4NX"/>
+                                                        <constraint firstItem="WlW-qW-KEq" firstAttribute="top" secondItem="wP5-JR-yiC" secondAttribute="top" constant="15" id="Hnc-Jm-rpD"/>
+                                                        <constraint firstItem="qWp-ew-pas" firstAttribute="top" secondItem="wP5-JR-yiC" secondAttribute="top" constant="13" id="ZBC-rj-fNf"/>
+                                                        <constraint firstItem="WlW-qW-KEq" firstAttribute="leading" secondItem="qWp-ew-pas" secondAttribute="trailing" constant="12" id="vLW-8M-weh"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1514,9 +1514,9 @@
         <image name="dashboard" width="24" height="24"/>
         <image name="docstore" width="24" height="24"/>
         <image name="draft" width="24" height="24"/>
+        <image name="folder-black" width="12" height="12"/>
         <image name="pending" width="32" height="32"/>
         <image name="profileImg" width="256" height="256"/>
-        <image name="rtArrow" width="25" height="25"/>
         <image name="workflow" width="24" height="24"/>
     </resources>
 </document>

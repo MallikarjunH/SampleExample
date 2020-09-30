@@ -17,7 +17,8 @@ class MyProfileDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         self.title = "My Profile"
+        self.title = "My Profile"
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         //nameTextField.text = "Test Name"
     }
