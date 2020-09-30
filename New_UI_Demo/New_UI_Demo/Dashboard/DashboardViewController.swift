@@ -70,7 +70,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         //return UIEdgeInsets(top: 10, left: 13, bottom: 10, right: 13)
-        return UIEdgeInsets(top: 15, left: 5, bottom: 15, right: 5)
+        return UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
     }
     
     
