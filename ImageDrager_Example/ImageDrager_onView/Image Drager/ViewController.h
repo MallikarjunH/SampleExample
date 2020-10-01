@@ -2,8 +2,8 @@
 //  ViewController.h
 //  Image Drager
 //
-//  Created by Mallikarjun on 30/09/20.
-//  Copyright © 2020 Mallikarjun. All rights reserved.
+//  Created by Nikita on 30/09/20.
+//  Copyright © 2020 Nikita. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,7 +11,6 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet PDFView *pdfView;
 @property (strong, nonatomic) PDFDocument *pdfDocument;
 
 @end
