@@ -10,29 +10,48 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignatoryView"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="160" height="85"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signatory 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFh-BJ-ocm">
-                    <rect key="frame" x="5" y="14" width="150" height="22"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ngu-3X-Mu4">
+                    <rect key="frame" x="0.0" y="35" width="160" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signatory 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFh-BJ-ocm">
+                            <rect key="frame" x="5" y="14" width="150" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.99856752157211304" blue="0.0041835247538983822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="22" id="YIm-5n-T3a"/>
+                        <constraint firstAttribute="height" constant="50" id="gkM-3d-1Yt"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closeButtonBlack" translatesAutoresizingMaskIntoConstraints="NO" id="hFz-Bs-ryV">
+                    <rect key="frame" x="129" y="5" width="26" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="26" id="Gbh-se-Je3"/>
+                        <constraint firstAttribute="height" constant="26" id="KNp-II-SGD"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.93786889314651489" green="0.93544107675552368" blue="0.0032927209977060556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="dFh-BJ-ocm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="IkG-Ug-hHW"/>
-                <constraint firstAttribute="trailing" secondItem="dFh-BJ-ocm" secondAttribute="trailing" constant="5" id="KeO-Ij-K38"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="dFh-BJ-ocm" secondAttribute="bottom" constant="14" id="hDk-q1-t9f"/>
-                <constraint firstItem="dFh-BJ-ocm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="wcr-lb-eaL"/>
+                <constraint firstItem="Ngu-3X-Mu4" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Hte-wV-PZG"/>
+                <constraint firstItem="Ngu-3X-Mu4" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="LGK-bA-zxJ"/>
+                <constraint firstAttribute="trailing" secondItem="hFz-Bs-ryV" secondAttribute="trailing" constant="5" id="TaG-py-xaN"/>
+                <constraint firstItem="Ngu-3X-Mu4" firstAttribute="top" secondItem="hFz-Bs-ryV" secondAttribute="bottom" constant="4" id="Xha-Kv-LpV"/>
+                <constraint firstItem="Ngu-3X-Mu4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nov-B2-NYJ"/>
+                <constraint firstItem="hFz-Bs-ryV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="vXe-3U-8b4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="-78.260869565217391" y="17.410714285714285"/>
         </view>
     </objects>
+    <resources>
+        <image name="closeButtonBlack" width="12" height="12"/>
+    </resources>
 </document>

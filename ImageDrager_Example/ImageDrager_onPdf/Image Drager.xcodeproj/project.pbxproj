@@ -16,6 +16,9 @@
 		069BE58125245488008FB10A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 069BE58025245488008FB10A /* main.m */; };
 		069BE58825245AEB008FB10A /* appointment-letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 069BE58725245AEB008FB10A /* appointment-letter.pdf */; };
 		069BE58B25245CF6008FB10A /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069BE58A25245CF6008FB10A /* PDFKit.framework */; };
+		06B9595E252AD8DB00C51356 /* NSObject+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B9595D252AD8DB00C51356 /* NSObject+Activity.m */; };
+		06B95960252ADB7E00C51356 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B9595F252ADB7E00C51356 /* Test.m */; };
+		3146F63BB0CB5C3FD2A95588 /* libPods-Image Drager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C157B2BF43BAB48B954260CD /* libPods-Image Drager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,12 @@
 		069BE58025245488008FB10A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		069BE58725245AEB008FB10A /* appointment-letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "appointment-letter.pdf"; sourceTree = "<group>"; };
 		069BE58A25245CF6008FB10A /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
+		06B9595C252AD8DB00C51356 /* NSObject+Activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Activity.h"; sourceTree = "<group>"; };
+		06B9595D252AD8DB00C51356 /* NSObject+Activity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Activity.m"; sourceTree = "<group>"; };
+		06B9595F252ADB7E00C51356 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		5828209467DA6196D31553DB /* Pods-Image Drager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Image Drager.debug.xcconfig"; path = "Target Support Files/Pods-Image Drager/Pods-Image Drager.debug.xcconfig"; sourceTree = "<group>"; };
+		6A61EDC38DA947553A5C82FE /* Pods-Image Drager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Image Drager.release.xcconfig"; path = "Target Support Files/Pods-Image Drager/Pods-Image Drager.release.xcconfig"; sourceTree = "<group>"; };
+		C157B2BF43BAB48B954260CD /* libPods-Image Drager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Image Drager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				069BE58B25245CF6008FB10A /* PDFKit.framework in Frameworks */,
+				3146F63BB0CB5C3FD2A95588 /* libPods-Image Drager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +63,7 @@
 				069BE56D25245485008FB10A /* Image Drager */,
 				069BE56C25245485008FB10A /* Products */,
 				069BE58925245CF6008FB10A /* Frameworks */,
+				ADEF547B25620BA22547C62C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +84,9 @@
 				069BE57225245485008FB10A /* SceneDelegate.m */,
 				069BE57425245485008FB10A /* ViewController.h */,
 				069BE57525245485008FB10A /* ViewController.m */,
+				06B9595F252ADB7E00C51356 /* Test.m */,
+				06B9595C252AD8DB00C51356 /* NSObject+Activity.h */,
+				06B9595D252AD8DB00C51356 /* NSObject+Activity.m */,
 				069BE58725245AEB008FB10A /* appointment-letter.pdf */,
 				069BE57725245486008FB10A /* Main.storyboard */,
 				069BE57A25245488008FB10A /* Assets.xcassets */,
@@ -87,8 +101,19 @@
 			isa = PBXGroup;
 			children = (
 				069BE58A25245CF6008FB10A /* PDFKit.framework */,
+				C157B2BF43BAB48B954260CD /* libPods-Image Drager.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADEF547B25620BA22547C62C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5828209467DA6196D31553DB /* Pods-Image Drager.debug.xcconfig */,
+				6A61EDC38DA947553A5C82FE /* Pods-Image Drager.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +123,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 069BE58425245488008FB10A /* Build configuration list for PBXNativeTarget "Image Drager" */;
 			buildPhases = (
+				727060C95A5A4378D3859F38 /* [CP] Check Pods Manifest.lock */,
 				069BE56725245485008FB10A /* Sources */,
 				069BE56825245485008FB10A /* Frameworks */,
 				069BE56925245485008FB10A /* Resources */,
@@ -157,6 +183,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		727060C95A5A4378D3859F38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Image Drager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		069BE56725245485008FB10A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -165,6 +216,8 @@
 				069BE57625245485008FB10A /* ViewController.m in Sources */,
 				069BE57025245485008FB10A /* AppDelegate.m in Sources */,
 				069BE58125245488008FB10A /* main.m in Sources */,
+				06B95960252ADB7E00C51356 /* Test.m in Sources */,
+				06B9595E252AD8DB00C51356 /* NSObject+Activity.m in Sources */,
 				069BE57325245485008FB10A /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +356,7 @@
 		};
 		069BE58525245488008FB10A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5828209467DA6196D31553DB /* Pods-Image Drager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -319,6 +373,7 @@
 		};
 		069BE58625245488008FB10A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A61EDC38DA947553A5C82FE /* Pods-Image Drager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

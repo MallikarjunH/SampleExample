@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SignatoryView.h"
 
 @interface ViewController ()<UITextViewDelegate>
 {
@@ -14,6 +15,8 @@
     CGRect frame;
     
     UIView *customView;
+    
+    //SignatoryView *signatoryView;
 }
 @end
 
@@ -37,12 +40,26 @@
    
     //Custom view
     customView = [[[NSBundle mainBundle] loadNibNamed:@"SignatoryViewXib" owner:self options:nil] objectAtIndex:0];
-
+    
     [self.backgroundImg addSubview:customView];
     
+    //SignatoryView
+   // signatoryView = [[[NSBundle mainBundle] loadNibNamed:@"SignatoryViewXib" owner:self options:nil] objectAtIndex:0];
+    
+   // [self.backgroundImg addSubview:signatoryView];
+    
+  //  signatoryView.signatoryLabel.text = @"Test";
 
+   // UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+   // singleTap.numberOfTapsRequired = 1;
+   // [singnatoryView.cancelButtonImgView setUserInteractionEnabled:YES];
+   // [singnatoryView.cancelButtonImgView addGestureRecognizer:singleTap];
+    
 }
 
+-(void)tapDetected{
+  NSLog(@"Clicked on Cancel Button");
+}
 
 - (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event {
    
@@ -64,7 +81,7 @@
     } */
     
     
-    //CustomeView
+ /*   //CustomeView
     UITouch *touch = [[event allTouches] anyObject];
     //CGPoint touchLocation = [touch locationInView:touch.view];
     CGPoint touchLocation = [touch locationInView:touch.view];
@@ -76,6 +93,24 @@
     if ([touch.view isEqual: self.view]) {
 
         customView.center = touchLocation;
+
+        return;
+    } */
+    
+    
+    //signatoryView
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    //CGPoint touchLocation = [touch locationInView:touch.view];
+    CGPoint touchLocation = [touch locationInView:touch.view];
+
+    //CGRect frame = [firstView convertRect:buttons.frame fromView:secondView];
+    frame = [self.view convertRect:self->signatoryView.frame fromView:self.backgroundImg];
+    NSLog(@"touchesMoved %@", CGRectCreateDictionaryRepresentation(frame));
+    
+    if ([touch.view isEqual: self.view]) {
+
+        signatoryView.center = touchLocation;
 
         return;
     }

@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screenshot 2020-10-01 at 9.18.19 AM.png" translatesAutoresizingMaskIntoConstraints="NO" id="661-jP-5i2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screenshot 2020-10-01 at 1.44.17 PM.png" translatesAutoresizingMaskIntoConstraints="NO" id="661-jP-5i2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
                         </subviews>
@@ -57,6 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screenshot 2020-10-01 at 9.18.19 AM.png" width="311" height="511"/>
+        <image name="Screenshot 2020-10-01 at 1.44.17 PM.png" width="363" height="567"/>
     </resources>
 </document>

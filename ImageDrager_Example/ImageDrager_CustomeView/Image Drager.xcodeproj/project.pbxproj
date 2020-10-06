@@ -10,6 +10,7 @@
 		0607946725258911009F992F /* Screenshot 2020-10-01 at 9.18.19 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 0607946625258911009F992F /* Screenshot 2020-10-01 at 9.18.19 AM.png */; };
 		060794712525B409009F992F /* SignatoryViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060794702525B409009F992F /* SignatoryViewXib.xib */; };
 		060794742525B44E009F992F /* SignatoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060794732525B44E009F992F /* SignatoryView.m */; };
+		060794762525C776009F992F /* Screenshot 2020-10-01 at 1.44.17 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 060794752525C776009F992F /* Screenshot 2020-10-01 at 1.44.17 PM.png */; };
 		069BE57025245485008FB10A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069BE56F25245485008FB10A /* AppDelegate.m */; };
 		069BE57325245485008FB10A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069BE57225245485008FB10A /* SceneDelegate.m */; };
 		069BE57625245485008FB10A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069BE57525245485008FB10A /* ViewController.m */; };
@@ -26,6 +27,7 @@
 		060794702525B409009F992F /* SignatoryViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignatoryViewXib.xib; sourceTree = "<group>"; };
 		060794722525B44E009F992F /* SignatoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignatoryView.h; sourceTree = "<group>"; };
 		060794732525B44E009F992F /* SignatoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignatoryView.m; sourceTree = "<group>"; };
+		060794752525C776009F992F /* Screenshot 2020-10-01 at 1.44.17 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2020-10-01 at 1.44.17 PM.png"; sourceTree = "<group>"; };
 		069BE56B25245485008FB10A /* Image Drager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Drager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		069BE56E25245485008FB10A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		069BE56F25245485008FB10A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				069BE56E25245485008FB10A /* AppDelegate.h */,
 				0607946625258911009F992F /* Screenshot 2020-10-01 at 9.18.19 AM.png */,
+				060794752525C776009F992F /* Screenshot 2020-10-01 at 1.44.17 PM.png */,
 				069BE56F25245485008FB10A /* AppDelegate.m */,
 				069BE57125245485008FB10A /* SceneDelegate.h */,
 				069BE57225245485008FB10A /* SceneDelegate.m */,
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				069BE57E25245488008FB10A /* LaunchScreen.storyboard in Resources */,
+				060794762525C776009F992F /* Screenshot 2020-10-01 at 1.44.17 PM.png in Resources */,
 				060794712525B409009F992F /* SignatoryViewXib.xib in Resources */,
 				069BE57B25245488008FB10A /* Assets.xcassets in Resources */,
 				0607946725258911009F992F /* Screenshot 2020-10-01 at 9.18.19 AM.png in Resources */,
