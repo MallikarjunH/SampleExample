@@ -10,9 +10,18 @@ import UIKit
 
 class SignatureList1TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var mainBGView: UIView!
+
+    @IBOutlet weak var fileNameLabel: UILabel!
+    @IBOutlet weak var sentByNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var moreImg: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        mainBGView.layer.cornerRadius = 8
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

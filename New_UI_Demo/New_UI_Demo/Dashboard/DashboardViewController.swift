@@ -49,7 +49,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         print("Clicked on: %d", indexPath.item)
        
       let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-      let detailsVC = storyBoard.instantiateViewController(withIdentifier: "DocStoreViewController") as! DocStoreViewController
+      let detailsVC = storyBoard.instantiateViewController(withIdentifier: "MySignaturesViewController") as! MySignaturesViewController
       self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     

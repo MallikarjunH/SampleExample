@@ -127,6 +127,41 @@
             </objects>
             <point key="canvasLocation" x="2347.826086956522" y="-76.339285714285708"/>
         </scene>
+        <!--My Signatures View Controller-->
+        <scene sceneID="oqb-RO-VHb">
+            <objects>
+                <viewController storyboardIdentifier="MySignaturesViewController" id="GpY-q3-l8S" customClass="MySignaturesViewController" customModule="New_UI_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eZs-5F-mxe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XR0-Zz-b1J">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GpY-q3-l8S" id="uzj-ev-s4u"/>
+                                    <outlet property="delegate" destination="GpY-q3-l8S" id="KJG-DD-3Hp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XR0-Zz-b1J" firstAttribute="top" secondItem="Wd2-0J-SR7" secondAttribute="top" id="Gke-zR-sgq"/>
+                            <constraint firstItem="XR0-Zz-b1J" firstAttribute="leading" secondItem="Wd2-0J-SR7" secondAttribute="leading" id="fUS-5h-Bhf"/>
+                            <constraint firstItem="Wd2-0J-SR7" firstAttribute="trailing" secondItem="XR0-Zz-b1J" secondAttribute="trailing" id="pLc-Bz-6Gq"/>
+                            <constraint firstItem="Wd2-0J-SR7" firstAttribute="bottom" secondItem="XR0-Zz-b1J" secondAttribute="bottom" id="sZb-zW-jTc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wd2-0J-SR7"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="XR0-Zz-b1J" id="mad-kU-KVf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ue-fx-9Wh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2348" y="656"/>
+        </scene>
         <!--My Profile Details View Controller-->
         <scene sceneID="N3l-Nf-SMz">
             <objects>

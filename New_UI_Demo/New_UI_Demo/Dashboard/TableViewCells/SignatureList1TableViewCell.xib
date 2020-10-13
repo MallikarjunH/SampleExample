@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SignatureList1TableViewCell" customModule="New_UI_Demo" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SignatureList1TableViewCell" id="KGk-i7-Jjw" customClass="SignatureList1TableViewCell" customModule="New_UI_Demo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -46,13 +46,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verticleDots" translatesAutoresizingMaskIntoConstraints="NO" id="8jl-pb-tXj">
+                                <rect key="frame" x="352" y="32.5" width="30" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="PrO-cw-uxD"/>
+                                    <constraint firstAttribute="width" constant="30" id="bU1-Pj-k4H"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JeC-1K-VX1" firstAttribute="top" secondItem="h6A-aC-Nta" secondAttribute="bottom" constant="3" id="2de-SQ-zPI"/>
                             <constraint firstAttribute="height" constant="90" id="ByX-sZ-r2Q"/>
                             <constraint firstItem="Eyl-0a-zdY" firstAttribute="leading" secondItem="hHW-rJ-YY7" secondAttribute="leading" constant="15" id="D4f-r4-VhJ"/>
+                            <constraint firstItem="8jl-pb-tXj" firstAttribute="centerY" secondItem="hHW-rJ-YY7" secondAttribute="centerY" id="Rjb-jH-IOH"/>
                             <constraint firstItem="h6A-aC-Nta" firstAttribute="leading" secondItem="hHW-rJ-YY7" secondAttribute="leading" constant="15" id="U15-om-Iid"/>
+                            <constraint firstAttribute="trailing" secondItem="8jl-pb-tXj" secondAttribute="trailing" constant="2" id="d6P-fB-ZqS"/>
                             <constraint firstItem="JeC-1K-VX1" firstAttribute="leading" secondItem="hHW-rJ-YY7" secondAttribute="leading" constant="15" id="eFp-5h-meK"/>
                             <constraint firstItem="Eyl-0a-zdY" firstAttribute="top" secondItem="JeC-1K-VX1" secondAttribute="bottom" constant="7" id="n5Z-i9-pgF"/>
                             <constraint firstItem="h6A-aC-Nta" firstAttribute="top" secondItem="hHW-rJ-YY7" secondAttribute="top" constant="12" id="sXW-4p-f6z"/>
@@ -68,7 +77,17 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="139" y="102"/>
+            <connections>
+                <outlet property="dateLabel" destination="Eyl-0a-zdY" id="AdY-Cc-RjE"/>
+                <outlet property="fileNameLabel" destination="h6A-aC-Nta" id="1be-xH-eA9"/>
+                <outlet property="mainBGView" destination="hHW-rJ-YY7" id="Ra8-He-vvj"/>
+                <outlet property="moreImg" destination="8jl-pb-tXj" id="O5D-20-wht"/>
+                <outlet property="sentByNameLabel" destination="JeC-1K-VX1" id="X4V-VV-c62"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="101.45089285714285"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="verticleDots" width="12" height="12"/>
+    </resources>
 </document>
