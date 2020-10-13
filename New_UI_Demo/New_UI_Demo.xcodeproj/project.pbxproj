@@ -24,6 +24,15 @@
 		06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */; };
 		06AB2ECC25120614003C5C0E /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2ECB25120614003C5C0E /* DashboardViewController.swift */; };
 		06AB2ECE25120660003C5C0E /* DashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2ECD2512065F003C5C0E /* DashboardCollectionViewCell.swift */; };
+		06FCA19F2535858A00DE4159 /* SignatureList1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCA19D2535858A00DE4159 /* SignatureList1TableViewCell.swift */; };
+		06FCA1A02535858A00DE4159 /* SignatureList1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FCA19E2535858A00DE4159 /* SignatureList1TableViewCell.xib */; };
+		06FCA1A3253585D100DE4159 /* SignatureList2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCA1A1253585D100DE4159 /* SignatureList2TableViewCell.swift */; };
+		06FCA1A4253585D100DE4159 /* SignatureList2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FCA1A2253585D100DE4159 /* SignatureList2TableViewCell.xib */; };
+		06FCA1A62535865A00DE4159 /* MySignaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCA1A52535865A00DE4159 /* MySignaturesViewController.swift */; };
+		06FCA1A82535867400DE4159 /* WaitingForOthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCA1A72535867400DE4159 /* WaitingForOthersViewController.swift */; };
+		06FCA1AA2535868900DE4159 /* DeclinedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCA1A92535868900DE4159 /* DeclinedViewController.swift */; };
+		06FCA1AC2535869800DE4159 /* RecalledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCA1AB2535869800DE4159 /* RecalledViewController.swift */; };
+		06FCA1AE253586AA00DE4159 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FCA1AD253586AA00DE4159 /* CompletedViewController.swift */; };
 		06FD6E7F25188BF4000F6F67 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FD6E7E25188BF4000F6F67 /* ChangePasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +56,15 @@
 		06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewCell.swift; sourceTree = "<group>"; };
 		06AB2ECB25120614003C5C0E /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		06AB2ECD2512065F003C5C0E /* DashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		06FCA19D2535858A00DE4159 /* SignatureList1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureList1TableViewCell.swift; sourceTree = "<group>"; };
+		06FCA19E2535858A00DE4159 /* SignatureList1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignatureList1TableViewCell.xib; sourceTree = "<group>"; };
+		06FCA1A1253585D100DE4159 /* SignatureList2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureList2TableViewCell.swift; sourceTree = "<group>"; };
+		06FCA1A2253585D100DE4159 /* SignatureList2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignatureList2TableViewCell.xib; sourceTree = "<group>"; };
+		06FCA1A52535865A00DE4159 /* MySignaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySignaturesViewController.swift; sourceTree = "<group>"; };
+		06FCA1A72535867400DE4159 /* WaitingForOthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingForOthersViewController.swift; sourceTree = "<group>"; };
+		06FCA1A92535868900DE4159 /* DeclinedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclinedViewController.swift; sourceTree = "<group>"; };
+		06FCA1AB2535869800DE4159 /* RecalledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalledViewController.swift; sourceTree = "<group>"; };
+		06FCA1AD253586AA00DE4159 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		06FD6E7E25188BF4000F6F67 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,8 +149,25 @@
 			children = (
 				06AB2ECB25120614003C5C0E /* DashboardViewController.swift */,
 				06AB2ECD2512065F003C5C0E /* DashboardCollectionViewCell.swift */,
+				06FCA1A52535865A00DE4159 /* MySignaturesViewController.swift */,
+				06FCA1A72535867400DE4159 /* WaitingForOthersViewController.swift */,
+				06FCA1A92535868900DE4159 /* DeclinedViewController.swift */,
+				06FCA1AB2535869800DE4159 /* RecalledViewController.swift */,
+				06FCA1AD253586AA00DE4159 /* CompletedViewController.swift */,
+				06FCA19C2535853200DE4159 /* TableViewCells */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		06FCA19C2535853200DE4159 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				06FCA19D2535858A00DE4159 /* SignatureList1TableViewCell.swift */,
+				06FCA19E2535858A00DE4159 /* SignatureList1TableViewCell.xib */,
+				06FCA1A1253585D100DE4159 /* SignatureList2TableViewCell.swift */,
+				06FCA1A2253585D100DE4159 /* SignatureList2TableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +230,9 @@
 			files = (
 				06012768250B43890088F9AB /* LaunchScreen.storyboard in Resources */,
 				06012765250B43890088F9AB /* Assets.xcassets in Resources */,
+				06FCA1A02535858A00DE4159 /* SignatureList1TableViewCell.xib in Resources */,
 				06012763250B43860088F9AB /* Main.storyboard in Resources */,
+				06FCA1A4253585D100DE4159 /* SignatureList2TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,15 +248,22 @@
 				06AB2ECE25120660003C5C0E /* DashboardCollectionViewCell.swift in Sources */,
 				06FD6E7F25188BF4000F6F67 /* ChangePasswordViewController.swift in Sources */,
 				06012770250B43D40088F9AB /* DocStoreViewController.swift in Sources */,
+				06FCA1AC2535869800DE4159 /* RecalledViewController.swift in Sources */,
 				06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */,
 				06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */,
+				06FCA1A3253585D100DE4159 /* SignatureList2TableViewCell.swift in Sources */,
 				06012776250B52A80088F9AB /* SelectWorkFlowViewController.swift in Sources */,
 				0601275C250B43860088F9AB /* AppDelegate.swift in Sources */,
 				060F7DB625139610007FF6BD /* MyProfileDetailsViewController.swift in Sources */,
+				06FCA19F2535858A00DE4159 /* SignatureList1TableViewCell.swift in Sources */,
 				0601275E250B43860088F9AB /* SceneDelegate.swift in Sources */,
 				06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */,
+				06FCA1A62535865A00DE4159 /* MySignaturesViewController.swift in Sources */,
 				06AB2ECC25120614003C5C0E /* DashboardViewController.swift in Sources */,
 				06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */,
+				06FCA1A82535867400DE4159 /* WaitingForOthersViewController.swift in Sources */,
+				06FCA1AA2535868900DE4159 /* DeclinedViewController.swift in Sources */,
+				06FCA1AE253586AA00DE4159 /* CompletedViewController.swift in Sources */,
 				06AB2EC72511CEFF003C5C0E /* ProfileTopTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
