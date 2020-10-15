@@ -264,11 +264,20 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rtArrow" translatesAutoresizingMaskIntoConstraints="NO" id="5IT-15-Y4K">
+                                                            <rect key="frame" x="354" y="14" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="8Ya-9u-TSC"/>
+                                                                <constraint firstAttribute="height" constant="20" id="eUP-63-2RN"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="5IT-15-Y4K" firstAttribute="centerY" secondItem="pqQ-te-qal" secondAttribute="centerY" id="jXM-Mk-YSf"/>
                                                         <constraint firstItem="f0D-vs-c6I" firstAttribute="top" secondItem="pqQ-te-qal" secondAttribute="top" constant="12" id="pSM-X3-rWW"/>
                                                         <constraint firstItem="f0D-vs-c6I" firstAttribute="leading" secondItem="pqQ-te-qal" secondAttribute="leading" constant="15" id="qXv-6d-Ijy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5IT-15-Y4K" secondAttribute="trailing" constant="10" id="uFO-oR-tmQ"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1415,6 +1424,21 @@
             </objects>
             <point key="canvasLocation" x="4215.9420289855079" y="-76.339285714285708"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lgN-fS-efs">
+            <objects>
+                <viewController id="IuR-z4-wX2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zSY-t2-nbW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fe1-ru-xbc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J93-uk-PCR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4216" y="656"/>
+        </scene>
         <!--Work Flows-->
         <scene sceneID="gC0-7Y-nL0">
             <objects>
@@ -1645,10 +1669,10 @@
             </objects>
             <point key="canvasLocation" x="8036.2318840579719" y="-76.339285714285708"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Sample Tab Bar View Controller-->
         <scene sceneID="Mh1-xf-7vV">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hdP-F3-KBZ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SampleTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="hdP-F3-KBZ" customClass="SampleTabBarViewController" customModule="New_UI_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Orx-70-VED"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qqu-gF-B01">
@@ -1769,6 +1793,7 @@
         <image name="folder-black" width="12" height="12"/>
         <image name="pending" width="32" height="32"/>
         <image name="profileImg" width="256" height="256"/>
+        <image name="rtArrow" width="25" height="25"/>
         <image name="workflow" width="24" height="24"/>
     </resources>
 </document>

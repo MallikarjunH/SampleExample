@@ -51,11 +51,12 @@ extension DocStoreViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+      /*  let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "SelectWorkFlowViewController") as! SelectWorkFlowViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        self.navigationController?.pushViewController(nextVC, animated: true) */
         
     }
+    
     /* func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
      
      } */

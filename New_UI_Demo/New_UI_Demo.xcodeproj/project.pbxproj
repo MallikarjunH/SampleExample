@@ -20,6 +20,8 @@
 		060953E62538436500E638CF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060953E52538436500E638CF /* Utils.swift */; };
 		060953E82538495A00E638CF /* RecalledAndDeclinedDocListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060953E72538495A00E638CF /* RecalledAndDeclinedDocListVC.swift */; };
 		060953EA25384B4100E638CF /* RecalledAndDeclinedDocListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060953E925384B4100E638CF /* RecalledAndDeclinedDocListTableViewCell.swift */; };
+		060953EC2538583200E638CF /* DocStoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060953EB2538583200E638CF /* DocStoreDetailsViewController.swift */; };
+		060953F025386D7000E638CF /* SampleTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060953EF25386D7000E638CF /* SampleTabBarViewController.swift */; };
 		060F7DB02513487C007FF6BD /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */; };
 		060F7DB625139610007FF6BD /* MyProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */; };
 		06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */; };
@@ -55,6 +57,8 @@
 		060953E52538436500E638CF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		060953E72538495A00E638CF /* RecalledAndDeclinedDocListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalledAndDeclinedDocListVC.swift; sourceTree = "<group>"; };
 		060953E925384B4100E638CF /* RecalledAndDeclinedDocListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalledAndDeclinedDocListTableViewCell.swift; sourceTree = "<group>"; };
+		060953EB2538583200E638CF /* DocStoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocStoreDetailsViewController.swift; sourceTree = "<group>"; };
+		060953EF25386D7000E638CF /* SampleTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTabBarViewController.swift; sourceTree = "<group>"; };
 		060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				060953E52538436500E638CF /* Utils.swift */,
+				060953EF25386D7000E638CF /* SampleTabBarViewController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			children = (
 				0601276F250B43D40088F9AB /* DocStoreViewController.swift */,
 				06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */,
+				060953EB2538583200E638CF /* DocStoreDetailsViewController.swift */,
 			);
 			path = DocStore;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 				06012770250B43D40088F9AB /* DocStoreViewController.swift in Sources */,
 				06FCA1AC2535869800DE4159 /* RecalledViewController.swift in Sources */,
 				06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */,
+				060953F025386D7000E638CF /* SampleTabBarViewController.swift in Sources */,
 				060953EA25384B4100E638CF /* RecalledAndDeclinedDocListTableViewCell.swift in Sources */,
 				06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */,
 				06FCA1A3253585D100DE4159 /* SignatureList2TableViewCell.swift in Sources */,
@@ -318,6 +325,7 @@
 				06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */,
 				060953E62538436500E638CF /* Utils.swift in Sources */,
 				06FCA1A62535865A00DE4159 /* MySignaturesViewController.swift in Sources */,
+				060953EC2538583200E638CF /* DocStoreDetailsViewController.swift in Sources */,
 				06AB2ECC25120614003C5C0E /* DashboardViewController.swift in Sources */,
 				06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */,
 				060953E82538495A00E638CF /* RecalledAndDeclinedDocListVC.swift in Sources */,
