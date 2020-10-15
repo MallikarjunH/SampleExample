@@ -22,6 +22,7 @@ class MySignaturesViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "My Signatures"
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         // Do any additional setup after loading the view.
         mainTableView.register(UINib(nibName: "SignatureList1TableViewCell", bundle: nil), forCellReuseIdentifier: "SignatureList1TableViewCell")
@@ -40,7 +41,16 @@ extension MySignaturesViewController: UITableViewDataSource, UITableViewDelegate
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SignatureList1TableViewCell") as! SignatureList1TableViewCell
         
+        cell.fileNameLabel.text = documentNameArray[indexPath.row]
+        cell.sentByNameLabel.text = "Sent by: \(sentByNameArray[indexPath.row])"
+        cell.dateLabel.text = dateArray[indexPath.row]
         
+        let showHideMoreButton = showHideMoreButtonArray[indexPath.row]
+        if showHideMoreButton {
+            cell.moreImg.isHidden = false
+        }else{
+            cell.moreImg.isHidden = true
+        }
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moreImageTapped(tapGestureRecognizer:)))
         cell.moreImg.isUserInteractionEnabled = true
         cell.moreImg.addGestureRecognizer(tapGestureRecognizer)

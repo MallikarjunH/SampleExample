@@ -10,6 +10,14 @@ import UIKit
 
 class SignatureList2TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var mainBGView: UIView!
+
+    @IBOutlet weak var fileNameLabel: UILabel!
+    @IBOutlet weak var sentByNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var moreImg: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
