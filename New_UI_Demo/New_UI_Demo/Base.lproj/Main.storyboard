@@ -230,7 +230,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zky-uR-Fkh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="656"/>
+            <point key="canvasLocation" x="-559" y="656"/>
+        </scene>
+        <!--Recalled And Declined Doc ListVC-->
+        <scene sceneID="4vh-z6-xQR">
+            <objects>
+                <viewController storyboardIdentifier="RecalledAndDeclinedDocListVC" id="IJV-li-pmN" customClass="RecalledAndDeclinedDocListVC" customModule="New_UI_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Wj-Jr-WOq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C3g-oa-ecG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecalledAndDeclinedDocListTableViewCell" rowHeight="60" id="9XA-dk-AV2" customClass="RecalledAndDeclinedDocListTableViewCell" customModule="New_UI_Demo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9XA-dk-AV2" id="rJv-5Y-CcN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqQ-te-qal">
+                                                    <rect key="frame" x="15" y="10" width="384" height="48"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Test Document.pdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0D-vs-c6I">
+                                                            <rect key="frame" x="15" y="12" width="197" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="kSc-0e-vuj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="f0D-vs-c6I" firstAttribute="top" secondItem="pqQ-te-qal" secondAttribute="top" constant="12" id="pSM-X3-rWW"/>
+                                                        <constraint firstItem="f0D-vs-c6I" firstAttribute="leading" secondItem="pqQ-te-qal" secondAttribute="leading" constant="15" id="qXv-6d-Ijy"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="pqQ-te-qal" firstAttribute="top" secondItem="rJv-5Y-CcN" secondAttribute="top" constant="10" id="6kh-0G-NZ6"/>
+                                                <constraint firstAttribute="trailing" secondItem="pqQ-te-qal" secondAttribute="trailing" constant="15" id="Phf-El-QYL"/>
+                                                <constraint firstAttribute="bottom" secondItem="pqQ-te-qal" secondAttribute="bottom" constant="2" id="WMb-AX-vQ8"/>
+                                                <constraint firstItem="pqQ-te-qal" firstAttribute="leading" secondItem="rJv-5Y-CcN" secondAttribute="leading" constant="15" id="jln-Rx-1Tv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="docNameLabel" destination="f0D-vs-c6I" id="6Pb-g7-PEI"/>
+                                            <outlet property="mainBGView" destination="pqQ-te-qal" id="WQk-WE-iir"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IJV-li-pmN" id="jtZ-9W-32Z"/>
+                                    <outlet property="delegate" destination="IJV-li-pmN" id="POo-ph-OiI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="C3g-oa-ecG" firstAttribute="top" secondItem="VXh-2l-6g6" secondAttribute="top" id="N2s-Al-vhf"/>
+                            <constraint firstItem="VXh-2l-6g6" firstAttribute="trailing" secondItem="C3g-oa-ecG" secondAttribute="trailing" id="U66-wb-3yS"/>
+                            <constraint firstItem="C3g-oa-ecG" firstAttribute="leading" secondItem="VXh-2l-6g6" secondAttribute="leading" id="k55-d0-3aR"/>
+                            <constraint firstItem="VXh-2l-6g6" firstAttribute="bottom" secondItem="C3g-oa-ecG" secondAttribute="bottom" id="xeW-sR-13z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VXh-2l-6g6"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="C3g-oa-ecG" id="EXz-Vi-UTp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcc-iv-9pT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1526.0869565217392" y="1404.9107142857142"/>
         </scene>
         <!--Declined View Controller-->
         <scene sceneID="8fe-87-4JR">
@@ -265,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77t-fW-WCq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-365" y="656"/>
+            <point key="canvasLocation" x="-1525" y="656"/>
         </scene>
         <!--Completed View Controller-->
         <scene sceneID="ze2-sF-0MW">
@@ -300,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tge-SE-FTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1312" y="656"/>
+            <point key="canvasLocation" x="507" y="656"/>
         </scene>
         <!--My Profile Details View Controller-->
         <scene sceneID="N3l-Nf-SMz">

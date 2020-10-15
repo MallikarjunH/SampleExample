@@ -67,6 +67,10 @@ extension DeclinedViewController: UITableViewDataSource, UITableViewDelegate{
     @objc func moreImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         print("Navigate to next VC")
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let detailsVC = storyBoard.instantiateViewController(withIdentifier: "RecalledAndDeclinedDocListVC") as! RecalledAndDeclinedDocListVC
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
+   
 }
