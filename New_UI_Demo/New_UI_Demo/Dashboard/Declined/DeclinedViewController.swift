@@ -59,8 +59,14 @@ extension DeclinedViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        showAlert(title: "Remarks", message: "Not signed", vc: self)
+    }
+    
     @objc func moreImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         print("Navigate to next VC")
     }
+    
 }

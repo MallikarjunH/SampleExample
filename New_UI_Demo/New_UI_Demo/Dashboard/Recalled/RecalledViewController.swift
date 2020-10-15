@@ -63,4 +63,9 @@ extension RecalledViewController: UITableViewDataSource, UITableViewDelegate{
     {
         print("Navigate to next VC")
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        showAlert(title: "Remarks", message: "some test message", vc: self)
+    }
 }

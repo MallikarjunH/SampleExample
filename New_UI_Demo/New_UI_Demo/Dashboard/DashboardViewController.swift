@@ -50,27 +50,29 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         if indexPath.item == 0 { //MySignatures
-
+            
             let detailsVC = storyBoard.instantiateViewController(withIdentifier: "MySignaturesViewController") as! MySignaturesViewController
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
         else if indexPath.item == 1 { //Waiting For Others
-        
+            
             let detailsVC = storyBoard.instantiateViewController(withIdentifier: "WaitingForOthersViewController") as! WaitingForOthersViewController
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
         else if indexPath.item == 2 { // Recalled
-        
-            let detailsVC = storyBoard.instantiateViewController(withIdentifier: "RecalledViewController") as! RecalledViewController
-            self.navigationController?.pushViewController(detailsVC, animated: true)
-        }
-        else if indexPath.item == 3 { // Declined
-        
+            
             let detailsVC = storyBoard.instantiateViewController(withIdentifier: "DeclinedViewController") as! DeclinedViewController
             self.navigationController?.pushViewController(detailsVC, animated: true)
+            
+        }
+        else if indexPath.item == 3 { // Declined
+            
+            let detailsVC = storyBoard.instantiateViewController(withIdentifier: "RecalledViewController") as! RecalledViewController
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+            
         }
         else if indexPath.item == 4 { // Completed 
-        
+            
             let detailsVC = storyBoard.instantiateViewController(withIdentifier: "CompletedViewController") as! CompletedViewController
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
@@ -95,8 +97,6 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         //return UIEdgeInsets(top: 10, left: 13, bottom: 10, right: 13)
         return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     }
-    
-    
     
     
 }

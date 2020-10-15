@@ -17,6 +17,7 @@
 		06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */; };
 		06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012773250B52940088F9AB /* SelectWorkFlowTableViewCell.swift */; };
 		06012776250B52A80088F9AB /* SelectWorkFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012775250B52A80088F9AB /* SelectWorkFlowViewController.swift */; };
+		060953E62538436500E638CF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060953E52538436500E638CF /* Utils.swift */; };
 		060F7DB02513487C007FF6BD /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */; };
 		060F7DB625139610007FF6BD /* MyProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */; };
 		06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */; };
@@ -49,6 +50,7 @@
 		06012771250B43F60088F9AB /* DocStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocStoreTableViewCell.swift; sourceTree = "<group>"; };
 		06012773250B52940088F9AB /* SelectWorkFlowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkFlowTableViewCell.swift; sourceTree = "<group>"; };
 		06012775250B52A80088F9AB /* SelectWorkFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkFlowViewController.swift; sourceTree = "<group>"; };
+		060953E52538436500E638CF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				0601275B250B43860088F9AB /* AppDelegate.swift */,
 				0601275D250B43860088F9AB /* SceneDelegate.swift */,
+				060953E42538432200E638CF /* Utilities */,
 				06AB2ECA251205E4003C5C0E /* Dashboard */,
 				06AB2EC12511CE83003C5C0E /* DocStore */,
 				06AB2EC22511CE9A003C5C0E /* WorfFlow */,
@@ -111,6 +114,14 @@
 				06012769250B43890088F9AB /* Info.plist */,
 			);
 			path = New_UI_Demo;
+			sourceTree = "<group>";
+		};
+		060953E42538432200E638CF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				060953E52538436500E638CF /* Utils.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		06AB2EC12511CE83003C5C0E /* DocStore */ = {
@@ -298,6 +309,7 @@
 				06FCA19F2535858A00DE4159 /* SignatureList1TableViewCell.swift in Sources */,
 				0601275E250B43860088F9AB /* SceneDelegate.swift in Sources */,
 				06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */,
+				060953E62538436500E638CF /* Utils.swift in Sources */,
 				06FCA1A62535865A00DE4159 /* MySignaturesViewController.swift in Sources */,
 				06AB2ECC25120614003C5C0E /* DashboardViewController.swift in Sources */,
 				06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */,
