@@ -24,11 +24,7 @@ class DashboardViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Dashbaord"
         
-        let profilePic = UIImage(named: "folder-black")
-        tabBarController?.tabBar.items?[1].image = profilePic
-        
-       // self.tabBarController?.tabBar.items![0].selectedImage = UIImage(named: "SAM1")
-       // self.tabBarController?.tabBar.items![0].image = UIImage(named: "SAM1")
+
     }
     
 }

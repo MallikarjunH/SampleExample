@@ -30,6 +30,10 @@ class ChangePasswordViewController: UITableViewController {
         self.title = "Change Password"
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
+        currentPasswordTextField.isSecureTextEntry = true
+        newPasswordTextField.isSecureTextEntry = true
+        confirmPasswordTextField.isSecureTextEntry = true
+        
         configureUIForShowHideButtonOnTextField()
     }
     
@@ -75,6 +79,7 @@ class ChangePasswordViewController: UITableViewController {
 
     }
     
+    // Current Password
     @objc func imageTapped1(tapGestureRecognizer: UITapGestureRecognizer)
     {
         //let tappedImage = tapGestureRecognizer.view as! UIImageView
@@ -84,14 +89,17 @@ class ChangePasswordViewController: UITableViewController {
             hidePassword1 = false
             imageView1.image = UIImage(named: "showIcon")
             print("Show Password")
+            currentPasswordTextField.isSecureTextEntry = false
         }else{
             hidePassword1 = true
             imageView1.image = UIImage(named: "hideIcon")
             print("Hide Password")
+            currentPasswordTextField.isSecureTextEntry = true
         }
         
     }
     
+    // New Password
     @objc func imageTapped2(tapGestureRecognizer: UITapGestureRecognizer)
     {
         //let tappedImage = tapGestureRecognizer.view as! UIImageView
@@ -101,14 +109,17 @@ class ChangePasswordViewController: UITableViewController {
             hidePassword2 = false
             imageView2.image = UIImage(named: "showIcon")
             print("Show Password")
+            newPasswordTextField.isSecureTextEntry = false
         }else{
             hidePassword2 = true
             imageView2.image = UIImage(named: "hideIcon")
             print("Hide Password")
+            newPasswordTextField.isSecureTextEntry = true
         }
         
     }
     
+    // Confirm Password
     @objc func imageTapped3(tapGestureRecognizer: UITapGestureRecognizer)
     {
         //let tappedImage = tapGestureRecognizer.view as! UIImageView
@@ -118,10 +129,12 @@ class ChangePasswordViewController: UITableViewController {
             hidePassword3 = false
             imageView3.image = UIImage(named: "showIcon")
             print("Show Password")
+            confirmPasswordTextField.isSecureTextEntry = false
         }else{
             hidePassword3 = true
             imageView3.image = UIImage(named: "hideIcon")
             print("Hide Password")
+            confirmPasswordTextField.isSecureTextEntry = true
         }
         
     }
