@@ -24,6 +24,10 @@
 		060953F025386D7000E638CF /* SampleTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060953EF25386D7000E638CF /* SampleTabBarViewController.swift */; };
 		060F7DB02513487C007FF6BD /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */; };
 		060F7DB625139610007FF6BD /* MyProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */; };
+		06129BD2253990CF00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06129BD1253990CF00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell1.swift */; };
+		06129BD4253990DD00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06129BD3253990DD00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell2.swift */; };
+		06129BD6253990F100F2426E /* RecalledAndDeclinedDocDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06129BD5253990F100F2426E /* RecalledAndDeclinedDocDetailsHeaderCell.swift */; };
+		06A3C9E125394F4500F3CC70 /* RecalledAndDeclinedDocDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A3C9E025394F4500F3CC70 /* RecalledAndDeclinedDocDetails.swift */; };
 		06AB2EC52511CED4003C5C0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */; };
 		06AB2EC72511CEFF003C5C0E /* ProfileTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */; };
 		06AB2EC92511CF16003C5C0E /* ProfileMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */; };
@@ -61,6 +65,10 @@
 		060953EF25386D7000E638CF /* SampleTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTabBarViewController.swift; sourceTree = "<group>"; };
 		060F7DAF2513487C007FF6BD /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		060F7DB525139610007FF6BD /* MyProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsViewController.swift; sourceTree = "<group>"; };
+		06129BD1253990CF00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalledAndDeclinedDocDetailsTableViewCell1.swift; sourceTree = "<group>"; };
+		06129BD3253990DD00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalledAndDeclinedDocDetailsTableViewCell2.swift; sourceTree = "<group>"; };
+		06129BD5253990F100F2426E /* RecalledAndDeclinedDocDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalledAndDeclinedDocDetailsHeaderCell.swift; sourceTree = "<group>"; };
+		06A3C9E025394F4500F3CC70 /* RecalledAndDeclinedDocDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalledAndDeclinedDocDetails.swift; sourceTree = "<group>"; };
 		06AB2EC42511CED4003C5C0E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		06AB2EC62511CEFF003C5C0E /* ProfileTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopTableViewCell.swift; sourceTree = "<group>"; };
 		06AB2EC82511CF16003C5C0E /* ProfileMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -221,6 +229,10 @@
 				06FCA1AB2535869800DE4159 /* RecalledViewController.swift */,
 				060953E72538495A00E638CF /* RecalledAndDeclinedDocListVC.swift */,
 				060953E925384B4100E638CF /* RecalledAndDeclinedDocListTableViewCell.swift */,
+				06A3C9E025394F4500F3CC70 /* RecalledAndDeclinedDocDetails.swift */,
+				06129BD1253990CF00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell1.swift */,
+				06129BD3253990DD00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell2.swift */,
+				06129BD5253990F100F2426E /* RecalledAndDeclinedDocDetailsHeaderCell.swift */,
 			);
 			path = Recalled;
 			sourceTree = "<group>";
@@ -307,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06012760250B43860088F9AB /* ViewController.swift in Sources */,
+				06129BD6253990F100F2426E /* RecalledAndDeclinedDocDetailsHeaderCell.swift in Sources */,
 				060F7DB02513487C007FF6BD /* AboutUsViewController.swift in Sources */,
 				06AB2ECE25120660003C5C0E /* DashboardCollectionViewCell.swift in Sources */,
 				06FD6E7F25188BF4000F6F67 /* ChangePasswordViewController.swift in Sources */,
@@ -317,6 +330,7 @@
 				060953EA25384B4100E638CF /* RecalledAndDeclinedDocListTableViewCell.swift in Sources */,
 				06012774250B52940088F9AB /* SelectWorkFlowTableViewCell.swift in Sources */,
 				06FCA1A3253585D100DE4159 /* SignatureList2TableViewCell.swift in Sources */,
+				06129BD2253990CF00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell1.swift in Sources */,
 				06012776250B52A80088F9AB /* SelectWorkFlowViewController.swift in Sources */,
 				0601275C250B43860088F9AB /* AppDelegate.swift in Sources */,
 				060F7DB625139610007FF6BD /* MyProfileDetailsViewController.swift in Sources */,
@@ -329,8 +343,10 @@
 				06AB2ECC25120614003C5C0E /* DashboardViewController.swift in Sources */,
 				06012772250B43F60088F9AB /* DocStoreTableViewCell.swift in Sources */,
 				060953E82538495A00E638CF /* RecalledAndDeclinedDocListVC.swift in Sources */,
+				06129BD4253990DD00F2426E /* RecalledAndDeclinedDocDetailsTableViewCell2.swift in Sources */,
 				06FCA1A82535867400DE4159 /* WaitingForOthersViewController.swift in Sources */,
 				06FCA1AA2535868900DE4159 /* DeclinedViewController.swift in Sources */,
+				06A3C9E125394F4500F3CC70 /* RecalledAndDeclinedDocDetails.swift in Sources */,
 				06FCA1AE253586AA00DE4159 /* CompletedViewController.swift in Sources */,
 				06AB2EC72511CEFF003C5C0E /* ProfileTopTableViewCell.swift in Sources */,
 			);
