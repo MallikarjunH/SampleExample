@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		069F0B2D253D3EF10083B9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069F0B2B253D3EF10083B9E0 /* LaunchScreen.storyboard */; };
 		069F0B35253D40370083B9E0 /* appointment-letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 069F0B34253D40370083B9E0 /* appointment-letter.pdf */; };
 		069F0B37253D58D50083B9E0 /* SignGridListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F0B36253D58D50083B9E0 /* SignGridListTableViewCell.swift */; };
+		069F0B39253D972E0083B9E0 /* SearchAndSelectUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F0B38253D972E0083B9E0 /* SearchAndSelectUserVC.swift */; };
+		069F0B3B253DAE7E0083B9E0 /* SearchResultUsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F0B3A253DAE7E0083B9E0 /* SearchResultUsersTableViewCell.swift */; };
 		B4B85E9F8F29FC397C3248B0 /* Pods_SignDesign_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069DE69B9750C080CD1EB3DB /* Pods_SignDesign_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		069F0B2E253D3EF10083B9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		069F0B34253D40370083B9E0 /* appointment-letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "appointment-letter.pdf"; sourceTree = "<group>"; };
 		069F0B36253D58D50083B9E0 /* SignGridListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignGridListTableViewCell.swift; sourceTree = "<group>"; };
+		069F0B38253D972E0083B9E0 /* SearchAndSelectUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndSelectUserVC.swift; sourceTree = "<group>"; };
+		069F0B3A253DAE7E0083B9E0 /* SearchResultUsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultUsersTableViewCell.swift; sourceTree = "<group>"; };
 		1EA6F2E8AA7AF8935A570983 /* Pods-SignDesign_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignDesign_Example.debug.xcconfig"; path = "Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		35791C04FDC0E6E1BB5D271F /* Pods-SignDesign_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignDesign_Example.release.xcconfig"; path = "Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +74,9 @@
 				069F0B20253D3EEE0083B9E0 /* AppDelegate.swift */,
 				069F0B22253D3EEE0083B9E0 /* SceneDelegate.swift */,
 				069F0B24253D3EEE0083B9E0 /* ViewController.swift */,
+				069F0B38253D972E0083B9E0 /* SearchAndSelectUserVC.swift */,
 				069F0B36253D58D50083B9E0 /* SignGridListTableViewCell.swift */,
+				069F0B3A253DAE7E0083B9E0 /* SearchResultUsersTableViewCell.swift */,
 				069F0B34253D40370083B9E0 /* appointment-letter.pdf */,
 				069F0B26253D3EEE0083B9E0 /* Main.storyboard */,
 				069F0B29253D3EF10083B9E0 /* Assets.xcassets */,
@@ -86,7 +92,6 @@
 				1EA6F2E8AA7AF8935A570983 /* Pods-SignDesign_Example.debug.xcconfig */,
 				35791C04FDC0E6E1BB5D271F /* Pods-SignDesign_Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -216,8 +221,10 @@
 			files = (
 				069F0B37253D58D50083B9E0 /* SignGridListTableViewCell.swift in Sources */,
 				069F0B25253D3EEE0083B9E0 /* ViewController.swift in Sources */,
+				069F0B39253D972E0083B9E0 /* SearchAndSelectUserVC.swift in Sources */,
 				069F0B21253D3EEE0083B9E0 /* AppDelegate.swift in Sources */,
 				069F0B23253D3EEE0083B9E0 /* SceneDelegate.swift in Sources */,
+				069F0B3B253DAE7E0083B9E0 /* SearchResultUsersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

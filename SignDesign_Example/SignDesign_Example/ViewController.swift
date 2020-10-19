@@ -132,14 +132,19 @@ class ViewController: UIViewController {
     
     @IBAction func addSignatoryButtonClicked(_ sender: Any) {
         
-        signGridListCount = signGridListCount + 1
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchAndSelectUserVC") as! SearchAndSelectUserVC
+
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+     /*   signGridListCount = signGridListCount + 1
         
         updateUserGridListTableView()
         
         DispatchQueue.main.async {
             
             self.signerListTableView.reloadData()
-        }
+        } */
     }
     
     func updateUserGridListTableView() {
