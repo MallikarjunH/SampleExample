@@ -14,9 +14,12 @@
 		069F0B2A253D3EF10083B9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069F0B29253D3EF10083B9E0 /* Assets.xcassets */; };
 		069F0B2D253D3EF10083B9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069F0B2B253D3EF10083B9E0 /* LaunchScreen.storyboard */; };
 		069F0B35253D40370083B9E0 /* appointment-letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 069F0B34253D40370083B9E0 /* appointment-letter.pdf */; };
+		069F0B37253D58D50083B9E0 /* SignGridListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F0B36253D58D50083B9E0 /* SignGridListTableViewCell.swift */; };
+		B4B85E9F8F29FC397C3248B0 /* Pods_SignDesign_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069DE69B9750C080CD1EB3DB /* Pods_SignDesign_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		069DE69B9750C080CD1EB3DB /* Pods_SignDesign_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignDesign_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F0B1D253D3EEE0083B9E0 /* SignDesign_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignDesign_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F0B20253D3EEE0083B9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		069F0B22253D3EEE0083B9E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,9 @@
 		069F0B2C253D3EF10083B9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		069F0B2E253D3EF10083B9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		069F0B34253D40370083B9E0 /* appointment-letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "appointment-letter.pdf"; sourceTree = "<group>"; };
+		069F0B36253D58D50083B9E0 /* SignGridListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignGridListTableViewCell.swift; sourceTree = "<group>"; };
+		1EA6F2E8AA7AF8935A570983 /* Pods-SignDesign_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignDesign_Example.debug.xcconfig"; path = "Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		35791C04FDC0E6E1BB5D271F /* Pods-SignDesign_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignDesign_Example.release.xcconfig"; path = "Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B85E9F8F29FC397C3248B0 /* Pods_SignDesign_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				069F0B1F253D3EEE0083B9E0 /* SignDesign_Example */,
 				069F0B1E253D3EEE0083B9E0 /* Products */,
+				242E9C1F438A720A5C7FDD09 /* Pods */,
+				F694D11F34E190F45C46B712 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +70,7 @@
 				069F0B20253D3EEE0083B9E0 /* AppDelegate.swift */,
 				069F0B22253D3EEE0083B9E0 /* SceneDelegate.swift */,
 				069F0B24253D3EEE0083B9E0 /* ViewController.swift */,
+				069F0B36253D58D50083B9E0 /* SignGridListTableViewCell.swift */,
 				069F0B34253D40370083B9E0 /* appointment-letter.pdf */,
 				069F0B26253D3EEE0083B9E0 /* Main.storyboard */,
 				069F0B29253D3EF10083B9E0 /* Assets.xcassets */,
@@ -70,6 +80,24 @@
 			path = SignDesign_Example;
 			sourceTree = "<group>";
 		};
+		242E9C1F438A720A5C7FDD09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EA6F2E8AA7AF8935A570983 /* Pods-SignDesign_Example.debug.xcconfig */,
+				35791C04FDC0E6E1BB5D271F /* Pods-SignDesign_Example.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F694D11F34E190F45C46B712 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				069DE69B9750C080CD1EB3DB /* Pods_SignDesign_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 069F0B31253D3EF10083B9E0 /* Build configuration list for PBXNativeTarget "SignDesign_Example" */;
 			buildPhases = (
+				0AF1F107F4B6C93F8981E7DA /* [CP] Check Pods Manifest.lock */,
 				069F0B19253D3EEE0083B9E0 /* Sources */,
 				069F0B1A253D3EEE0083B9E0 /* Frameworks */,
 				069F0B1B253D3EEE0083B9E0 /* Resources */,
+				E6F1D0CC6D6C84707059246A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,11 +167,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AF1F107F4B6C93F8981E7DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SignDesign_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6F1D0CC6D6C84707059246A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		069F0B19253D3EEE0083B9E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				069F0B37253D58D50083B9E0 /* SignGridListTableViewCell.swift in Sources */,
 				069F0B25253D3EEE0083B9E0 /* ViewController.swift in Sources */,
 				069F0B21253D3EEE0083B9E0 /* AppDelegate.swift in Sources */,
 				069F0B23253D3EEE0083B9E0 /* SceneDelegate.swift in Sources */,
@@ -286,6 +359,7 @@
 		};
 		069F0B32253D3EF10083B9E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EA6F2E8AA7AF8935A570983 /* Pods-SignDesign_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +377,7 @@
 		};
 		069F0B33253D3EF10083B9E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35791C04FDC0E6E1BB5D271F /* Pods-SignDesign_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

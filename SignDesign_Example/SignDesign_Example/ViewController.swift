@@ -8,12 +8,24 @@
 
 import UIKit
 import PDFKit
+import QuartzCore
+import MBProgressHUD
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var pdfView: PDFView!
     
-    // @IBOutlet var pageNumber: NSTextField!
+    @IBOutlet weak var pdfThumbnailView: PDFThumbnailView!
+    @IBOutlet weak var signerListTableView: UITableView!
+    
+    @IBOutlet weak var toggleBtn: UIButton!
+    @IBOutlet weak var sidebarLeadingConstraint: NSLayoutConstraint!
+    
+    let thumbnailDimension = 44
+    let animationDuration: TimeInterval = 0.25
+    let sidebarBackgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+    
+    var signGridListCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +43,29 @@ class ViewController: UIViewController {
             }
         }
         
+        self.pdfView.addSubview(signerListTableView)
+        self.pdfView.addSubview(toggleBtn)
+        
+        self.updateUserGridListTableView()
+        
+        setupThumbnailView()
+        toggleSidebar()
+        
+        /*  let thumbnailView = PDFThumbnailView()
+         thumbnailView.translatesAutoresizingMaskIntoConstraints = false
+         view.addSubview(thumbnailView)
+         
+         thumbnailView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+         thumbnailView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+         thumbnailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+         
+         pdfView.bottomAnchor.constraint(equalTo: thumbnailView.topAnchor).isActive = true
+         thumbnailView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+         
+         thumbnailView.thumbnailSize = CGSize(width: 100, height: 100)
+         thumbnailView.layoutMode = .horizontal
+         
+         thumbnailView.pdfView = pdfView */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +84,94 @@ class ViewController: UIViewController {
         //pageNumber.stringValue = "Page \(String(describing: curPg!))"
         print("Page \(String(describing: curPg!))")
         
+    }
+    
+    @IBAction func onClickMenuBtnToggle(_ sender: Any) {
+          toggleSidebar()
+    }
+    
+    func toggleSidebar() {
+        let thumbnailViewWidth = pdfThumbnailView.frame.width
+        let screenWidth = UIScreen.main.bounds.width
+        let multiplier = thumbnailViewWidth / (screenWidth - thumbnailViewWidth) + 1.0
+        let isShowing = sidebarLeadingConstraint.constant == 0
+        let scaleFactor = self.pdfView.scaleFactor
+        UIView.animate(withDuration: animationDuration) {
+            self.sidebarLeadingConstraint.constant = isShowing ? -thumbnailViewWidth : 0
+            self.pdfView.scaleFactor = isShowing ? scaleFactor * multiplier : scaleFactor / multiplier
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func setupThumbnailView() {
+        pdfThumbnailView.pdfView = self.pdfView
+        pdfThumbnailView.thumbnailSize = CGSize(width: thumbnailDimension, height: thumbnailDimension)
+        pdfThumbnailView.backgroundColor = sidebarBackgroundColor
+        pdfThumbnailView.layoutMode = .vertical
+        
+    }
+   
+    
+    @IBAction func addSignatoryButtonClicked(_ sender: Any) {
+        
+        signGridListCount = signGridListCount + 1
+        
+        updateUserGridListTableView()
+        
+        DispatchQueue.main.async {
+            
+            self.signerListTableView.reloadData()
+        }
+    }
+    
+    func updateUserGridListTableView() {
+        
+        if signGridListCount == 0 {
+            
+            DispatchQueue.main.async {
+                
+                self.signerListTableView.isHidden = true
+                self.signerListTableView.layer.borderWidth = 0
+                self.signerListTableView.layer.borderColor = UIColor.black.cgColor
+                    
+            }
+            
+        }else{
+            DispatchQueue.main.async {
+                
+                self.signerListTableView.isHidden = false
+                self.signerListTableView.layer.borderWidth = 0.5
+                self.signerListTableView.layer.borderColor = UIColor.black.cgColor
+                    
+            }
+            
+        }
+    }
+}
+
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return signGridListCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SignGridListTableViewCell", for: indexPath) as! SignGridListTableViewCell
+        
+        cell.signLabel.text = "Sign \(signGridListCount)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 45.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
     
 }
