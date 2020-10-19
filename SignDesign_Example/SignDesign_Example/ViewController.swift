@@ -78,11 +78,29 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let pageHud = MBProgressHUD.showAdded(to: self.pdfView, animated: true)
+        pageHud.mode = .text
+        pageHud.label.text = "Page \(self.pdfView.currentPage!.label!) of \(self.pdfView.document!.pageCount)"
+        pageHud.margin = 10.0
+        pageHud.offset.y = 170
+        pageHud.removeFromSuperViewOnHide = true
+        pageHud.hide(animated: true, afterDelay: 1)
+    }
+    
     @objc private func handlePageChange(notification: Notification)
     {
-        let curPg = self.pdfView.currentPage?.pageRef?.pageNumber
+       // let curPg = self.pdfView.currentPage?.pageRef?.pageNumber
         //pageNumber.stringValue = "Page \(String(describing: curPg!))"
-        print("Page \(String(describing: curPg!))")
+       // print("Page \(String(describing: curPg!))")
+        
+        let pageHud = MBProgressHUD.showAdded(to: self.pdfView, animated: true)
+        pageHud.mode = .text
+        pageHud.label.text = "Page \(self.pdfView.currentPage!.label!) of \(self.pdfView.document!.pageCount)"
+        pageHud.margin = 10.0
+        pageHud.offset.y = 170
+        pageHud.removeFromSuperViewOnHide = true
+        pageHud.hide(animated: true, afterDelay: 1.0)
         
     }
     
