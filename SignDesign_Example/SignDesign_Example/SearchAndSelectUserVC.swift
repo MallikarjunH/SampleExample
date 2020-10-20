@@ -12,11 +12,16 @@ class SearchAndSelectUserVC: UIViewController {
 
     @IBOutlet weak var searchBGView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
-    
     @IBOutlet weak var usersListTableView: UITableView!
    
+    @IBOutlet weak var signerButton: UIButton!
+    @IBOutlet weak var reviewerButton: UIButton!
+    
+    
     var userNameArray = ["George Gamow","Angel Alcala", "Sheldon Lee Glashow", "Luigi Galvani", "Jane Goodall", "Svante Arrhenius", "William Herschel", "Max Planck", "Jack Horner"]
     var userEmailArray = ["george.amow@yahoo.com","angel.a@emudhra.com", "sheldon.lee@yahoo.com", "luigi.g@emudhra.com", "jane.goodall@gmail.com","svante.hk@gmail.com", "william.h@yahoo.com", "max.planck@gmail.com", "jack.horner@yahoo.com"]
+    
+    var userSelectedType = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +42,33 @@ class SearchAndSelectUserVC: UIViewController {
         self.searchBGView.layer.cornerRadius = 5
     }
     
-  /*  func setNavigationBar() {
+    //radioButtonSelect  radioButtonDeSelect
+    @IBAction func signerButtonClicked(_ sender: Any) {
+        
+        userSelectedType = "signer"
+        signerButton.setImage(UIImage(named: "radioButtonSelect"), for: UIControl.State.normal)
+        reviewerButton.setImage(UIImage(named: "radioButtonDeSelect"), for: UIControl.State.normal)
+    }
+    
+    @IBAction func reviewerButtonClicked(_ sender: Any) {
+        
+        userSelectedType = "reviewer"
+        reviewerButton.setImage(UIImage(named: "radioButtonSelect"), for: UIControl.State.normal)
+        signerButton.setImage(UIImage(named: "radioButtonDeSelect"), for: UIControl.State.normal)
+    }
+    
+    @objc func dismissCurrentVC(){
+            print("clicked")
+           
+           self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func addUserButtonClicked(_ sender: Any) {
+        
+        print("Selected User Type is: \(userSelectedType)")
+    }
+   
+    /*  func setNavigationBar() {
         let screenSize: CGRect = UIScreen.main.bounds
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 50))
         navBar.barTintColor = UIColor(rgb: 0x347ABF)
@@ -54,11 +85,7 @@ class SearchAndSelectUserVC: UIViewController {
       self.dismiss(animated: true, completion: nil)
     } */
     
-    @objc func dismissCurrentVC(){
-         print("clicked")
-        
-        self.navigationController?.popViewController(animated: true)
-    }
+   
 
 }
 
