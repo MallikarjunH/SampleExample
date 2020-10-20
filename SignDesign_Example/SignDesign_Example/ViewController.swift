@@ -27,21 +27,45 @@ class ViewController: UIViewController, SendSelectedUserData {
     
     var signGridListCount = 0
     
+    
+    var imageview: UIImageView? = nil
+    var frame: CGRect?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
+        //Signatory View
+        let myImageRect = CGRect(x: 50, y: 100, width: 112, height: 58)
+        imageview = UIImageView(frame: myImageRect)
+        imageview?.image = UIImage(named: "signer")
+        self.pdfView.addSubview(imageview!)
+        imageview?.isUserInteractionEnabled = true
+        
+        
         if let path = Bundle.main.path(forResource: "appointment-letter", ofType: "pdf") {
             if let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
-                pdfView.displayMode =  .singlePageContinuous // .singlePage //.singlePageContinuous //.twoUp
+                pdfView.displayMode =  .singlePage // .singlePage //.singlePageContinuous //.twoUp
                 //by default display mode is - singlePageContinuous
                 pdfView.autoScales = true
                 pdfView.displayDirection = .vertical // .horizontal//.vertical
                 pdfView.document = pdfDocument
+            
+                pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleBottomMargin]
+                pdfView.zoomIn(self)
+                pdfView.autoScales = true
+                pdfView.backgroundColor = UIColor.white
+
+                //Imp line
+                pdfView.usePageViewController(true, withViewOptions: [:])
                 
                 print("Total Pages in PDF : ",pdfDocument.pageCount);
+                
+                self.pdfView.bringSubviewToFront(imageview!)
             }
         }
+        
         
         self.pdfView.addSubview(signerListTableView)
         self.pdfView.addSubview(toggleBtn)
@@ -90,9 +114,9 @@ class ViewController: UIViewController, SendSelectedUserData {
     
     @objc private func handlePageChange(notification: Notification)
     {
-       // let curPg = self.pdfView.currentPage?.pageRef?.pageNumber
+        // let curPg = self.pdfView.currentPage?.pageRef?.pageNumber
         //pageNumber.stringValue = "Page \(String(describing: curPg!))"
-       // print("Page \(String(describing: curPg!))")
+        // print("Page \(String(describing: curPg!))")
         
         let pageHud = MBProgressHUD.showAdded(to: self.pdfView, animated: true)
         pageHud.mode = .text
@@ -105,7 +129,7 @@ class ViewController: UIViewController, SendSelectedUserData {
     }
     
     @IBAction func onClickMenuBtnToggle(_ sender: Any) {
-          toggleSidebar()
+        toggleSidebar()
     }
     
     func toggleSidebar() {
@@ -128,7 +152,7 @@ class ViewController: UIViewController, SendSelectedUserData {
         pdfThumbnailView.layoutMode = .vertical
         
     }
-   
+    
     func dataPassing(userName: String, userEmail: String) {
         
         print("Selected User : \(userName) \(userEmail)")
@@ -150,14 +174,14 @@ class ViewController: UIViewController, SendSelectedUserData {
         self.navigationController?.pushViewController(vc, animated: true)
         
         
-     /*   signGridListCount = signGridListCount + 1
-        
-        updateUserGridListTableView()
-        
-        DispatchQueue.main.async {
-            
-            self.signerListTableView.reloadData()
-        } */
+        /*   signGridListCount = signGridListCount + 1
+         
+         updateUserGridListTableView()
+         
+         DispatchQueue.main.async {
+         
+         self.signerListTableView.reloadData()
+         } */
     }
     
     func updateUserGridListTableView() {
@@ -169,7 +193,7 @@ class ViewController: UIViewController, SendSelectedUserData {
                 self.signerListTableView.isHidden = true
                 self.signerListTableView.layer.borderWidth = 0
                 self.signerListTableView.layer.borderColor = UIColor.black.cgColor
-                    
+                
             }
             
         }else{
@@ -178,11 +202,24 @@ class ViewController: UIViewController, SendSelectedUserData {
                 self.signerListTableView.isHidden = false
                 self.signerListTableView.layer.borderWidth = 0.5
                 self.signerListTableView.layer.borderColor = UIColor.black.cgColor
-                    
+                
             }
             
         }
     }
+
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch = touches.first
+        let touchLocation = touch?.location(in: self.pdfView)
+        imageview?.center =  touchLocation!
+       
+       /* frame = view.convert(imageview!.frame, from: pdfView)
+        print("touchesMoved \(frame!.dictionaryRepresentation)") */
+       // return
+    }
+    
 }
 
 

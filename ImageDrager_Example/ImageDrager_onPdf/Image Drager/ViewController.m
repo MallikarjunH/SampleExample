@@ -105,11 +105,6 @@
 
 - (void)preparePDFViewWithPageMode:(PDFDisplayMode) displayMode {
 
-   // NSString * pdfImagedetail = @"";
-    //Using base64 data
-  //  NSData *data = [[NSData alloc]initWithBase64EncodedString:pdfImagedetail options:0];
-  //  self.pdfDocument = [[PDFDocument alloc] initWithData:data];
-
     //using local file
     NSURL * URL = [[NSBundle mainBundle] URLForResource: @"appointment-letter" withExtension: @"pdf"];
     self.pdfDocument = [[PDFDocument alloc] initWithURL: URL];
@@ -131,7 +126,6 @@
     [self.pdfView zoomIn:self];
     self.pdfView.autoScales = true;
     self.pdfView.backgroundColor = [UIColor  whiteColor];
-
 
     self.pdfView.document = self.pdfDocument;
 

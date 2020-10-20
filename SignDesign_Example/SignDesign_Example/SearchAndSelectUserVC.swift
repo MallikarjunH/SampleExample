@@ -21,7 +21,7 @@ class SearchAndSelectUserVC: UIViewController {
    
     @IBOutlet weak var signerButton: UIButton!
     @IBOutlet weak var reviewerButton: UIButton!
-    
+
     
     var userNameArray = ["George Gamow","Angel Alcala", "Sheldon Lee Glashow", "Luigi Galvani", "Jane Goodall", "Svante Arrhenius", "William Herschel", "Max Planck", "Jack Horner"]
     var userEmailArray = ["george.amow@yahoo.com","angel.a@emudhra.com", "sheldon.lee@yahoo.com", "luigi.g@emudhra.com", "jane.goodall@gmail.com","svante.hk@gmail.com", "william.h@yahoo.com", "max.planck@gmail.com", "jack.horner@yahoo.com"]
@@ -48,6 +48,8 @@ class SearchAndSelectUserVC: UIViewController {
         self.searchBGView.layer.borderColor = UIColor.gray.cgColor
         self.searchBGView.layer.borderWidth = 0.5
         self.searchBGView.layer.cornerRadius = 5
+    
+        
     }
     
     //radioButtonSelect  radioButtonDeSelect
@@ -77,14 +79,14 @@ class SearchAndSelectUserVC: UIViewController {
         
         if userSelectedType == "" {
             
-            let alert = UIAlertController(title: "Alert", message: "Please select the type", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Alert", message: "Please select the  user type", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         else{
             delegate.dataPassing(userName: userNameArray[selectedIndex] , userEmail: userEmailArray[selectedIndex])
             self.navigationController?.popViewController(animated: true)
-        }        
+        }
     }
    
     /*  func setNavigationBar() {
