@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SendSelectedUserData {
+    
+    func dataPassing(userName:String, userEmail:String)
+}
+
 class SearchAndSelectUserVC: UIViewController {
 
     @IBOutlet weak var searchBGView: UIView!
@@ -22,6 +27,9 @@ class SearchAndSelectUserVC: UIViewController {
     var userEmailArray = ["george.amow@yahoo.com","angel.a@emudhra.com", "sheldon.lee@yahoo.com", "luigi.g@emudhra.com", "jane.goodall@gmail.com","svante.hk@gmail.com", "william.h@yahoo.com", "max.planck@gmail.com", "jack.horner@yahoo.com"]
     
     var userSelectedType = ""
+    var selectedIndex = 0
+    var delegate:SendSelectedUserData!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +74,17 @@ class SearchAndSelectUserVC: UIViewController {
     @IBAction func addUserButtonClicked(_ sender: Any) {
         
         print("Selected User Type is: \(userSelectedType)")
+        
+        if userSelectedType == "" {
+            
+            let alert = UIAlertController(title: "Alert", message: "Please select the type", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            delegate.dataPassing(userName: userNameArray[selectedIndex] , userEmail: userEmailArray[selectedIndex])
+            self.navigationController?.popViewController(animated: true)
+        }        
     }
    
     /*  func setNavigationBar() {
@@ -113,6 +132,8 @@ extension SearchAndSelectUserVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        selectedIndex = indexPath.row
+       // delegate.dataPassing(userName: userNameArray[indexPath.row] , userEmail: userEmailArray[indexPath.row])
     }
 }
 

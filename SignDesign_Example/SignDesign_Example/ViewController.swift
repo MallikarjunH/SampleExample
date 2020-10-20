@@ -11,7 +11,7 @@ import PDFKit
 import QuartzCore
 import MBProgressHUD
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SendSelectedUserData {
     
     @IBOutlet weak var pdfView: PDFView!
     
@@ -129,11 +129,24 @@ class ViewController: UIViewController {
         
     }
    
+    func dataPassing(userName: String, userEmail: String) {
+        
+        print("Selected User : \(userName) \(userEmail)")
+        
+        signGridListCount = signGridListCount + 1
+        
+        updateUserGridListTableView()
+        
+        DispatchQueue.main.async {
+            
+            self.signerListTableView.reloadData()
+        }
+    }
     
     @IBAction func addSignatoryButtonClicked(_ sender: Any) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchAndSelectUserVC") as! SearchAndSelectUserVC
-
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
         
         
