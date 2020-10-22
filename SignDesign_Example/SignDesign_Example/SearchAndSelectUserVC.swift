@@ -30,6 +30,7 @@ class SearchAndSelectUserVC: UIViewController {
     var selectedIndex = 0
     var delegate:SendSelectedUserData!
     
+    var signersAndReviewersListArray:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,9 @@ class SearchAndSelectUserVC: UIViewController {
         self.searchBGView.layer.borderColor = UIColor.gray.cgColor
         self.searchBGView.layer.borderWidth = 0.5
         self.searchBGView.layer.cornerRadius = 5
-    
+        
+        //Default type
+        userSelectedType = "signer"
         
     }
     
@@ -84,8 +87,19 @@ class SearchAndSelectUserVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else{
-            delegate.dataPassing(userName: userNameArray[selectedIndex] , userEmail: userEmailArray[selectedIndex])
-            self.navigationController?.popViewController(animated: true)
+            if signersAndReviewersListArray.contains(userNameArray[selectedIndex]) {
+                print("User Is Already Selected/Present ")
+                
+                let alert = UIAlertController(title: "Error", message: "This user is already selected, please select another user", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }else{
+                print("New User is Selected ")
+                delegate.dataPassing(userName: userNameArray[selectedIndex] , userEmail: userEmailArray[selectedIndex])
+                self.navigationController?.popViewController(animated: true)
+            }
+            
         }
     }
    
@@ -129,7 +143,7 @@ extension SearchAndSelectUserVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 70.0
+        return 60.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
