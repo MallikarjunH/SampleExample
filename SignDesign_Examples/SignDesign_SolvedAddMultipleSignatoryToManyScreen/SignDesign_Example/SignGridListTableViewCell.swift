@@ -11,7 +11,8 @@ import UIKit
 class SignGridListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var signLabel: UILabel!
-   
+    @IBOutlet weak var cancelImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

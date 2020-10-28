@@ -10,7 +10,7 @@ import UIKit
 
 protocol SendSelectedUserData {
     
-    func dataPassing(userName:String, userEmail:String)
+    func dataPassing(userName:String, userEmail:String, userType: String)
 }
 
 class SearchAndSelectUserVC: UIViewController {
@@ -25,8 +25,8 @@ class SearchAndSelectUserVC: UIViewController {
   //  @IBOutlet weak var reviewerButton: UIButton!
 
     
-    var userNameArray = ["George Gamow","Angel Alcala", "Sheldon Lee Glashow", "Luigi Galvani", "Jane Goodall", "Svante Arrhenius", "William Herschel", "Max Planck", "Jack Horner"]
-    var userEmailArray = ["george.amow@yahoo.com","angel.a@emudhra.com", "sheldon.lee@yahoo.com", "luigi.g@emudhra.com", "jane.goodall@gmail.com","svante.hk@gmail.com", "william.h@yahoo.com", "max.planck@gmail.com", "jack.horner@yahoo.com"]
+    var userNameArray = ["ME","George Gamow","Angel Alcala", "Sheldon", "Luigi Galvani", "Jane Goodall", "Svante Arrhenius", "William Herschel", "Max Planck", "Jack Horner"]
+    var userEmailArray = ["mallikarjun@gmail.com","george.amow@yahoo.com","angel.a@emudhra.com", "sheldon.lee@yahoo.com", "luigi.g@emudhra.com", "jane.goodall@gmail.com","svante.hk@gmail.com", "william.h@yahoo.com", "max.planck@gmail.com", "jack.horner@yahoo.com"]
     
     var userSelectedType = ""
     var selectedIndex = 0
@@ -110,7 +110,7 @@ class SearchAndSelectUserVC: UIViewController {
                 
             }else{
                 print("New User is Selected ")
-                delegate.dataPassing(userName: userNameArray[selectedIndex] , userEmail: userEmailArray[selectedIndex])
+                delegate.dataPassing(userName: userNameArray[selectedIndex] , userEmail: userEmailArray[selectedIndex], userType: userSelectedType)
                 self.navigationController?.popViewController(animated: true)
             }
             

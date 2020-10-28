@@ -30,6 +30,8 @@ class ViewController: UIViewController, SendSelectedUserData {
     
     var signGridListCount = 0
     var signersAndReviewersListArray:[String] = []
+    var userTypeArray:[String] = []
+    var userEmailArray:[String] = []
     
     var imageview: UIImageView? = nil
     var frame: CGRect?
@@ -56,6 +58,9 @@ class ViewController: UIViewController, SendSelectedUserData {
         
         signatoryViewArray.removeAll()
         signatoryViewCollectionArray.removeAll()
+        signersAndReviewersListArray.removeAll()
+        userTypeArray.removeAll()
+        userEmailArray.removeAll()
         
         loadPdf()
         
@@ -305,16 +310,19 @@ class ViewController: UIViewController, SendSelectedUserData {
         
     }
     
-    func dataPassing(userName: String, userEmail: String) {
+    func dataPassing(userName: String, userEmail: String, userType: String) {
         
-        print("Selected User : \(userName) \(userEmail)")
+        print("Selected User : \(userName) \(userEmail) :\(userType)")
         
         signersAndReviewersListArray.append(userName)
+        userEmailArray.append(userEmail)
+        userTypeArray.append(userType)
+        
         signGridListCount = signGridListCount + 1
         
-      /*  let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 112, height: 58))
-        signatoryViewArray.append(customView) */
-    
+        /*  let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 112, height: 58))
+         signatoryViewArray.append(customView) */
+        
         updateUserGridListTableView()
         
         DispatchQueue.main.async {
@@ -322,7 +330,7 @@ class ViewController: UIViewController, SendSelectedUserData {
             self.signerListTableView.reloadData()
         }
     }
-    
+
     @IBAction func addSignatoryButtonClicked(_ sender: Any) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchAndSelectUserVC") as! SearchAndSelectUserVC
@@ -377,7 +385,31 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
        // cell.signLabel.text = "Sign \(indexPath.row + 1)"
         cell.signLabel.text = signersAndReviewersListArray[indexPath.row]
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cell.cancelImage.isUserInteractionEnabled = true
+        cell.cancelImage.addGestureRecognizer(tapGestureRecognizer)
+        cell.cancelImage.tag = indexPath.row
         return cell
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        //let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let tag = tapGestureRecognizer.view!.tag
+        print("Selected Index of Image is: \(tag)")
+        
+        signersAndReviewersListArray.remove(at: tag)
+        userTypeArray.remove(at: tag)
+        userEmailArray.remove(at: tag)
+       
+        signGridListCount = signGridListCount - 1
+        updateUserGridListTableView()
+        
+        DispatchQueue.main.async {
+            
+            self.signerListTableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -388,70 +420,33 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
-        let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 112, height: 58))
-        let currenIndexForStoringDataFromCurrentPageNumber = currentPageNumberOfPdf - 1
-        var subArray = signatoryViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber]
-        subArray.append(customView)
-        signatoryViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber] = subArray
-        
-       /* if indexPath.row == 0 {
+        let signerOrReviewer = userTypeArray[indexPath.row]
+        if signerOrReviewer == "signer" {
+           
+            let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 112, height: 58))
+            let currenIndexForStoringDataFromCurrentPageNumber = currentPageNumberOfPdf - 1
+            var subArray = signatoryViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber]
+            subArray.append(customView)
+            signatoryViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber] = subArray
             
-            signatoryViewArray.append(customView)
-        }
-        else {
-            signatoryViewArray2.append(customView)
-        } */
-    
-        //print("Total Pages: \(totalPageOfPdf)")
-        currentIndexOfTableView = indexPath.row
-        
-        for pageNumber in 1...totalPageOfPdf {
-            //pageNumber
-            if pageNumber == currentPageNumberOfPdf {
-                
-                customView.signatoryLabel.text = signersAndReviewersListArray[indexPath.row]
-                self.pdfView.addSubview(customView)
-            }
-        }
-        
-        updateUserGridListTableView()
-        
-     /*   if currentPageNumberOfPdf == 1 {
+            //print("Total Pages: \(totalPageOfPdf)")
+            currentIndexOfTableView = indexPath.row
             
-           /*  signatoryViewArray[indexPath.row].signatoryLabel.text = signersAndReviewersListArray[indexPath.row]
-            self.pdfView.addSubview(signatoryViewArray[indexPath.row]) */
-        
-           /* if indexPath.row == 0 {
-                customView1?.signatoryLabel.text = signersAndReviewersListArray[0]
-                self.pdfView.addSubview(signatoryViewArray[2])
+            for pageNumber in 1...totalPageOfPdf {
+                //pageNumber
+                if pageNumber == currentPageNumberOfPdf {
+                    
+                    customView.signatoryLabel.text = signersAndReviewersListArray[indexPath.row]
+                    self.pdfView.addSubview(customView)
+                }
             }
-            else if indexPath.row == 1 {
-                customView2?.signatoryLabel.text = signersAndReviewersListArray[1]
-                self.pdfView.addSubview(customView2!)
-            }
-            else if indexPath.row == 2 {
-                customView3?.signatoryLabel.text = signersAndReviewersListArray[2]
-                self.pdfView.addSubview(customView3!)
-            } */
-        }
-        else if currentPageNumberOfPdf == 2 {
             
-         /*   if indexPath.row == 0 {
-                self.pdfView.addSubview(customView4!)
-            }
-            else if indexPath.row == 1 {
-                self.pdfView.addSubview(customView5!)
-            }
-            else if indexPath.row == 2 {
-                self.pdfView.addSubview(customView6!)
-            } */
-        }
-        else if currentPageNumberOfPdf == 3 {
-            
+            updateUserGridListTableView()
         }
         else{
-            print("Page number is more than 3")
-        } */
+            print("Its Reviewer: No need to add")
+        }
+
     }
     
 }
