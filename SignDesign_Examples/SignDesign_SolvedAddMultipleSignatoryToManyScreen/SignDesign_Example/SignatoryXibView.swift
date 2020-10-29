@@ -12,6 +12,7 @@ class SignatoryXibView: UIView {
 
     @IBOutlet var contentView1: UIView!
     @IBOutlet weak var signatoryLabel: UILabel!
+    @IBOutlet weak var enlargeButotn: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,6 +32,7 @@ class SignatoryXibView: UIView {
        contentView1.layer.borderWidth = 2.0
        contentView1.layer.borderColor = UIColor.green.cgColor
 
+      enlargeButotn.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(enLargeViewPan)))
     }
     
     func loadViewFromNib() -> UIView? {
@@ -48,8 +50,27 @@ class SignatoryXibView: UIView {
         gesture.setTranslation(.zero, in: self)
         setNeedsDisplay()
         print(frame)
-        GlobalVariables.sharedManager.currentFrame = frame
-        print(GlobalVariables.sharedManager.currentFrame!)
+       // GlobalVariables.sharedManager.currentFrame = frame
+       // print(GlobalVariables.sharedManager.currentFrame!)
+    }
+    
+    @objc func enLargeViewPan(_ gesture: UIPanGestureRecognizer) {
+        
+        switch gesture.state {
+        case .began:
+           break
+        case .changed:
+            let distance = gesture.translation(in: self)
+          //  let frame = sampleView.frame
+            frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
+            setNeedsDisplay()
+            gesture.setTranslation(.zero, in: self)
+            print(frame)
+        case .ended:
+            break
+        default:
+            break
+        }
     }
 }
 

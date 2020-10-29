@@ -41,7 +41,9 @@ class ViewController: UIViewController, SendSelectedUserData {
     var signatoryViewArray: [SignatoryXibView] = []
     var signatoryViewArray2: [SignatoryXibView] = []
     
-    var signatoryViewCollectionArray:[[SignatoryXibView]] = []
+    var signatoryViewCollectionArray:[[SignatoryXibView]] = [] //Stores Signatory Placeholders frames list
+    var signatoryViewEmailCollectionArray:[[String]] = [] //Stores Signatory Emails
+    
     
    // var frameArray: [CGRect] = []
     
@@ -58,9 +60,10 @@ class ViewController: UIViewController, SendSelectedUserData {
         
         signatoryViewArray.removeAll()
         signatoryViewCollectionArray.removeAll()
-        signersAndReviewersListArray.removeAll()
-        userTypeArray.removeAll()
-        userEmailArray.removeAll()
+        signersAndReviewersListArray.removeAll() //User Name
+        userTypeArray.removeAll() // User Type
+        userEmailArray.removeAll() // User Email
+        signatoryViewEmailCollectionArray.removeAll() //
         
         loadPdf()
         
@@ -107,9 +110,11 @@ class ViewController: UIViewController, SendSelectedUserData {
                 //self.pdfView.bringSubviewToFront(customView1!)
             
                 var signatoryViewSubArray: [SignatoryXibView] = []
+                var signatoryEmailListArray: [String] = []
                 
                 for _ in 1...totalPageOfPdf{
                     signatoryViewCollectionArray.append(signatoryViewSubArray)
+                    signatoryViewEmailCollectionArray.append(signatoryEmailListArray)
                 }
                 
             }
@@ -152,7 +157,6 @@ class ViewController: UIViewController, SendSelectedUserData {
     } */
     
     override func viewWillAppear(_ animated: Bool) {
-        
         
         
     }
@@ -228,10 +232,8 @@ class ViewController: UIViewController, SendSelectedUserData {
         //Test
         let currentPageNumber =  self.pdfView.currentPage?.pageRef?.pageNumber ?? 0
         UserDefaults.standard.set(currentPageNumber, forKey: "pageNumberKey")
-        
-        
+    
         print("Singatory Array in Page Number Changed: \(signatoryViewArray)")
-        
         
     
         //Display/Hide Frames
@@ -262,25 +264,6 @@ class ViewController: UIViewController, SendSelectedUserData {
     
             }
         }
-        
-        
-        //Check it and remove it later -
-     /*   if currentPageNumberOfPdf == 1 {
-            
-           
-        }
-        else if currentPageNumberOfPdf == 2 {
-            for framesIndexInPage1 in signatoryViewArray{
-                framesIndexInPage1.removeFromSuperview()
-            }
-            // self.pdfView.addSubview(customView2!)
-        }
-        else if currentPageNumberOfPdf == 3 {
-            
-        }
-        else{
-            print("Page number is more than 5")
-        } */
         
         print("I am in end of : handlePageChange method")
     }
@@ -361,13 +344,13 @@ class ViewController: UIViewController, SendSelectedUserData {
     }
     
     @IBAction func sendButtonClickAction(_ sender: Any) {
-        let customeView = signatoryViewArray[0]
+      //  let customeView = signatoryViewArray[0]
         
        // frame = view.convert(customeView.frame, from: pdfView) //view starts from main view
-        frame = self.pdfView.convert(customeView.frame, from: pdfView) //only within PDF
+      //  frame = self.pdfView.convert(customeView.frame, from: pdfView) //only within PDF
 
-        print("Position is:  \(frame!.dictionaryRepresentation)")
-        print(String(format: "X value is : %2.f and Y value is: %2.f", (frame?.origin.x)!, (frame?.origin.y)!))
+      //  print("Position is:  \(frame!.dictionaryRepresentation)")
+       // print(String(format: "X value is : %2.f and Y value is: %2.f", (frame?.origin.x)!, (frame?.origin.y)!))
     }
 }
 
@@ -386,14 +369,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
        // cell.signLabel.text = "Sign \(indexPath.row + 1)"
         cell.signLabel.text = signersAndReviewersListArray[indexPath.row]
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(removeSignatoryimageTapped(tapGestureRecognizer:)))
         cell.cancelImage.isUserInteractionEnabled = true
         cell.cancelImage.addGestureRecognizer(tapGestureRecognizer)
         cell.cancelImage.tag = indexPath.row
         return cell
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func removeSignatoryimageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         //let tappedImage = tapGestureRecognizer.view as! UIImageView
         let tag = tapGestureRecognizer.view!.tag
@@ -401,8 +384,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         signersAndReviewersListArray.remove(at: tag)
         userTypeArray.remove(at: tag)
+        
+        let currentEmailIs = userEmailArray[tag]
         userEmailArray.remove(at: tag)
-       
+        print("Current Page is: \(currentPageNumberOfPdf)")
+        
+        //Remove/delete all emails with the current selected user
+        
+        
         signGridListCount = signGridListCount - 1
         updateUserGridListTableView()
         
@@ -421,13 +410,22 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         print(indexPath.row)
         
         let signerOrReviewer = userTypeArray[indexPath.row]
+        let currentSelectedUserEmail = userEmailArray[indexPath.row]
+        
         if signerOrReviewer == "signer" {
            
             let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 112, height: 58))
             let currenIndexForStoringDataFromCurrentPageNumber = currentPageNumberOfPdf - 1
-            var subArray = signatoryViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber]
+            let indexValue = currenIndexForStoringDataFromCurrentPageNumber
+            
+            var subArray = signatoryViewCollectionArray[indexValue]
             subArray.append(customView)
-            signatoryViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber] = subArray
+            signatoryViewCollectionArray[indexValue] = subArray
+            
+            //adding/storing emails
+            var subEmailArray = signatoryViewEmailCollectionArray[indexValue]
+            subEmailArray.append(currentSelectedUserEmail)
+            signatoryViewEmailCollectionArray[indexValue] = subEmailArray
             
             //print("Total Pages: \(totalPageOfPdf)")
             currentIndexOfTableView = indexPath.row

@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignatoryXibView" customModule="SignDesign_Example" customModuleProvider="target">
             <connections>
                 <outlet property="contentView1" destination="iN0-l3-epB" id="Wbm-WR-dw8"/>
+                <outlet property="enlargeButotn" destination="5se-wt-wvA" id="yEH-Wg-NSR"/>
                 <outlet property="signatoryLabel" destination="6rj-ql-Xqf" id="YI7-Lf-twd"/>
             </connections>
         </placeholder>
@@ -24,17 +25,30 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5se-wt-wvA">
+                    <rect key="frame" x="170" y="42" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="jfb-fV-vvf"/>
+                        <constraint firstAttribute="width" constant="18" id="wOj-ti-yws"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="enlarge"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6rj-ql-Xqf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ci4-91-8Ah"/>
                 <constraint firstItem="6rj-ql-Xqf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="NZS-Qn-Ob4"/>
                 <constraint firstAttribute="trailing" secondItem="6rj-ql-Xqf" secondAttribute="trailing" constant="5" id="YMz-7U-8I0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5se-wt-wvA" secondAttribute="bottom" id="aAq-Qp-toy"/>
                 <constraint firstItem="6rj-ql-Xqf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gjl-Yy-zLx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5se-wt-wvA" secondAttribute="trailing" id="vId-1u-Ciz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="15.942028985507248" y="-111.16071428571428"/>
         </view>
     </objects>
+    <resources>
+        <image name="enlarge" width="18" height="18"/>
+    </resources>
 </document>
