@@ -7,64 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7CA6D34A-09D6-451C-ABAC-B042450B5BD0"
+            uuid = "301EE62B-62F6-4B00-B31E-E4F76D3C7480"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SignDesign_Example/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
-            landmarkName = "removeSignatoryimageTapped(tapGestureRecognizer:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7CA6D34A-09D6-451C-ABAC-B042450B5BD0 - 854dc6ed03d1c36a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignDesign_Example.ViewController.removeSignatoryimageTapped(tapGestureRecognizer: __C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "SignDesign_Example"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/SignDesign_Example%20Test/23OCT%20SignDesign_BoundrySolved%20copy%208/SignDesign_Example/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "462"
-                  endingLineNumber = "462"
-                  offsetFromSymbolStart = "9862">
-               </Location>
-               <Location
-                  uuid = "7CA6D34A-09D6-451C-ABAC-B042450B5BD0 - 96ee159b41143a7f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in SignDesign_Example.ViewController.removeSignatoryimageTapped(tapGestureRecognizer: __C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "SignDesign_Example"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mallikarjun/Desktop/SignDesign_Example%20Test/23OCT%20SignDesign_BoundrySolved%20copy%208/SignDesign_Example/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "464"
-                  endingLineNumber = "464"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9454A10D-6784-440F-B93C-89316B6DB6FD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SignDesign_Example/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "424"
-            endingLineNumber = "424"
-            landmarkName = "removeSignatoryimageTapped(tapGestureRecognizer:)"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
+            landmarkName = "getSelectedTagData(notification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

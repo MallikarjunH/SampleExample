@@ -43,7 +43,7 @@ class ViewController: UIViewController, SendSelectedUserData {
     
     var signatoryViewCollectionArray:[[SignatoryXibView]] = [] //Stores Signatory Placeholders frames list
     var signatoryViewEmailCollectionArray:[[String]] = [] //Stores Signatory Emails
-    
+    var signatoryViewsTagCollectionArray:[[Int]] = [] //Store Tags
     
    // var frameArray: [CGRect] = []
     
@@ -53,6 +53,8 @@ class ViewController: UIViewController, SendSelectedUserData {
     var framesArrayWithPageNumber: [[Int:[CGRect]]] = []
     
     var firstTimeRun = "True"
+    var tagValue = 0
+    var currentSelectedTagValue = 0 //Testing
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,7 @@ class ViewController: UIViewController, SendSelectedUserData {
         userTypeArray.removeAll() // User Type
         userEmailArray.removeAll() // User Email
         signatoryViewEmailCollectionArray.removeAll() //
+        signatoryViewsTagCollectionArray.removeAll()
         
         loadPdf()
         
@@ -83,8 +86,10 @@ class ViewController: UIViewController, SendSelectedUserData {
         selector: #selector(handlePageChange(notification:)),
         name: Notification.Name.PDFViewPageChanged,
         object: self.pdfView)
+        
+        NotificationCenter.default.addObserver(forName:NSNotification.Name(rawValue: "getSelectedTag"), object:nil, queue:nil, using:getSelectedTagData)
     }
-    
+
     func loadPdf(){
         
         if let path = Bundle.main.path(forResource: "appointment-letter", ofType: "pdf") {
@@ -111,10 +116,12 @@ class ViewController: UIViewController, SendSelectedUserData {
             
                 var signatoryViewSubArray: [SignatoryXibView] = []
                 var signatoryEmailListArray: [String] = []
+                var signatoryTagListArray: [Int] = []
                 
                 for _ in 1...totalPageOfPdf{
                     signatoryViewCollectionArray.append(signatoryViewSubArray)
                     signatoryViewEmailCollectionArray.append(signatoryEmailListArray)
+                    signatoryViewsTagCollectionArray.append(signatoryTagListArray)
                 }
                 
             }
@@ -344,6 +351,7 @@ class ViewController: UIViewController, SendSelectedUserData {
     }
     
     @IBAction func sendButtonClickAction(_ sender: Any) {
+      print("Clicked on Send Button")
       //  let customeView = signatoryViewArray[0]
         
        // frame = view.convert(customeView.frame, from: pdfView) //view starts from main view
@@ -351,6 +359,21 @@ class ViewController: UIViewController, SendSelectedUserData {
 
       //  print("Position is:  \(frame!.dictionaryRepresentation)")
        // print(String(format: "X value is : %2.f and Y value is: %2.f", (frame?.origin.x)!, (frame?.origin.y)!))
+    }
+    
+    func getSelectedTagData(notification:Notification) -> Void {
+        guard let someTagValue:Int = notification.userInfo!["sampleDict"] as? Int else {
+            return
+        }
+        print("I am in notification Center Method")
+        print("Tag Value is: \(someTagValue)")
+        
+        print("Current Page of PDF: \(currentPageNumberOfPdf)")
+        currentSelectedTagValue = someTagValue
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("getSelectedTag"), object: nil)
     }
 }
 
@@ -445,17 +468,29 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             //Remove frames from signatoryViewCollectionArray collection
-            let arrayRemainingAnimals = someTestArray2
+            let arrayRemainingViews = someTestArray2
                 .enumerated()
                 .filter { !indexToRemove.contains($0.offset) }
                 .map { $0.element }
             
-            print("Result After Removing: \(arrayRemainingAnimals)")
+            print("Result After Removing Views: \(arrayRemainingViews)")
             
-            signatoryViewCollectionArray[mainIndex] = arrayRemainingAnimals
+            signatoryViewCollectionArray[mainIndex] = arrayRemainingViews
+            
+            //Remove Emails
+            var someTestEmailArray = signatoryViewEmailCollectionArray[mainIndex]
+            
+            let arrayRemainingEmails = someTestEmailArray
+                .enumerated()
+                .filter { !indexToRemove.contains($0.offset) }
+                .map { $0.element }
+            
+            print("Result After Removing Emails: \(arrayRemainingEmails)")
+            signatoryViewEmailCollectionArray[mainIndex] = arrayRemainingEmails
         }
 
-        print("Final 111 Result: \(signatoryViewCollectionArray)")
+        print("Final 111 ViewsFrames: \(signatoryViewCollectionArray)")
+        print("Final 111 Emails: \(signatoryViewEmailCollectionArray)")
         
         updateUserGridListTableView() //Update list and other updates of GridTableView
         
@@ -477,11 +512,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let currentSelectedUserEmail = userEmailArray[indexPath.row]
         
         if signerOrReviewer == "signer" {
-           
-            let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 112, height: 58))
+            
+            tagValue = tagValue + 1
+           // let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 112, height: 58))
+            let customView = SignatoryXibView(frame: CGRect(x: 30, y: 30, width: 120, height: 60))
+            customView.tag = tagValue
+            
             let currenIndexForStoringDataFromCurrentPageNumber = currentPageNumberOfPdf - 1
             let indexValue = currenIndexForStoringDataFromCurrentPageNumber
             
+            //adding/storing Views
             var subArray = signatoryViewCollectionArray[indexValue]
             subArray.append(customView)
             signatoryViewCollectionArray[indexValue] = subArray
@@ -490,6 +530,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             var subEmailArray = signatoryViewEmailCollectionArray[indexValue]
             subEmailArray.append(currentSelectedUserEmail)
             signatoryViewEmailCollectionArray[indexValue] = subEmailArray
+            
+            //adding/storing tags
+            var subTagArray = signatoryViewsTagCollectionArray[indexValue]
+            subTagArray.append(tagValue)
+            signatoryViewsTagCollectionArray[indexValue] = subTagArray
             
             //print("Total Pages: \(totalPageOfPdf)")
             currentIndexOfTableView = indexPath.row

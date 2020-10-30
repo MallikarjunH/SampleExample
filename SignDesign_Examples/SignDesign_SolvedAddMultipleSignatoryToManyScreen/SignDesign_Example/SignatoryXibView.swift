@@ -13,6 +13,7 @@ class SignatoryXibView: UIView {
     @IBOutlet var contentView1: UIView!
     @IBOutlet weak var signatoryLabel: UILabel!
     @IBOutlet weak var enlargeButotn: UIButton!
+    @IBOutlet weak var removeSignatoryButton: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -33,6 +34,7 @@ class SignatoryXibView: UIView {
        contentView1.layer.borderColor = UIColor.green.cgColor
 
       enlargeButotn.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(enLargeViewPan)))
+      removeSignatoryButton.addTarget(self, action: #selector(cancelButton), for: .touchUpInside) //Testing
     }
     
     func loadViewFromNib() -> UIView? {
@@ -72,6 +74,15 @@ class SignatoryXibView: UIView {
             break
         }
     }
+    
+    //Testing - Get Tag from Current SignatoryView
+    @objc func cancelButton(sender: UIButton!) {
+        //print("Selected Tag: \( self.tag)")
+        //ViewController().getCurrentSelectedTagMethod(someIndex: self.tag)
+        let tagValue:Int = self.tag
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getSelectedTag"), object: nil, userInfo: ["sampleDict" : tagValue])
+    }
+    
 }
 
 
