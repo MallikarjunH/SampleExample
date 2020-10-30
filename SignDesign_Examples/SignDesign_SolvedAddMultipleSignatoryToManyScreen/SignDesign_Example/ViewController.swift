@@ -54,7 +54,7 @@ class ViewController: UIViewController, SendSelectedUserData {
     
     var firstTimeRun = "True"
     var tagValue = 0
-    var currentSelectedTagValue = 0 //Testing
+    var actualIndexOfTagInSubArray = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -362,6 +362,7 @@ class ViewController: UIViewController, SendSelectedUserData {
     }
     
     func getSelectedTagData(notification:Notification) -> Void {
+        
         guard let someTagValue:Int = notification.userInfo!["sampleDict"] as? Int else {
             return
         }
@@ -369,7 +370,42 @@ class ViewController: UIViewController, SendSelectedUserData {
         print("Tag Value is: \(someTagValue)")
         
         print("Current Page of PDF: \(currentPageNumberOfPdf)")
-        currentSelectedTagValue = someTagValue
+            
+        let tagToRemove = someTagValue
+        
+        let currenIndexPageNumber = currentPageNumberOfPdf - 1
+        var subTagArray = signatoryViewsTagCollectionArray[currenIndexPageNumber]
+        var subEmailArray = signatoryViewEmailCollectionArray[currenIndexPageNumber]
+        var subFramesArray = signatoryViewCollectionArray[currenIndexPageNumber]
+    
+        //Get the index of Tag
+        if subTagArray.contains(tagToRemove) {
+            for (index,tagValue) in subTagArray.enumerated(){
+                
+                if tagValue == tagToRemove {
+                    print("Tag found at Index: \(index)")
+                    actualIndexOfTagInSubArray = index
+                }
+            }
+        }
+        
+        subTagArray.remove(at: actualIndexOfTagInSubArray) //Remove Tag
+        subEmailArray.remove(at: actualIndexOfTagInSubArray) //Remove email
+        
+        //Remove frame from PDF View
+        let customViewToRemove = subFramesArray[actualIndexOfTagInSubArray]
+        customViewToRemove.removeFromSuperview()
+        
+        subFramesArray.remove(at: actualIndexOfTagInSubArray) //Remove frame
+        
+        print("Array After removing tag: \(subTagArray)")
+        print("Array After removing Email: \(subEmailArray)")
+        print("Array After removing Frames: \(subFramesArray)")
+        
+        signatoryViewsTagCollectionArray[currenIndexPageNumber] = subTagArray
+        signatoryViewEmailCollectionArray[currenIndexPageNumber] = subEmailArray
+        signatoryViewCollectionArray[currenIndexPageNumber] = subFramesArray
+        
     }
     
     deinit {
