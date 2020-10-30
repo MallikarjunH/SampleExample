@@ -183,3 +183,6 @@ extension SearchAndSelectUserVC: UITableViewDataSource, UITableViewDelegate {
         )
     }
 } */
+
+//Removing more than one elements from Array
+//https://stackoverflow.com/questions/39974838/swift-3-array-remove-more-than-one-item-at-once-with-removeat-i

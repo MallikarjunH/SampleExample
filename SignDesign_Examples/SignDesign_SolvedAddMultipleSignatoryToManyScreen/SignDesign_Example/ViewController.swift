@@ -388,12 +388,76 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let currentEmailIs = userEmailArray[tag]
         userEmailArray.remove(at: tag)
         print("Current Page is: \(currentPageNumberOfPdf)")
-        
+       
+        signGridListCount = signGridListCount - 1 //It will update list from GridTableView
+      
+      
         //Remove/delete all emails with the current selected user
+        let itemToRemove = currentEmailIs
         
+        var someTestArray:[[Int]] = []
+        for (index, arrayObject) in signatoryViewEmailCollectionArray.enumerated() {
+
+            var someTestArray2:[Int] = [] //TempArray
+            
+            if arrayObject.contains(itemToRemove) {
+                
+                for emailObject in arrayObject {
+                    
+                    if emailObject == itemToRemove {
+                        someTestArray2.append(0)
+                    }
+                    else{
+                        someTestArray2.append(1)
+                    }
+                }
+            }
+           // print("After while loop and before for loop: \(arrayObject)")
+            signatoryViewEmailCollectionArray[index] = arrayObject
+            someTestArray.append(someTestArray2)
+        }
+        print("Final Email Array: \(signatoryViewEmailCollectionArray)")
+        print("SomeTetArray: \(someTestArray)")
+    
+        //Remove Frames
         
-        signGridListCount = signGridListCount - 1
-        updateUserGridListTableView()
+        for (mainIndex,subArray) in someTestArray.enumerated() {
+            
+            var indexToRemove:[Int] = []
+            
+            for (index,number) in subArray.enumerated() {
+                
+                if number == 0 {
+                    indexToRemove.append(index)
+                }
+            }
+            
+            print("Index to Remove: \(indexToRemove)")
+            
+            var someTestArray2 = signatoryViewCollectionArray[mainIndex]
+           
+            //Remove frames from PDF view - Remove from Superview
+            let subArray1 = subArray  //[1, 0, 1, 1]
+            for (index,frameToRemove) in subArray1.enumerated() {
+                if frameToRemove == 0 {
+                    someTestArray2[index].removeFromSuperview()
+                }
+            }
+            
+            //Remove frames from signatoryViewCollectionArray collection
+            let arrayRemainingAnimals = someTestArray2
+                .enumerated()
+                .filter { !indexToRemove.contains($0.offset) }
+                .map { $0.element }
+            
+            print("Result After Removing: \(arrayRemainingAnimals)")
+            
+            signatoryViewCollectionArray[mainIndex] = arrayRemainingAnimals
+        }
+
+        print("Final 111 Result: \(signatoryViewCollectionArray)")
+        
+        updateUserGridListTableView() //Update list and other updates of GridTableView
         
         DispatchQueue.main.async {
             
