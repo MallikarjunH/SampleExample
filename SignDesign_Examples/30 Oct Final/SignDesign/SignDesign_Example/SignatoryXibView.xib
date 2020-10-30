@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignatoryXibView" customModule="SignDesign_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView1" destination="iN0-l3-epB" id="Wbm-WR-dw8"/>
+                <outlet property="enlargeButotn" destination="5se-wt-wvA" id="yEH-Wg-NSR"/>
+                <outlet property="removeSignatoryButton" destination="j3t-7h-41s" id="eOS-Yo-m4b"/>
+                <outlet property="signatoryLabel" destination="6rj-ql-Xqf" id="YI7-Lf-twd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="188" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signatory 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-ql-Xqf">
+                    <rect key="frame" x="5" y="21" width="178" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5se-wt-wvA">
+                    <rect key="frame" x="170" y="42" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="jfb-fV-vvf"/>
+                        <constraint firstAttribute="width" constant="18" id="wOj-ti-yws"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="enlarge"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3t-7h-41s">
+                    <rect key="frame" x="170" y="0.0" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="D3x-n9-MgA"/>
+                        <constraint firstAttribute="height" constant="18" id="FkR-sm-Jqw"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="closeCrossButton"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6rj-ql-Xqf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ci4-91-8Ah"/>
+                <constraint firstItem="6rj-ql-Xqf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="NZS-Qn-Ob4"/>
+                <constraint firstItem="j3t-7h-41s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T3E-Qq-B0V"/>
+                <constraint firstAttribute="trailing" secondItem="j3t-7h-41s" secondAttribute="trailing" id="XqL-I3-ZWh"/>
+                <constraint firstAttribute="trailing" secondItem="6rj-ql-Xqf" secondAttribute="trailing" constant="5" id="YMz-7U-8I0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5se-wt-wvA" secondAttribute="bottom" id="aAq-Qp-toy"/>
+                <constraint firstItem="6rj-ql-Xqf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gjl-Yy-zLx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5se-wt-wvA" secondAttribute="trailing" id="vId-1u-Ciz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="15.942028985507248" y="-111.16071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="closeCrossButton" width="18" height="18"/>
+        <image name="enlarge" width="18" height="18"/>
+    </resources>
+</document>
