@@ -61,11 +61,26 @@ class SignatoryXibView: UIView {
            break
         case .changed:
             let distance = gesture.translation(in: self)
-          //  let frame = sampleView.frame
-            frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
-            setNeedsDisplay()
-            gesture.setTranslation(.zero, in: self)
-            print(frame)
+            //  let frame = sampleView.frame
+              
+              if frame.width < 120.0 || frame.height < 60.0{
+                 print("Do not increase") //Restrict size while decreasing the view
+                  frame = .init(origin: frame.origin, size: .init(width: 120.0, height: 60.0))
+              }
+              else{
+                   print("increase")
+                   frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
+              }
+              setNeedsDisplay()
+              gesture.setTranslation(.zero, in: self)
+              
+            /* let distance = gesture.translation(in: self)
+              // let frame = sampleView.frame
+               frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
+              setNeedsDisplay()
+              gesture.setTranslation(.zero, in: self) */
+              
+              print("Frame after Exapanding View: \(frame)")
         case .ended:
             break
         default:
