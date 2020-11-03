@@ -1,18 +1,68 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeXibView" customModule="SignDesign_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView1" destination="iN0-l3-epB" id="i3i-N7-6lp"/>
+                <outlet property="removeQRCodeButton" destination="JwZ-SS-6p5" id="ykC-C9-3Xq"/>
+                <outlet property="signatoryPositionLabel" destination="glh-96-vND" id="Jci-6o-3nO"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glh-96-vND">
+                    <rect key="frame" x="0.0" y="61" width="100" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="RaJ-US-lUn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwZ-SS-6p5">
+                    <rect key="frame" x="80" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="IaL-6V-bH1"/>
+                        <constraint firstAttribute="width" constant="20" id="Q9F-2e-bav"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="closeCrossButton"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnr-rk-ZiW">
+                    <rect key="frame" x="0.0" y="35" width="100" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="6uE-4a-xmI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JwZ-SS-6p5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JNF-rl-dZ3"/>
+                <constraint firstItem="Mnr-rk-ZiW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="JaR-de-1sb"/>
+                <constraint firstItem="glh-96-vND" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JqQ-YE-m2P"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Mnr-rk-ZiW" secondAttribute="trailing" id="TAB-ZF-W3W"/>
+                <constraint firstItem="Mnr-rk-ZiW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WB9-F4-qKB"/>
+                <constraint firstAttribute="trailing" secondItem="JwZ-SS-6p5" secondAttribute="trailing" id="bBJ-wr-5Tc"/>
+                <constraint firstItem="glh-96-vND" firstAttribute="top" secondItem="Mnr-rk-ZiW" secondAttribute="bottom" constant="8" id="kIf-AS-5I7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="glh-96-vND" secondAttribute="trailing" id="sLI-1g-dwG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="153.62318840579712" y="-213.61607142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="closeCrossButton" width="18" height="18"/>
+    </resources>
 </document>

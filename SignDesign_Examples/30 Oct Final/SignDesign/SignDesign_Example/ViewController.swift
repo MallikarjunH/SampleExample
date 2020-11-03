@@ -58,8 +58,13 @@ class ViewController: UIViewController, SendSelectedUserData {
     var actualIndexOfTagInSubArray = 0
     
     let rightBarDropDown = DropDown()
-   // var rightButton = UIBarButtonItem()
     @IBOutlet weak var rightButton: UIBarButtonItem!
+    
+    var qrCodeTotalCount = 0
+    var tagValueForQrCodeView = 0
+    var qrCodeViewCollectionArray:[[QRCodeXibView]] = [] //Stores QR code
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +77,7 @@ class ViewController: UIViewController, SendSelectedUserData {
         userEmailArray.removeAll() // User Email
         signatoryViewEmailCollectionArray.removeAll() //
         signatoryViewsTagCollectionArray.removeAll()
+        qrCodeViewCollectionArray.removeAll() //QR code
         
         loadPdf()
         
@@ -124,10 +130,13 @@ class ViewController: UIViewController, SendSelectedUserData {
                 var signatoryEmailListArray: [String] = []
                 var signatoryTagListArray: [Int] = []
                 
+                var qrCodeViewSubArray: [QRCodeXibView] = []
+                
                 for _ in 1...totalPageOfPdf{
                     signatoryViewCollectionArray.append(signatoryViewSubArray)
                     signatoryViewEmailCollectionArray.append(signatoryEmailListArray)
                     signatoryViewsTagCollectionArray.append(signatoryTagListArray)
+                    qrCodeViewCollectionArray.append(qrCodeViewSubArray)
                 }
                 
             }
@@ -283,6 +292,50 @@ class ViewController: UIViewController, SendSelectedUserData {
             }
         }
         
+        
+        //QR Code
+        
+        frameArray2.removeAll()
+        
+        //Save  QR code frames data
+    
+        let subQRCodeFramesArray = qrCodeViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber]
+        
+        for framesIndexInPage1 in subQRCodeFramesArray{
+            
+            let customeView = framesIndexInPage1
+            frame = self.pdfView.convert(customeView.frame, from: pdfView)
+           // frameArray.append(frame!)
+            let rect = CGRect(x: (frame?.origin.x)!, y: (frame?.origin.y)!, width: frame!.width, height: frame!.height)
+            frameArray2.append(rect)
+        }
+        
+        //Display/Hide  QR code Frames
+        for pageNumber in 1...totalPageOfPdf {
+                //pageNumber
+                let currenIndexForStoringDataFromCurrentPageNumber = currentPageNumberOfPdf - 1
+                let subArray = qrCodeViewCollectionArray[currenIndexForStoringDataFromCurrentPageNumber]
+                
+                if pageNumber == currentPageNumberOfPdf {
+                    
+                    if frameArray2.count > 0 {
+                        
+                        for framesIndexInPage1 in subArray{
+                            let index = subArray.firstIndex(of: framesIndexInPage1)
+                            framesIndexInPage1.frame = frameArray2[index!]
+                            self.pdfView.addSubview(framesIndexInPage1)
+                        }
+                    }
+                }
+                else{ //Remove Frames
+                    let pageNumber2 = pageNumber - 1
+                    for framesIndexInPage1 in qrCodeViewCollectionArray[pageNumber2]{ //signatoryViewArray
+                        framesIndexInPage1.removeFromSuperview()
+                    }
+        
+                }
+            }
+        
         print("I am in end of : handlePageChange method")
     }
     
@@ -349,6 +402,7 @@ class ViewController: UIViewController, SendSelectedUserData {
             }
             else if index == 1 { //Add QR Code
                 
+                self.addQRCodeViewOnPdf()
             }
         }
 
@@ -362,6 +416,28 @@ class ViewController: UIViewController, SendSelectedUserData {
         vc.signersAndReviewersListArray = signersAndReviewersListArray
         self.navigationController?.pushViewController(vc, animated: true)
         */
+    }
+    
+    func addQRCodeViewOnPdf() {
+        
+        tagValueForQrCodeView = tagValueForQrCodeView + 1
+        
+        let customView = QRCodeXibView(frame: CGRect(x: 40, y: 50, width: 100, height: 120))
+        customView.tag = tagValueForQrCodeView
+       // self.QRCodeArrayViewArray.append(customView)
+        
+        self.qrCodeTotalCount = self.qrCodeTotalCount + 1
+        customView.signatoryPositionLabel.text = "Position \(self.qrCodeTotalCount)"
+        
+        self.pdfView.addSubview(customView)
+        
+        let indexValue = currentPageNumberOfPdf - 1
+        
+        //adding/storing QR code Views
+        var subArray = qrCodeViewCollectionArray[indexValue]
+        subArray.append(customView)
+        qrCodeViewCollectionArray[indexValue] = subArray
+    
     }
     
     func updateUserGridListTableView() {

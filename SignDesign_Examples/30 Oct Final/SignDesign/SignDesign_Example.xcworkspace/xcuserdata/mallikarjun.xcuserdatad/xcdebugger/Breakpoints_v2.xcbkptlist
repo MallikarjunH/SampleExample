@@ -14,8 +14,8 @@
             filePath = "SignDesign_Example/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "489"
+            endingLineNumber = "489"
             landmarkName = "getSelectedTagData(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "SignDesign_Example/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "handlePageChange(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "SignDesign_Example/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "handlePageChange(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "SignDesign_Example/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "handlePageChange(notification:)"
             landmarkType = "7">
          </BreakpointContent>
