@@ -33,8 +33,8 @@ class SignatoryXibView: UIView {
        contentView1.layer.borderWidth = 2.0
        contentView1.layer.borderColor = UIColor.green.cgColor
 
-      enlargeButotn.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(enLargeViewPan)))
-      removeSignatoryButton.addTarget(self, action: #selector(cancelButton), for: .touchUpInside) //Testing
+      enlargeButotn.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(enLargeViewPan))) //Enlarge View
+      removeSignatoryButton.addTarget(self, action: #selector(cancelButton), for: .touchUpInside) //Drag/Move View
     }
     
     func loadViewFromNib() -> UIView? {
@@ -47,13 +47,15 @@ class SignatoryXibView: UIView {
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(pan)))
     }
     
+    //Drag/Move View
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         translate(gesture.translation(in: self))
         gesture.setTranslation(.zero, in: self)
         setNeedsDisplay()
-        print(frame)
+        print("Frame after Moving View: \(frame)")
     }
     
+    //EnlargeView //H - 60 and w - 120
     @objc func enLargeViewPan(_ gesture: UIPanGestureRecognizer) {
         
         switch gesture.state {
@@ -61,26 +63,26 @@ class SignatoryXibView: UIView {
            break
         case .changed:
             let distance = gesture.translation(in: self)
-            //  let frame = sampleView.frame
-              
-              if frame.width < 120.0 || frame.height < 60.0{
-                 print("Do not increase") //Restrict size while decreasing the view
-                  frame = .init(origin: frame.origin, size: .init(width: 120.0, height: 60.0))
-              }
-              else{
-                   print("increase")
-                   frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
-              }
-              setNeedsDisplay()
-              gesture.setTranslation(.zero, in: self)
-              
-            /* let distance = gesture.translation(in: self)
-              // let frame = sampleView.frame
-               frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
-              setNeedsDisplay()
-              gesture.setTranslation(.zero, in: self) */
-              
-              print("Frame after Exapanding View: \(frame)")
+          //  let frame = sampleView.frame
+            
+            if frame.width < 120.0 || frame.height < 60.0{
+               print("Do not increase") //Restrict size while decreasing the view
+                frame = .init(origin: frame.origin, size: .init(width: 120.0, height: 60.0))
+            }
+            else{
+                 print("increase")
+                 frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
+            }
+            setNeedsDisplay()
+            gesture.setTranslation(.zero, in: self)
+            
+          /* let distance = gesture.translation(in: self)
+            // let frame = sampleView.frame
+             frame = .init(origin: frame.origin, size: .init(width: frame.width + distance.x, height: frame.height + distance.y))
+            setNeedsDisplay()
+            gesture.setTranslation(.zero, in: self) */
+            
+            print("Frame after Exapanding View: \(frame)")
         case .ended:
             break
         default:
@@ -102,6 +104,7 @@ class SignatoryXibView: UIView {
 extension  CGPoint {
     static func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         .init(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+        
     }
     static func +=(lhs: inout CGPoint, rhs: CGPoint) {
         lhs.x += rhs.x

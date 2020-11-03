@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-SignDesign_Example/Pods-SignDesign_Example-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
 ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework

@@ -10,6 +10,7 @@ import UIKit
 import PDFKit
 import QuartzCore
 import MBProgressHUD
+import DropDown
 
 class ViewController: UIViewController, SendSelectedUserData {
     
@@ -56,6 +57,10 @@ class ViewController: UIViewController, SendSelectedUserData {
     var tagValue = 0
     var actualIndexOfTagInSubArray = 0
     
+    let rightBarDropDown = DropDown()
+   // var rightButton = UIBarButtonItem()
+    @IBOutlet weak var rightButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -88,6 +93,7 @@ class ViewController: UIViewController, SendSelectedUserData {
         object: self.pdfView)
         
         NotificationCenter.default.addObserver(forName:NSNotification.Name(rawValue: "getSelectedTag"), object:nil, queue:nil, using:getSelectedTagData)
+    
     }
 
     func loadPdf(){
@@ -328,11 +334,34 @@ class ViewController: UIViewController, SendSelectedUserData {
 
     @IBAction func addSignatoryButtonClicked(_ sender: Any) {
         
+        rightBarDropDown.anchorView = rightButton
+        
+        rightBarDropDown.dataSource = ["Add Signatory", "Add QR Code"]
+       
+        rightBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
+        rightBarDropDown.selectionAction = { (index: Int, item: String) in
+           
+            if index == 0 { //Add Signatory
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchAndSelectUserVC") as! SearchAndSelectUserVC
+                vc.delegate = self
+                vc.signersAndReviewersListArray = self.signersAndReviewersListArray
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else if index == 1 { //Add QR Code
+                
+            }
+        }
+
+        rightBarDropDown.width = 220
+        rightBarDropDown.bottomOffset = CGPoint(x: 0, y:(rightBarDropDown.anchorView!.plainView.bounds.height))
+        rightBarDropDown.show()
+        
+        /*
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchAndSelectUserVC") as! SearchAndSelectUserVC
         vc.delegate = self
         vc.signersAndReviewersListArray = signersAndReviewersListArray
         self.navigationController?.pushViewController(vc, animated: true)
-    
+        */
     }
     
     func updateUserGridListTableView() {

@@ -1,16 +1,20 @@
 PODS:
+  - DropDown (2.3.13)
   - MBProgressHUD (1.0.0)
 
 DEPENDENCIES:
+  - DropDown
   - MBProgressHUD (~> 1.0.0)
 
 SPEC REPOS:
   trunk:
+    - DropDown
     - MBProgressHUD
 
 SPEC CHECKSUMS:
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
 
-PODFILE CHECKSUM: dbacbecb9171fa7b70b78cc2d31d2e8a42b49cb5
+PODFILE CHECKSUM: 302e0e881fc305968700101d206d3a249a73d58d
 
 COCOAPODS: 1.9.1

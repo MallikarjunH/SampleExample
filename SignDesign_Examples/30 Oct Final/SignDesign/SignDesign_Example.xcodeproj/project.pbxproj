@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0617C7E0253EE69400DDE86B /* SignatoryXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617C7DF253EE69400DDE86B /* SignatoryXibView.swift */; };
 		0617C7E2253EE6B300DDE86B /* SignatoryXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0617C7E1253EE6B300DDE86B /* SignatoryXibView.xib */; };
+		0659A168255150AC00C76638 /* QRCodeXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0659A167255150AC00C76638 /* QRCodeXibView.xib */; };
 		069F0B21253D3EEE0083B9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F0B20253D3EEE0083B9E0 /* AppDelegate.swift */; };
 		069F0B23253D3EEE0083B9E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F0B22253D3EEE0083B9E0 /* SceneDelegate.swift */; };
 		069F0B25253D3EEE0083B9E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069F0B24253D3EEE0083B9E0 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		0617C7DF253EE69400DDE86B /* SignatoryXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatoryXibView.swift; sourceTree = "<group>"; };
 		0617C7E1253EE6B300DDE86B /* SignatoryXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignatoryXibView.xib; sourceTree = "<group>"; };
+		0659A167255150AC00C76638 /* QRCodeXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeXibView.xib; sourceTree = "<group>"; };
 		069DE69B9750C080CD1EB3DB /* Pods_SignDesign_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignDesign_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F0B1D253D3EEE0083B9E0 /* SignDesign_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignDesign_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F0B20253D3EEE0083B9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				069F0B3A253DAE7E0083B9E0 /* SearchResultUsersTableViewCell.swift */,
 				0617C7DF253EE69400DDE86B /* SignatoryXibView.swift */,
 				0617C7E1253EE6B300DDE86B /* SignatoryXibView.xib */,
+				0659A167255150AC00C76638 /* QRCodeXibView.xib */,
 				069F0B34253D40370083B9E0 /* appointment-letter.pdf */,
 				069F0B26253D3EEE0083B9E0 /* Main.storyboard */,
 				069F0B29253D3EF10083B9E0 /* Assets.xcassets */,
@@ -171,6 +174,7 @@
 			files = (
 				069F0B2D253D3EF10083B9E0 /* LaunchScreen.storyboard in Resources */,
 				069F0B2A253D3EF10083B9E0 /* Assets.xcassets in Resources */,
+				0659A168255150AC00C76638 /* QRCodeXibView.xib in Resources */,
 				069F0B35253D40370083B9E0 /* appointment-letter.pdf in Resources */,
 				069F0B28253D3EEE0083B9E0 /* Main.storyboard in Resources */,
 				0617C7E2253EE6B300DDE86B /* SignatoryXibView.xib in Resources */,

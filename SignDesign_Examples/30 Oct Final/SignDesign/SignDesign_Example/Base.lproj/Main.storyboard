@@ -136,6 +136,7 @@
                     <connections>
                         <outlet property="pdfThumbnailView" destination="y0g-Q6-KWM" id="bhg-KA-cjf"/>
                         <outlet property="pdfView" destination="WmT-Lf-SLh" id="5NJ-95-voT"/>
+                        <outlet property="rightButton" destination="Rse-Sx-KEC" id="KUG-8c-LlG"/>
                         <outlet property="sidebarLeadingConstraint" destination="Nan-ZM-z1C" id="78W-kW-hgA"/>
                         <outlet property="signerListTableView" destination="fQS-FH-z0A" id="0f8-ld-B6p"/>
                         <outlet property="toggleBtn" destination="7f4-HF-NRl" id="jNn-gS-z8o"/>
