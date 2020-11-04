@@ -55,7 +55,7 @@ class QRCodeXibView: UIView {
     
     @objc func removeQRCodeButtonAction(sender: UIButton!) {
         
-       // let tagValue:Int = self.tag
-       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getSelectedTag"), object: nil, userInfo: ["sampleDict" : tagValue])
+        let tagValue:Int = self.tag
+         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getSelectedTagForQRCode"), object: nil, userInfo: ["sampleDict" : tagValue])
     }
 }

@@ -95,7 +95,7 @@ class SignatoryXibView: UIView {
         //print("Selected Tag: \( self.tag)")
         //ViewController().getCurrentSelectedTagMethod(someIndex: self.tag)
         let tagValue:Int = self.tag
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getSelectedTag"), object: nil, userInfo: ["sampleDict" : tagValue])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getSelectedTagForSignatoryView"), object: nil, userInfo: ["sampleDict" : tagValue])
     }
     
 }

@@ -44,7 +44,7 @@ class ViewController: UIViewController, SendSelectedUserData {
     
     var signatoryViewCollectionArray:[[SignatoryXibView]] = [] //Stores Signatory Placeholders frames list
     var signatoryViewEmailCollectionArray:[[String]] = [] //Stores Signatory Emails
-    var signatoryViewsTagCollectionArray:[[Int]] = [] //Store Tags
+    var signatoryViewsTagCollectionArray:[[Int]] = [] //Store Tags for Signatory
     
    // var frameArray: [CGRect] = []
     
@@ -63,7 +63,7 @@ class ViewController: UIViewController, SendSelectedUserData {
     var qrCodeTotalCount = 0
     var tagValueForQrCodeView = 0
     var qrCodeViewCollectionArray:[[QRCodeXibView]] = [] //Stores QR code
-    
+    var qrCodeViewsTagCollectionArray:[[Int]] = []
     
     
     override func viewDidLoad() {
@@ -78,6 +78,7 @@ class ViewController: UIViewController, SendSelectedUserData {
         signatoryViewEmailCollectionArray.removeAll() //
         signatoryViewsTagCollectionArray.removeAll()
         qrCodeViewCollectionArray.removeAll() //QR code
+        qrCodeViewsTagCollectionArray.removeAll()
         
         loadPdf()
         
@@ -98,8 +99,8 @@ class ViewController: UIViewController, SendSelectedUserData {
         name: Notification.Name.PDFViewPageChanged,
         object: self.pdfView)
         
-        NotificationCenter.default.addObserver(forName:NSNotification.Name(rawValue: "getSelectedTag"), object:nil, queue:nil, using:getSelectedTagData)
-    
+        NotificationCenter.default.addObserver(forName:NSNotification.Name(rawValue: "getSelectedTagForSignatoryView"), object:nil, queue:nil, using:getSelectedTagDataForSignatoryView)
+        NotificationCenter.default.addObserver(forName:NSNotification.Name(rawValue: "getSelectedTagForQRCode"), object:nil, queue:nil, using:getSelectedTagDataForQRCodeView)
     }
 
     func loadPdf(){
@@ -131,12 +132,14 @@ class ViewController: UIViewController, SendSelectedUserData {
                 var signatoryTagListArray: [Int] = []
                 
                 var qrCodeViewSubArray: [QRCodeXibView] = []
+                var rCodeTagListArray: [Int] = []
                 
                 for _ in 1...totalPageOfPdf{
                     signatoryViewCollectionArray.append(signatoryViewSubArray)
                     signatoryViewEmailCollectionArray.append(signatoryEmailListArray)
                     signatoryViewsTagCollectionArray.append(signatoryTagListArray)
                     qrCodeViewCollectionArray.append(qrCodeViewSubArray)
+                    qrCodeViewsTagCollectionArray.append(rCodeTagListArray)
                 }
                 
             }
@@ -329,7 +332,7 @@ class ViewController: UIViewController, SendSelectedUserData {
                 }
                 else{ //Remove Frames
                     let pageNumber2 = pageNumber - 1
-                    for framesIndexInPage1 in qrCodeViewCollectionArray[pageNumber2]{ //signatoryViewArray
+                    for framesIndexInPage1 in qrCodeViewCollectionArray[pageNumber2]{
                         framesIndexInPage1.removeFromSuperview()
                     }
         
@@ -424,7 +427,6 @@ class ViewController: UIViewController, SendSelectedUserData {
         
         let customView = QRCodeXibView(frame: CGRect(x: 40, y: 50, width: 100, height: 120))
         customView.tag = tagValueForQrCodeView
-       // self.QRCodeArrayViewArray.append(customView)
         
         self.qrCodeTotalCount = self.qrCodeTotalCount + 1
         customView.signatoryPositionLabel.text = "Position \(self.qrCodeTotalCount)"
@@ -437,6 +439,11 @@ class ViewController: UIViewController, SendSelectedUserData {
         var subArray = qrCodeViewCollectionArray[indexValue]
         subArray.append(customView)
         qrCodeViewCollectionArray[indexValue] = subArray
+        
+        //adding/storing tags
+        var subTagArray = qrCodeViewsTagCollectionArray[indexValue]
+        subTagArray.append(tagValueForQrCodeView)
+        qrCodeViewsTagCollectionArray[indexValue] = subTagArray
     
     }
     
@@ -471,7 +478,7 @@ class ViewController: UIViewController, SendSelectedUserData {
        // print(String(format: "X value is : %2.f and Y value is: %2.f", (frame?.origin.x)!, (frame?.origin.y)!))
     }
     
-    func getSelectedTagData(notification:Notification) -> Void {
+    func getSelectedTagDataForSignatoryView(notification:Notification) -> Void {
         
         guard let someTagValue:Int = notification.userInfo!["sampleDict"] as? Int else {
             return
@@ -518,8 +525,63 @@ class ViewController: UIViewController, SendSelectedUserData {
         
     }
     
+    func getSelectedTagDataForQRCodeView(notification:Notification) -> Void {
+        
+        guard let someTagValue:Int = notification.userInfo!["sampleDict"] as? Int else {
+            return
+        }
+        print("I am in notification Center Method")
+        print("Tag Value is: \(someTagValue)")
+        
+        print("Current Page of PDF: \(currentPageNumberOfPdf)")
+        
+        let tagToRemove = someTagValue
+        
+        let currenIndexPageNumber = currentPageNumberOfPdf - 1
+        var subTagArray = qrCodeViewsTagCollectionArray[currenIndexPageNumber]
+        var subFramesArray = qrCodeViewCollectionArray[currenIndexPageNumber]
+        
+        //Get the index of Tag
+        if subTagArray.contains(tagToRemove) {
+            for (index,tagValue) in subTagArray.enumerated(){
+                
+                if tagValue == tagToRemove {
+                    print("Tag found at Index: \(index)")
+                    actualIndexOfTagInSubArray = index
+                }
+            }
+        }
+        
+        subTagArray.remove(at: actualIndexOfTagInSubArray) //Remove Tag
+    
+        //Remove frame from PDF View
+        let customViewToRemove = subFramesArray[actualIndexOfTagInSubArray]
+        customViewToRemove.removeFromSuperview()
+        
+        subFramesArray.remove(at: actualIndexOfTagInSubArray) //Remove frame
+        
+        qrCodeViewsTagCollectionArray[currenIndexPageNumber] = subTagArray
+        qrCodeViewCollectionArray[currenIndexPageNumber] = subFramesArray //I can use
+        
+        self.qrCodeTotalCount = self.qrCodeTotalCount - 1
+        
+        //Updating Label of Position number on QR Code when they delete/remove it
+        var someTestNumber = 0
+        for subArray in qrCodeViewCollectionArray {
+            
+            if subArray.count > 0 {
+                
+                for customView in subArray {
+                   someTestNumber = someTestNumber + 1
+                   customView.signatoryPositionLabel.text = "Position \(someTestNumber)"
+                }
+            }
+        }
+    }
+    
     deinit {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("getSelectedTag"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("getSelectedTagForSignatoryView"), object: nil)
+         NotificationCenter.default.removeObserver(self, name: Notification.Name("getSelectedTagForQRCode"), object: nil)
     }
 }
 
